@@ -61,6 +61,53 @@ class CricketScraper {
         return $channels;
     }
     
+    private function extractLiveEvents($html) {
+        $liveEvents = [];
+        
+        // Extract live event/match links from the main content
+        // Look for "Live" badges or match cards with streaming links
+        preg_match_all('/<a href="\/events\/([^"]+)"[^>]*>\s*<img[^>]+src="([^"]+)"[^>]*alt="([^"]+)"/', $html, $matches);
+        
+        if (!empty($matches[1]) && !empty($matches[2]) && !empty($matches[3])) {
+            foreach ($matches[1] as $index => $eventSlug) {
+                $liveEvents[] = [
+                    'slug' => $eventSlug,
+                    'logo' => $matches[2][$index],
+                    'title' => $matches[3][$index]
+                ];
+            }
+        }
+        
+        // Alternative pattern: Look for div/class based live indicators
+        if (empty($liveEvents)) {
+            preg_match_all('/<a[^>]+href="\/events\/([^"]+)"[^>]*>(.*?)<\/a>/s', $html, $matches);
+            if (!empty($matches[1])) {
+                foreach ($matches[1] as $index => $eventSlug) {
+                    $content = $matches[2][$index];
+                    $logo = '';
+                    $title = $eventSlug;
+                    
+                    // Extract logo from img tag
+                    if (preg_match('/<img[^>]+src="([^"]+)"[^>]*alt="([^"]*)"/', $content, $imgMatches)) {
+                        $logo = $imgMatches[1];
+                        $title = $imgMatches[2] ?: $eventSlug;
+                    }
+                    
+                    // Check if it's marked as "Live"
+                    if (stripos($content, 'live') !== false || stripos($content, 'watch') !== false) {
+                        $liveEvents[] = [
+                            'slug' => $eventSlug,
+                            'logo' => $logo,
+                            'title' => $title
+                        ];
+                    }
+                }
+            }
+        }
+        
+        return array_values(array_unique($liveEvents, SORT_REGULAR));
+    }
+    
     private function getChannelPage($channelSlug) {
         $url = "{$this->baseUrl}/channels/{$channelSlug}";
         $headers = [
@@ -219,7 +266,8 @@ class CricketScraper {
     }
     
     public function scrape($outputToFile = false) {
-        $result = [];
+        $channelsResult = [];
+        $liveEventsResult = [];
         
         if (!$outputToFile) {
             echo "Fetching main page...\n";
@@ -231,6 +279,7 @@ class CricketScraper {
             return json_encode(['error' => 'Failed to fetch main page']);
         }
         
+        // Extract channels
         if (!$outputToFile) {
             echo "Extracting channels...\n";
         }
@@ -238,110 +287,199 @@ class CricketScraper {
         
         if (empty($channels)) {
             if (!$outputToFile) echo "No channels found\n";
-            return json_encode(['error' => 'No channels found']);
+        } else {
+            if (!$outputToFile) {
+                echo "Found " . count($channels) . " channels\n";
+            }
+            
+            foreach ($channels as $channelData) {
+                $channelSlug = $channelData['slug'];
+                $channelName = $channelData['name'];
+                $channelLogo = $channelData['logo'];
+                
+                if (!$outputToFile) {
+                    echo "Processing channel: {$channelSlug} ({$channelName})\n";
+                }
+                
+                // Step 1: Get channel page
+                $channelHtml = $this->getChannelPage($channelSlug);
+                if (!$channelHtml) {
+                    if (!$outputToFile) echo "  Failed to fetch channel page\n";
+                    continue;
+                }
+                
+                // Step 2: Extract player URLs from channel page
+                $playerUrls = $this->extractPlayerUrls($channelHtml);
+                if (empty($playerUrls)) {
+                    if (!$outputToFile) echo "  No player URLs found\n";
+                    continue;
+                }
+                
+                if (!$outputToFile) {
+                    echo "  Found " . count($playerUrls) . " player URL(s)\n";
+                }
+                
+                // Try each player URL until we find one that works
+                $found = false;
+                foreach ($playerUrls as $playerUrl) {
+                    if (!$outputToFile) {
+                        echo "  Trying player URL: {$playerUrl}\n";
+                    }
+                    
+                    // Step 3: Get player page content
+                    $playerHtml = $this->getPlayerPageContent($playerUrl);
+                    if (!$playerHtml) {
+                        if (!$outputToFile) echo "    Failed to fetch player page\n";
+                        continue;
+                    }
+                    
+                    // Step 4: Extract iframe URL from player page
+                    $iframeUrl = $this->extractIframeUrl($playerHtml);
+                    if (!$iframeUrl) {
+                        if (!$outputToFile) echo "    No iframe URL found in player page\n";
+                        continue;
+                    }
+                    
+                    if (!$outputToFile) {
+                        echo "    Found iframe URL: {$iframeUrl}\n";
+                    }
+                    
+                    // Step 5: Get embed page from playerso.top
+                    $embedHtml = $this->getEmbedPage($iframeUrl);
+                    if (!$embedHtml) {
+                        if (!$outputToFile) echo "    Failed to fetch embed page\n";
+                        continue;
+                    }
+                    
+                    // Step 6: Extract fid
+                    $fid = $this->extractFid($embedHtml);
+                    if (!$fid) {
+                        if (!$outputToFile) echo "    No fid found\n";
+                        continue;
+                    }
+                    
+                    // Step 7: Get player page from playerr03.com
+                    $finalPlayerHtml = $this->getPlayerPage($fid);
+                    if (!$finalPlayerHtml) {
+                        if (!$outputToFile) echo "    Failed to fetch final player page\n";
+                        continue;
+                    }
+                    
+                    // Step 8: Extract m3u8 URL and referer
+                    $m3u8Url = $this->extractM3u8Url($finalPlayerHtml);
+                    $m3u8Referer = $this->extractM3u8Referer($finalPlayerHtml);
+                    
+                    // Construct the final URL format
+                    $playerFinalUrl = "https://playerr03.com/embed.php?v={$fid}";
+                    
+                    $channelsResult[] = [
+                        'channel' => $channelName,
+                        'logo' => $channelLogo,
+                        'url' => "{$playerFinalUrl}|Referer=https://playerso.top/|playRef={$m3u8Referer}"
+                    ];
+                    
+                    if (!$outputToFile) {
+                        echo "    Success: {$fid}\n";
+                    }
+                    $found = true;
+                    break; // Stop trying other player URLs once we find one that works
+                }
+                
+                if (!$found && !$outputToFile) {
+                    echo "  Could not extract stream for this channel\n";
+                }
+            }
         }
         
+        // Extract live events
         if (!$outputToFile) {
-            echo "Found " . count($channels) . " channels\n";
+            echo "Extracting live events...\n";
+        }
+        $liveEvents = $this->extractLiveEvents($mainHtml);
+        
+        if (!empty($liveEvents)) {
+            if (!$outputToFile) {
+                echo "Found " . count($liveEvents) . " live events\n";
+            }
+            
+            foreach ($liveEvents as $eventData) {
+                $eventSlug = $eventData['slug'];
+                $eventTitle = $eventData['title'];
+                $eventLogo = $eventData['logo'];
+                
+                if (!$outputToFile) {
+                    echo "Processing event: {$eventSlug} ({$eventTitle})\n";
+                }
+                
+                // Step 1: Get event page
+                $eventUrl = "{$this->baseUrl}/events/{$eventSlug}";
+                $eventHtml = $this->fetchUrl($eventUrl, ["Referer: {$this->baseUrl}/", "Host: cricgo.pro"]);
+                
+                if (!$eventHtml) {
+                    if (!$outputToFile) echo "  Failed to fetch event page\n";
+                    continue;
+                }
+                
+                // Step 2: Extract player URLs from event page (same as channel page)
+                $playerUrls = $this->extractPlayerUrls($eventHtml);
+                if (empty($playerUrls)) {
+                    if (!$outputToFile) echo "  No player URLs found for event\n";
+                    continue;
+                }
+                
+                if (!$outputToFile) {
+                    echo "  Found " . count($playerUrls) . " player URL(s) for event\n";
+                }
+                
+                // Try each player URL until we find one that works
+                $found = false;
+                foreach ($playerUrls as $playerUrl) {
+                    // Same extraction process as channels
+                    $playerHtml = $this->getPlayerPageContent($playerUrl);
+                    if (!$playerHtml) continue;
+                    
+                    $iframeUrl = $this->extractIframeUrl($playerHtml);
+                    if (!$iframeUrl) continue;
+                    
+                    $embedHtml = $this->getEmbedPage($iframeUrl);
+                    if (!$embedHtml) continue;
+                    
+                    $fid = $this->extractFid($embedHtml);
+                    if (!$fid) continue;
+                    
+                    $finalPlayerHtml = $this->getPlayerPage($fid);
+                    if (!$finalPlayerHtml) continue;
+                    
+                    $m3u8Url = $this->extractM3u8Url($finalPlayerHtml);
+                    $m3u8Referer = $this->extractM3u8Referer($finalPlayerHtml);
+                    
+                    $playerFinalUrl = "https://playerr03.com/embed.php?v={$fid}";
+                    
+                    $liveEventsResult[] = [
+                        'match_title' => $eventTitle,
+                        'logo' => $eventLogo,
+                        'url' => "{$playerFinalUrl}|Referer=https://playerso.top/|playRef={$m3u8Referer}"
+                    ];
+                    
+                    if (!$outputToFile) {
+                        echo "    Success: {$fid}\n";
+                    }
+                    $found = true;
+                    break;
+                }
+                
+                if (!$found && !$outputToFile) {
+                    echo "  Could not extract stream for this event\n";
+                }
+            }
         }
         
-        foreach ($channels as $channelData) {
-            $channelSlug = $channelData['slug'];
-            $channelName = $channelData['name'];
-            $channelLogo = $channelData['logo'];
-            
-            if (!$outputToFile) {
-                echo "Processing channel: {$channelSlug} ({$channelName})\n";
-            }
-            
-            // Step 1: Get channel page
-            $channelHtml = $this->getChannelPage($channelSlug);
-            if (!$channelHtml) {
-                if (!$outputToFile) echo "  Failed to fetch channel page\n";
-                continue;
-            }
-            
-            // Step 2: Extract player URLs from channel page
-            $playerUrls = $this->extractPlayerUrls($channelHtml);
-            if (empty($playerUrls)) {
-                if (!$outputToFile) echo "  No player URLs found\n";
-                continue;
-            }
-            
-            if (!$outputToFile) {
-                echo "  Found " . count($playerUrls) . " player URL(s)\n";
-            }
-            
-            // Try each player URL until we find one that works
-            $found = false;
-            foreach ($playerUrls as $playerUrl) {
-                if (!$outputToFile) {
-                    echo "  Trying player URL: {$playerUrl}\n";
-                }
-                
-                // Step 3: Get player page content
-                $playerHtml = $this->getPlayerPageContent($playerUrl);
-                if (!$playerHtml) {
-                    if (!$outputToFile) echo "    Failed to fetch player page\n";
-                    continue;
-                }
-                
-                // Step 4: Extract iframe URL from player page
-                $iframeUrl = $this->extractIframeUrl($playerHtml);
-                if (!$iframeUrl) {
-                    if (!$outputToFile) echo "    No iframe URL found in player page\n";
-                    continue;
-                }
-                
-                if (!$outputToFile) {
-                    echo "    Found iframe URL: {$iframeUrl}\n";
-                }
-                
-                // Step 5: Get embed page from playerso.top
-                $embedHtml = $this->getEmbedPage($iframeUrl);
-                if (!$embedHtml) {
-                    if (!$outputToFile) echo "    Failed to fetch embed page\n";
-                    continue;
-                }
-                
-                // Step 6: Extract fid
-                $fid = $this->extractFid($embedHtml);
-                if (!$fid) {
-                    if (!$outputToFile) echo "    No fid found\n";
-                    continue;
-                }
-                
-                // Step 7: Get player page from playerr03.com
-                $finalPlayerHtml = $this->getPlayerPage($fid);
-                if (!$finalPlayerHtml) {
-                    if (!$outputToFile) echo "    Failed to fetch final player page\n";
-                    continue;
-                }
-                
-                // Step 8: Extract m3u8 URL and referer
-                $m3u8Url = $this->extractM3u8Url($finalPlayerHtml);
-                $m3u8Referer = $this->extractM3u8Referer($finalPlayerHtml);
-                
-                // Construct the final URL format
-                $playerFinalUrl = "https://playerr03.com/embed.php?v={$fid}";
-                
-                $result[] = [
-                    'channel' => $channelName,
-                    'logo' => $channelLogo,
-                    'url' => "{$playerFinalUrl}|Referer=https://playerso.top/|playRef={$m3u8Referer}"
-                ];
-                
-                if (!$outputToFile) {
-                    echo "    Success: {$fid}\n";
-                }
-                $found = true;
-                break; // Stop trying other player URLs once we find one that works
-            }
-            
-            if (!$found && !$outputToFile) {
-                echo "  Could not extract stream for this channel\n";
-            }
-        }
+        // Build final result with both channels and live events
+        $result = [
+            'last_updated' => date('c'),
+            'channels' => $channelsResult,
+            'live_events' => $liveEventsResult
+        ];
         
         return json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
     }
