@@ -1,92 +1,151 @@
-[
-    {
-        "channel": "Willow",
-        "logo": "https://cdn.cricgo.pro/channel/willow/logo.webp",
-        "url": "https://playerr03.com/embed.php?v=willwr|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-    },
-    {
-        "channel": "Willow 2",
-        "logo": "https://cdn.cricgo.pro/channel/willow-2/logo.webp",
-        "url": "https://playerr03.com/embed.php?v=wextres5|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-    },
-    {
-        "channel": "Star Sports 1",
-        "logo": "https://cdn.cricgo.pro/channel/star-sports-1/logo.webp",
-        "url": "https://playerr03.com/embed.php?v=star1kibich5|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-    },
-    {
-        "channel": "Star Sports 1 Hindi",
-        "logo": "https://cdn.cricgo.pro/channel/star-sports-1-hindi/logo.webp",
-        "url": "https://playerr03.com/embed.php?v=str1lhil5|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-    },
-    {
-        "channel": "Star Sports 2",
-        "logo": "https://cdn.cricgo.pro/channel/star-sports-2/logo.webp",
-        "url": "https://playerr03.com/embed.php?v=star2cl5|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-    },
-    {
-        "channel": "PTV Sports",
-        "logo": "https://cdn.cricgo.pro/channel/ptv-sports/logo.webp",
-        "url": "https://playerr03.com/embed.php?v=ptvskpr|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-    },
-    {
-        "channel": "A Sports",
-        "logo": "https://cdn.cricgo.pro/channel/a-sports/logo.webp",
-        "url": "https://playerr03.com/embed.php?v=asportspk|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-    },
-    {
-        "channel": "Ten Sports",
-        "logo": "https://cdn.cricgo.pro/channel/ten-sports/logo.webp",
-        "url": "https://playerr03.com/embed.php?v=tenspk|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-    },
-    {
-        "channel": "T Sports",
-        "logo": "https://cdn.cricgo.pro/channel/t-sports/logo.webp",
-        "url": "https://playerr03.com/embed.php?v=gtvbd|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-    },
-    {
-        "channel": "Geo Super",
-        "logo": "https://cdn.cricgo.pro/channel/geo-super/logo.webp",
-        "url": "https://playerr03.com/embed.php?v=geosp|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-    },
-    {
-        "channel": "Astro Cricket",
-        "logo": "https://cdn.cricgo.pro/channel/astro-cricket/logo.webp",
-        "url": "https://playerr03.com/embed.php?v=astrls|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-    },
-    {
-        "channel": "Fox Sports Cricket",
-        "logo": "https://cdn.cricgo.pro/channel/fox-sports-cricket/logo.webp",
-        "url": "https://playerr03.com/embed.php?v=cf0sp1|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-    },
-    {
-        "channel": "Sony Sports Ten 5",
-        "logo": "https://cdn.cricgo.pro/channel/sony-sports-ten-5/logo.webp",
-        "url": "https://playerr03.com/embed.php?v=sony5c|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-    },
-    {
-        "channel": "Sony Sports Ten 1",
-        "logo": "https://cdn.cricgo.pro/channel/sony-sports-ten-1/logo.webp",
-        "url": "https://playerr03.com/embed.php?v=ten1co|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-    },
-    {
-        "channel": "Sony Sports Ten 2",
-        "logo": "https://cdn.cricgo.pro/channel/sony-sports-ten-2/logo.webp",
-        "url": "https://playerr03.com/embed.php?v=ten2endia|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-    },
-    {
-        "channel": "Sony Sports Ten 3",
-        "logo": "https://cdn.cricgo.pro/channel/sony-sports-ten-3/logo.webp",
-        "url": "https://playerr03.com/embed.php?v=sony3c|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-    },
-    {
-        "channel": "Sky Sports Cricket",
-        "logo": "https://cdn.cricgo.pro/channel/sky-sports-cricket/logo.webp",
-        "url": "https://playerr03.com/embed.php?v=dodosky2|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-    },
-    {
-        "channel": "SuperSport Cricket",
-        "logo": "https://cdn.cricgo.pro/channel/supersport-cricket/logo.webp",
-        "url": "https://playerr03.com/embed.php?v=sscric|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-    }
-]
+{
+    "last_updated": "2026-09-20T22:33:11+00:00",
+    "channels": [
+        {
+            "channel": "Willow",
+            "logo": "https://cdn.cricgo.pro/channel/willow/logo.webp",
+            "url": "https://playerr03.com/embed.php?v=willwr|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+        },
+        {
+            "channel": "Willow 2",
+            "logo": "https://cdn.cricgo.pro/channel/willow-2/logo.webp",
+            "url": "https://playerr03.com/embed.php?v=wextres5|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+        },
+        {
+            "channel": "Star Sports 1",
+            "logo": "https://cdn.cricgo.pro/channel/star-sports-1/logo.webp",
+            "url": "https://playerr03.com/embed.php?v=star1kibich5|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+        },
+        {
+            "channel": "Star Sports 1 Hindi",
+            "logo": "https://cdn.cricgo.pro/channel/star-sports-1-hindi/logo.webp",
+            "url": "https://playerr03.com/embed.php?v=str1lhil5|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+        },
+        {
+            "channel": "Star Sports 2",
+            "logo": "https://cdn.cricgo.pro/channel/star-sports-2/logo.webp",
+            "url": "https://playerr03.com/embed.php?v=star2cl5|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+        },
+        {
+            "channel": "PTV Sports",
+            "logo": "https://cdn.cricgo.pro/channel/ptv-sports/logo.webp",
+            "url": "https://playerr03.com/embed.php?v=ptvskpr|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+        },
+        {
+            "channel": "A Sports",
+            "logo": "https://cdn.cricgo.pro/channel/a-sports/logo.webp",
+            "url": "https://playerr03.com/embed.php?v=asportspk|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+        },
+        {
+            "channel": "Ten Sports",
+            "logo": "https://cdn.cricgo.pro/channel/ten-sports/logo.webp",
+            "url": "https://playerr03.com/embed.php?v=tenspk|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+        },
+        {
+            "channel": "T Sports",
+            "logo": "https://cdn.cricgo.pro/channel/t-sports/logo.webp",
+            "url": "https://playerr03.com/embed.php?v=gtvbd|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+        },
+        {
+            "channel": "Geo Super",
+            "logo": "https://cdn.cricgo.pro/channel/geo-super/logo.webp",
+            "url": "https://playerr03.com/embed.php?v=geosp|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+        },
+        {
+            "channel": "Astro Cricket",
+            "logo": "https://cdn.cricgo.pro/channel/astro-cricket/logo.webp",
+            "url": "https://playerr03.com/embed.php?v=astrls|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+        },
+        {
+            "channel": "Fox Sports Cricket",
+            "logo": "https://cdn.cricgo.pro/channel/fox-sports-cricket/logo.webp",
+            "url": "https://playerr03.com/embed.php?v=cf0sp1|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+        },
+        {
+            "channel": "Sony Sports Ten 5",
+            "logo": "https://cdn.cricgo.pro/channel/sony-sports-ten-5/logo.webp",
+            "url": "https://playerr03.com/embed.php?v=sony5c|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+        },
+        {
+            "channel": "Sony Sports Ten 1",
+            "logo": "https://cdn.cricgo.pro/channel/sony-sports-ten-1/logo.webp",
+            "url": "https://playerr03.com/embed.php?v=ten1co|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+        },
+        {
+            "channel": "Sony Sports Ten 2",
+            "logo": "https://cdn.cricgo.pro/channel/sony-sports-ten-2/logo.webp",
+            "url": "https://playerr03.com/embed.php?v=ten2endia|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+        },
+        {
+            "channel": "Sony Sports Ten 3",
+            "logo": "https://cdn.cricgo.pro/channel/sony-sports-ten-3/logo.webp",
+            "url": "https://playerr03.com/embed.php?v=sony3c|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+        },
+        {
+            "channel": "Sky Sports Cricket",
+            "logo": "https://cdn.cricgo.pro/channel/sky-sports-cricket/logo.webp",
+            "url": "https://playerr03.com/embed.php?v=dodosky2|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+        },
+        {
+            "channel": "SuperSport Cricket",
+            "logo": "https://cdn.cricgo.pro/channel/supersport-cricket/logo.webp",
+            "url": "https://playerr03.com/embed.php?v=sscric|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+        }
+    ],
+    "live_events": [
+        {
+            "title": "CPL T20",
+            "logo": "https://cdn.cricgo.pro/league/cpl-t20/logo.webp",
+            "channel": "Willow",
+            "url": "https://playerr03.com/embed.php?v=willwr|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+        },
+        {
+            "title": "CPL T20",
+            "logo": "https://cdn.cricgo.pro/league/cpl-t20/logo.webp",
+            "channel": "Star Sports 2",
+            "url": "https://playerr03.com/embed.php?v=star2cl5|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+        },
+        {
+            "title": "CPL T20",
+            "logo": "https://cdn.cricgo.pro/league/cpl-t20/logo.webp",
+            "channel": "TNT Sports 2",
+            "url": "https://playerr03.com/embed.php?v=bbtsvp2|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+        },
+        {
+            "title": "CPL T20",
+            "logo": "https://cdn.cricgo.pro/league/cpl-t20/logo.webp",
+            "channel": "CricGo 5",
+            "url": "https://playerr03.com/embed.php?v=cricgo5|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+        },
+        {
+            "title": "England vs Sri Lanka",
+            "logo": "https://cdn.cricgo.pro/team/england/logo.webp",
+            "channel": "Willow",
+            "url": "https://playerr03.com/embed.php?v=willwr|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+        },
+        {
+            "title": "England vs Sri Lanka",
+            "logo": "https://cdn.cricgo.pro/team/england/logo.webp",
+            "channel": "Willow 2",
+            "url": "https://playerr03.com/embed.php?v=wextres5|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+        },
+        {
+            "title": "England vs Sri Lanka",
+            "logo": "https://cdn.cricgo.pro/team/england/logo.webp",
+            "channel": "Sony Sports Ten 1",
+            "url": "https://playerr03.com/embed.php?v=ten1co|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+        },
+        {
+            "title": "England vs Sri Lanka",
+            "logo": "https://cdn.cricgo.pro/team/england/logo.webp",
+            "channel": "Sky Sports Cricket",
+            "url": "https://playerr03.com/embed.php?v=dodosky2|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+        },
+        {
+            "title": "England vs Sri Lanka",
+            "logo": "https://cdn.cricgo.pro/team/england/logo.webp",
+            "channel": "CricLife 1",
+            "url": "https://playerr03.com/embed.php?v=criclife1|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+        }
+    ]
+}
