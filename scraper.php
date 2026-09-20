@@ -517,12 +517,35 @@ class CricketScraper {
             }
         }
         
-        // Build final result with both channels and live events
-        $result = [
-            'last_updated' => date('c'),
-            'channels' => $channelsResult,
-            'live_events' => $liveEventsResult
-        ];
+        // Group live events by title to create multi-source entries
+        $groupedEvents = [];
+        foreach ($liveEventsResult as $event) {
+            $key = $event['title'];
+            if (!isset($groupedEvents[$key])) {
+                $groupedEvents[$key] = [
+                    'name' => $event['title'],
+                    'image' => $event['logo'],
+                    'group-title' => 'Live Events',
+                    'url' => $event['url'], // First channel as fallback
+                    'sources' => []
+                ];
+            }
+            $groupedEvents[$key]['sources'][$event['channel']] = $event['url'];
+        }
+        
+        // Convert channels to new format
+        $channelsFormatted = [];
+        foreach ($channelsResult as $channel) {
+            $channelsFormatted[] = [
+                'name' => $channel['channel'],
+                'image' => $channel['logo'],
+                'group-title' => 'Channels',
+                'url' => $channel['url']
+            ];
+        }
+        
+        // Merge all entries into a single flat array
+        $result = array_merge(array_values($groupedEvents), $channelsFormatted);
         
         return json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
     }
