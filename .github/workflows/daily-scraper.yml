@@ -1,0 +1,38 @@
+name: Daily Cricket Channels Scraper
+
+on:
+  schedule:
+    # Runs once per day at 00:00 UTC
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+    # Allows manual trigger
+
+jobs:
+  scrape-channels:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: curl, json
+          tools: composer:v2
+      
+      - name: Run scraper
+        run: |
+          php scraper.php --output channels.json
+        env:
+          TZ: UTC
+      
+      - name: Commit and push if changed
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add channels.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update channels.json - $(date '+%Y-%m-%d %H:%M:%S')" && git push)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
