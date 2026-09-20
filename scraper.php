@@ -420,8 +420,27 @@ class CricketScraper {
                     continue;
                 }
                 
-                // Step 2: Extract player URLs from event page (same as channel page)
-                $playerUrls = $this->extractPlayerUrls($eventHtml);
+                // Step 2: Extract player URLs from event page (different pattern than channel page)
+                $playerUrls = [];
+                
+                // Look for watch-link class with player.php URLs
+                if (preg_match_all('/class="watch-link"[^>]+href=["\'](https?:\/\/[^"\']+\/player\.php\?id=[a-zA-Z0-9\-]+)["\']/', $eventHtml, $matches)) {
+                    foreach ($matches[1] as $url) {
+                        // Convert cricgo.cc to playsto.top to bypass Cloudflare
+                        $url = str_replace('cricgo.cc', 'playsto.top', $url);
+                        $playerUrls[] = $url;
+                    }
+                }
+                
+                // Alternative pattern: href before watch-link
+                if (preg_match_all('/href=["\'](https?:\/\/[^"\']+\/player\.php\?id=[a-zA-Z0-9\-]+)["\'][^>]*class=["\']watch-link/', $eventHtml, $matches)) {
+                    foreach ($matches[1] as $url) {
+                        $url = str_replace('cricgo.cc', 'playsto.top', $url);
+                        $playerUrls[] = $url;
+                    }
+                }
+                
+                $playerUrls = array_unique($playerUrls);
                 if (empty($playerUrls)) {
                     if (!$outputToFile) echo "  No player URLs found for event\n";
                     continue;
