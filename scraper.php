@@ -45,14 +45,15 @@ class CricketScraper {
     private function extractChannels($html) {
         $channels = [];
         
-        // Extract channel links and names from the sidebar
-        preg_match_all('/<a href="\/channels\/([^"]+)" class="widget-link">\s*<img[^>]+alt="([^"]+)"/', $html, $matches);
+        // Extract channel links, names and logos from the sidebar
+        preg_match_all('/<a href="\/channels\/([^"]+)" class="widget-link">\s*<img[^>]+src="([^"]+)"[^>]*alt="([^"]+)"/', $html, $matches);
         
-        if (!empty($matches[1]) && !empty($matches[2])) {
+        if (!empty($matches[1]) && !empty($matches[2]) && !empty($matches[3])) {
             foreach ($matches[1] as $index => $channelSlug) {
                 $channels[] = [
                     'slug' => $channelSlug,
-                    'name' => $matches[2][$index]
+                    'logo' => $matches[2][$index],
+                    'name' => $matches[3][$index]
                 ];
             }
         }
@@ -247,6 +248,7 @@ class CricketScraper {
         foreach ($channels as $channelData) {
             $channelSlug = $channelData['slug'];
             $channelName = $channelData['name'];
+            $channelLogo = $channelData['logo'];
             
             if (!$outputToFile) {
                 echo "Processing channel: {$channelSlug} ({$channelName})\n";
@@ -325,6 +327,7 @@ class CricketScraper {
                 
                 $result[] = [
                     'channel' => $channelName,
+                    'logo' => $channelLogo,
                     'url' => "{$playerFinalUrl}|Referer=https://playerso.top/|playRef={$m3u8Referer}"
                 ];
                 
