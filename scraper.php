@@ -1,22 +1,30 @@
 <?php
 /**
- * Cricket Streaming Channels Scraper — Fully Dynamic
- * Only hardcoded value: the source site (cricgo.pro).
- * Everything else (embed domain, player domain, JS, referers) is derived at runtime.
+ * Cricket Streaming Scraper — Fully Dynamic + Live Events Fix
+ * Only hardcoded source: cricgo.pro
+ * Mirror mapping centralized in applyMirror() as fallback only.
  */
 
 error_reporting(E_ALL);
 ini_set('display_errors', 0);
 
 class CricketScraper {
-    private $baseUrl = 'https://cricgo.pro'; // <-- একমাত্র হার্ডকোডেড সোর্স
+    private $baseUrl = 'https://cricgo.pro';
 
     private $desktopUA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36';
     private $mobileUA  = 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36';
 
-    // ---------------------------------------------------------------
+    /**
+     * Cloudflare-প্রোটেক্টেড source ডোমেইন → mirror ম্যাপিং
+     * এটা শুধু fallback হিসেবে ব্যবহার হয়; প্রাইমারি URL সবসময় HTML/JS থেকে।
+     */
+    private $mirrorMap = [
+        'cricgo.cc' => 'playsto.top',
+    ];
+
+    // -----------------------------------------------------------------
     // HTTP helper
-    // ---------------------------------------------------------------
+    // -----------------------------------------------------------------
     private function fetchUrl($url, $headers = [], $ua = null, $referer = null) {
         $ch = curl_init();
         curl_setopt_array($ch, [
@@ -37,9 +45,7 @@ class CricketScraper {
             'DNT: 1',
             'Upgrade-Insecure-Requests: 1',
         ];
-        if ($referer) {
-            $defaultHeaders[] = "Referer: {$referer}";
-        }
+        if ($referer) $defaultHeaders[] = "Referer: {$referer}";
 
         curl_setopt($ch, CURLOPT_HTTPHEADER, array_merge($defaultHeaders, $headers));
 
@@ -70,9 +76,24 @@ class CricketScraper {
         return $scheme . '://' . $host . $dir . '/' . $rel;
     }
 
-    // ---------------------------------------------------------------
+    /**
+     * Cloudflare-প্রোটেক্টেড source কে mirror-এ রূপান্তর (fallback only)
+     */
+    private function applyMirror($url) {
+        $host = parse_url($url, PHP_URL_HOST);
+        if ($host && isset($this->mirrorMap[$host])) {
+            return preg_replace(
+                '#^(https?://)' . preg_quote($host, '#') . '#i',
+                '$1' . $this->mirrorMap[$host],
+                $url
+            );
+        }
+        return $url;
+    }
+
+    // -----------------------------------------------------------------
     // Main page parsing
-    // ---------------------------------------------------------------
+    // -----------------------------------------------------------------
     private function extractChannels($html) {
         $channels = [];
         preg_match_all(
@@ -83,9 +104,9 @@ class CricketScraper {
         if (!empty($m[1])) {
             foreach ($m[1] as $i => $slug) {
                 $channels[] = [
-                    'slug'  => $slug,
-                    'logo'  => $m[2][$i],
-                    'name'  => $m[3][$i],
+                    'slug' => $slug,
+                    'logo' => $m[2][$i],
+                    'name' => $m[3][$i],
                 ];
             }
         }
@@ -116,19 +137,17 @@ class CricketScraper {
         return $events;
     }
 
-    // ---------------------------------------------------------------
+    // -----------------------------------------------------------------
     // Channel page → player.php URLs
-    // ---------------------------------------------------------------
+    // -----------------------------------------------------------------
     private function extractPlayerUrls($html, $pageUrl) {
         $urls = [];
-        // যেকোনো ডোমেইনের player.php লিংক
         if (preg_match_all('#href=["\']((?:https?:)?//[^"\']+/player\.php\?id=[a-zA-Z0-9\-]+)["\']#i', $html, $m)) {
             foreach ($m[1] as $u) {
                 if (strpos($u, '//') === 0) $u = 'https:' . $u;
                 $urls[] = $u;
             }
         }
-        // রিলেটিভ player.php লিংক
         if (preg_match_all('#href=["\'](/[^"\']*player\.php\?id=[a-zA-Z0-9\-]+)["\']#i', $html, $m)) {
             foreach ($m[1] as $u) {
                 $urls[] = $this->resolveRelative($pageUrl, $u);
@@ -137,11 +156,11 @@ class CricketScraper {
         return array_values(array_unique($urls));
     }
 
-    // ---------------------------------------------------------------
+    // -----------------------------------------------------------------
     // Player page → iframe (embed) URL
-    // ---------------------------------------------------------------
+    // -----------------------------------------------------------------
     private function extractIframeUrl($html, $pageUrl) {
-        // ১. সরাসরি <iframe src="...">
+        // ১. সরাসরি iframe src
         if (preg_match('#<iframe[^>]+src=["\']([^"\']+)["\']#i', $html, $m)) {
             return $this->resolveRelative($pageUrl, $m[1]);
         }
@@ -149,39 +168,34 @@ class CricketScraper {
         if (preg_match('#document\.write\([^)]*?src=["\']([^"\']+)["\']#is', $html, $m)) {
             return $this->resolveRelative($pageUrl, $m[1]);
         }
-        // ৩. script-এ embedit.php?id= বা embed.php?id= বা atofplay.php?id=
+        // ৩. embedit/embed/atofplay সম্পূর্ণ URL
         if (preg_match('#((?:https?:)?//[^"\'\s]+/(?:embedit|embed|atofplay)\.php\?id=[a-zA-Z0-9]+)#i', $html, $m)) {
             $u = $m[1];
             if (strpos($u, '//') === 0) $u = 'https:' . $u;
             return $u;
         }
-        // ৪. শুধু ID থাকলে → player page-এর ডোমেইনে ধরো
-        if (preg_match('#/(?:embedit|embed|atofplay)\.php\?id=([a-zA-Z0-9]+)#i', $html, $m)) {
+        // ৪. শুধু ID → player page এর origin ব্যবহার
+        if (preg_match('#/(embedit|embed|atofplay)\.php\?id=([a-zA-Z0-9]+)#i', $html, $m)) {
             $origin = $this->originOf($pageUrl);
-            // কোন path ব্যবহার করা হবে সেটা guess: embedit.php যদি match হয়
-            if (preg_match('#(embedit|embed|atofplay)\.php#i', $html, $pm)) {
-                return $origin . '/' . $pm[1] . '.php?id=' . $m[1];
-            }
+            return $origin . '/' . $m[1] . '.php?id=' . $m[2];
         }
         return null;
     }
 
     private function getEmbedPage($embedUrl) {
         $origin = $this->originOf($embedUrl);
-        $headers = [];
-        if ($origin) $headers[] = "Referer: {$origin}/";
+        $headers = $origin ? ["Referer: {$origin}/"] : [];
         return $this->fetchUrl($embedUrl, $headers, $this->mobileUA, $origin . '/');
     }
 
-    // ---------------------------------------------------------------
-    // Inline vars (fid, v_con, v_dt, v_width, v_height)
-    // ---------------------------------------------------------------
+    // -----------------------------------------------------------------
+    // Inline vars
+    // -----------------------------------------------------------------
     private function extractInlineVars($html) {
         $v = [
             'fid' => null, 'v_con' => '', 'v_dt' => '',
             'v_width' => '100%', 'v_height' => '100%',
         ];
-
         foreach (['fid', 'v_id'] as $key) {
             if (preg_match('/\b' . $key . '\s*=\s*["\']?([a-zA-Z0-9_\-]+)["\']?/', $html, $m)) {
                 $v['fid'] = $m[1];
@@ -192,23 +206,20 @@ class CricketScraper {
         if (preg_match('/\bv_dt\s*=\s*["\']([^"\']+)["\']/', $html, $m))  $v['v_dt']  = $m[1];
         if (preg_match('/\bv_width\s*=\s*["\']?([0-9]+%?)["\']?/', $html, $m))  $v['v_width']  = $m[1];
         if (preg_match('/\bv_height\s*=\s*["\']?([0-9]+%?)["\']?/', $html, $m)) $v['v_height'] = $m[1];
-
         return $v;
     }
 
-    // ---------------------------------------------------------------
-    // Script URL (plays.js / ano2.js / *.js)
-    // ---------------------------------------------------------------
+    // -----------------------------------------------------------------
+    // Script URLs
+    // -----------------------------------------------------------------
     private function extractScriptUrls($html, $embedUrl) {
         $urls = [];
         if (preg_match_all('#<script[^>]+src=["\']([^"\']+\.js[^"\']*)["\']#i', $html, $m)) {
             foreach ($m[1] as $rel) {
-                // কোন JS গুলো player resolve করে?
                 if (preg_match('#(plays|ano2|play|embed|player|stream)#i', $rel)) {
                     $urls[] = $this->resolveRelative($embedUrl, $rel);
                 }
             }
-            // যদি উপরের প্যাটার্নে কিছু না মেলে, সব JS রাখি fallback-এ
             if (empty($urls)) {
                 foreach ($m[1] as $rel) {
                     $urls[] = $this->resolveRelative($embedUrl, $rel);
@@ -220,69 +231,70 @@ class CricketScraper {
 
     private function getScriptContent($scriptUrl, $embedUrl) {
         $origin = $this->originOf($scriptUrl);
-        $headers = [];
-        if ($origin) $headers[] = "Referer: {$embedUrl}";
+        $headers = $origin ? ["Referer: {$embedUrl}"] : [];
         return $this->fetchUrl($scriptUrl, $headers, $this->mobileUA, $embedUrl);
     }
 
-    // ---------------------------------------------------------------
-    // JS → final player URL (fully dynamic, no hardcoded domains)
-    // ---------------------------------------------------------------
+    // -----------------------------------------------------------------
+    // JS → final player URL
+    // -----------------------------------------------------------------
     private function parseScriptForPlayerUrl($jsContent, $vars) {
-        $fid   = $vars['fid'];
-        $vCon  = $vars['v_con'];
-        $vDt   = $vars['v_dt'];
+        $fid  = $vars['fid'];
+        $vCon = $vars['v_con'];
+        $vDt  = $vars['v_dt'];
         if (!$fid) return null;
 
-        // JS concat ভেঙে ফ্ল্যাট স্ট্রিং বানাই
         $flat = $jsContent;
         $flat = preg_replace('/["\']\s*\+\s*(fid|v_id)\s*\+\s*["\']/i', '{FID}', $flat);
         $flat = preg_replace('/["\']\s*\+\s*v_con\s*\+\s*["\']/i', '{VCON}', $flat);
         $flat = preg_replace('/["\']\s*\+\s*v_dt\s*\+\s*["\']/i', '{VDT}', $flat);
-        // একক concatenation: "https://domain/path.php?v="+fid → কোন কোট ছাড়া
         $flat = preg_replace('/\+\s*(fid|v_id)(?![a-zA-Z0-9_])/i', '{FID}', $flat);
         $flat = preg_replace('/\+\s*v_con(?![a-zA-Z0-9_])/i', '{VCON}', $flat);
         $flat = preg_replace('/\+\s*v_dt(?![a-zA-Z0-9_])/i',  '{VDT}',  $flat);
 
-        // যেকোনো embed.php / atofplay.php / play.php URL
         if (preg_match('#(https?:)?//([a-z0-9\.\-]+)/([a-z0-9_\-/]+\.php)\?([^"\'\s<>]*)#i', $flat, $m)) {
             $url = $m[0];
             if (strpos($url, '//') === 0) $url = 'https:' . $url;
-
-            // মাত্র প্লেসহোল্ডার রিপ্লেস
             $url = str_replace(['{FID}', '{VCON}', '{VDT}'], [$fid, $vCon, $vDt], $url);
-
-            // JS-এর শেষের বাজে অংশ কেটে ফেলি (কোট, প্লাস, স্পেস ইত্যাদি)
             $url = preg_replace('/["\'\s\+].*$/', '', $url);
-
-            // শেষের শুধু `&` বা `?` থাকলে পরিষ্কার
             $url = rtrim($url, '&?');
-
             return $url;
         }
 
-        // fallback — JS-এ সরাসরি সম্পূর্ণ URL
         if (preg_match('#https?://[a-z0-9\.\-]+/(?:embed|atofplay|play)\.php\?v=([a-zA-Z0-9_\-]+)#i', $jsContent, $m)) {
             return $m[0];
         }
-
         return null;
     }
 
-    // ---------------------------------------------------------------
-    // Full pipeline: player page → final stream URL
-    // ---------------------------------------------------------------
+    // -----------------------------------------------------------------
+    // Full pipeline: player page → final stream URL (with mirror fallback)
+    // -----------------------------------------------------------------
     private function resolveStreamFromPlayerPage($playerPageUrl) {
+        // ---------- ১ম চেষ্টা: মূল URL ----------
+        $result = $this->tryResolveOnce($playerPageUrl);
+        if ($result[0]) return $result;
+
+        // ---------- ২য় চেষ্টা: mirror ----------
+        $mirrorUrl = $this->applyMirror($playerPageUrl);
+        if ($mirrorUrl !== $playerPageUrl) {
+            $result2 = $this->tryResolveOnce($mirrorUrl);
+            if ($result2[0]) return [$result2[0], $result2[1] . " [via mirror]"];
+        }
+        return $result;
+    }
+
+    private function tryResolveOnce($playerPageUrl) {
         $playerHtml = $this->fetchUrl(
             $playerPageUrl,
             [],
             $this->desktopUA,
             $this->baseUrl . '/'
         );
-        if (!$playerHtml) return [null, 'player page fetch failed'];
+        if (!$playerHtml) return [null, "player fetch failed: {$playerPageUrl}"];
 
         $embedUrl = $this->extractIframeUrl($playerHtml, $playerPageUrl);
-        if (!$embedUrl) return [null, 'no iframe / embed URL found'];
+        if (!$embedUrl) return [null, 'no iframe/embed URL'];
 
         $embedHtml = $this->getEmbedPage($embedUrl);
         if (!$embedHtml) return [null, "embed fetch failed: {$embedUrl}"];
@@ -291,41 +303,28 @@ class CricketScraper {
         if (empty($vars['fid'])) return [null, "no fid in embed: {$embedUrl}"];
 
         $scriptUrls = $this->extractScriptUrls($embedHtml, $embedUrl);
-        if (empty($scriptUrls)) {
-            // fallback: embed URL এর domain + embed.php?v=fid
-            $origin = $this->originOf($embedUrl);
-            $path = parse_url($embedUrl, PHP_URL_PATH);
-            $basePath = preg_replace('#\.php.*$#', '.php', $path ?: '/embed.php');
-            $fallback = $origin . $basePath . '?v=' . $vars['fid'];
-            if (!empty($vars['v_con'])) $fallback .= '&secure=' . $vars['v_con'];
-            if (!empty($vars['v_dt']))  $fallback .= '&expires=' . $vars['v_dt'];
-            return [$fallback, "fallback (no JS found) fid={$vars['fid']}"];
-        }
-
-        // প্রতিটি JS চেষ্টা করি
-        foreach ($scriptUrls as $scriptUrl) {
-            $js = $this->getScriptContent($scriptUrl, $embedUrl);
-            if (!$js) continue;
-
-            $final = $this->parseScriptForPlayerUrl($js, $vars);
-            if ($final) {
-                return [$final, "resolved via {$scriptUrl} fid={$vars['fid']}"];
+        if (!empty($scriptUrls)) {
+            foreach ($scriptUrls as $scriptUrl) {
+                $js = $this->getScriptContent($scriptUrl, $embedUrl);
+                if (!$js) continue;
+                $final = $this->parseScriptForPlayerUrl($js, $vars);
+                if ($final) return [$final, "resolved via JS fid={$vars['fid']}"];
             }
         }
 
-        // শেষ fallback
+        // Fallback: embed URL এর domain + path + ?v=fid
         $origin = $this->originOf($embedUrl);
-        $path = parse_url($embedUrl, PHP_URL_PATH);
-        $basePath = preg_replace('#\.php.*$#', '.php', $path ?: '/embed.php');
+        $path = parse_url($embedUrl, PHP_URL_PATH) ?: '/embed.php';
+        $basePath = preg_replace('#\.php.*$#', '.php', $path);
         $fallback = $origin . $basePath . '?v=' . $vars['fid'];
         if (!empty($vars['v_con'])) $fallback .= '&secure=' . $vars['v_con'];
         if (!empty($vars['v_dt']))  $fallback .= '&expires=' . $vars['v_dt'];
-        return [$fallback, "fallback (JS parse failed) fid={$vars['fid']}"];
+        return [$fallback, "fallback (no JS) fid={$vars['fid']}"];
     }
 
-    // ---------------------------------------------------------------
-    // m3u8 referer (player response থেকে ডাইনামিক)
-    // ---------------------------------------------------------------
+    // -----------------------------------------------------------------
+    // m3u8 referer (dynamic)
+    // -----------------------------------------------------------------
     private function getM3u8Referer($finalPlayerUrl) {
         $origin = $this->originOf($finalPlayerUrl);
         if (!$origin) return '';
@@ -337,20 +336,18 @@ class CricketScraper {
         return $origin . '/';
     }
 
-    // ---------------------------------------------------------------
-    // Public entry point
-    // ---------------------------------------------------------------
+    // -----------------------------------------------------------------
+    // Public entry
+    // -----------------------------------------------------------------
     public function scrape($quiet = false) {
-        $channelsResult  = [];
+        $channelsResult   = [];
         $liveEventsResult = [];
 
         if (!$quiet) echo "Fetching main page...\n";
         $mainHtml = $this->fetchUrl($this->baseUrl, [], $this->desktopUA, $this->baseUrl . '/');
-        if (!$mainHtml) {
-            return json_encode(['error' => 'Failed to fetch main page']);
-        }
+        if (!$mainHtml) return json_encode(['error' => 'Failed to fetch main page']);
 
-        // ---------- CHANNELS ----------
+        // ================= CHANNELS =================
         if (!$quiet) echo "Extracting channels...\n";
         $channels = $this->extractChannels($mainHtml);
         if (!$quiet) echo "Found " . count($channels) . " channels\n";
@@ -374,7 +371,7 @@ class CricketScraper {
                 list($final, $msg) = $this->resolveStreamFromPlayerPage($pUrl);
                 if (!$final) { if (!$quiet) echo "    {$msg}\n"; continue; }
 
-                $playRef = $this->getM3u8Referer($final);
+                $playRef     = $this->getM3u8Referer($final);
                 $embedOrigin = $this->originOf($pUrl);
 
                 $channelsResult[] = [
@@ -390,7 +387,7 @@ class CricketScraper {
             if (!$found && !$quiet) echo "  no stream resolved\n";
         }
 
-        // ---------- LIVE EVENTS ----------
+        // ================= LIVE EVENTS =================
         if (!$quiet) echo "Extracting live events...\n";
         $liveEvents = $this->extractLiveEvents($mainHtml);
         if (!$quiet) echo "Found " . count($liveEvents) . " live events\n";
@@ -405,7 +402,7 @@ class CricketScraper {
             $eventHtml = $this->fetchUrl($eventUrl, [], $this->desktopUA, $this->baseUrl . '/');
             if (!$eventHtml) { if (!$quiet) echo "  fetch failed\n"; continue; }
 
-            // watch-table পার্স — ডাইনামিক (যেকোনো cricgo.cc / playsto.top / etc.)
+            // watch-table পার্স
             preg_match_all(
                 '#<tr>\s*<td>.*?<\/td>\s*<td>([^<]+)<\/td>\s*<td[^>]*>([^<]+)<\/td>\s*<td>\s*<a[^>]*class=["\']watch-link["\'][^>]+href=["\']([^"\']+)["\']#s',
                 $eventHtml,
@@ -423,11 +420,16 @@ class CricketScraper {
                 elseif (strpos($playerUrl, '/') === 0) $playerUrl = $this->resolveRelative($eventUrl, $playerUrl);
 
                 if (!$quiet) echo "  channel: {$channelName}\n";
+
                 list($final, $msg) = $this->resolveStreamFromPlayerPage($playerUrl);
                 if (!$final) { if (!$quiet) echo "    {$msg}\n"; continue; }
 
-                $playRef = $this->getM3u8Referer($final);
+                $playRef     = $this->getM3u8Referer($final);
                 $embedOrigin = $this->originOf($playerUrl);
+                // mirror হলে origin-ও mirror থেকে আসবে
+                if (strpos($msg, '[via mirror]') !== false) {
+                    $embedOrigin = $this->originOf($this->applyMirror($playerUrl));
+                }
 
                 $liveEventsResult[] = [
                     'title'   => $title,
