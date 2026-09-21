@@ -1,565 +1,472 @@
 <?php
 /**
- * Cricket Streaming Channels Scraper
- * Scrapes cricgo.pro and related domains to extract m3u8 stream URLs
+ * Cricket Streaming Channels Scraper — Fully Dynamic
+ * Only hardcoded value: the source site (cricgo.pro).
+ * Everything else (embed domain, player domain, JS, referers) is derived at runtime.
  */
 
 error_reporting(E_ALL);
 ini_set('display_errors', 0);
 
 class CricketScraper {
-    private $baseUrl = 'https://cricgo.pro';
-    private $userAgent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36';
-    private $mobileUserAgent = 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36';
-    
-    private function fetchUrl($url, $headers = [], $userAgent = null) {
+    private $baseUrl = 'https://cricgo.pro'; // <-- একমাত্র হার্ডকোডেড সোর্স
+
+    private $desktopUA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36';
+    private $mobileUA  = 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36';
+
+    // ---------------------------------------------------------------
+    // HTTP helper
+    // ---------------------------------------------------------------
+    private function fetchUrl($url, $headers = [], $ua = null, $referer = null) {
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 30);
-        
-        if ($userAgent === null) {
-            $userAgent = $this->userAgent;
-        }
-        
+        curl_setopt_array($ch, [
+            CURLOPT_URL            => $url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_MAXREDIRS      => 5,
+            CURLOPT_SSL_VERIFYPEER => false,
+            CURLOPT_SSL_VERIFYHOST => false,
+            CURLOPT_TIMEOUT        => 30,
+            CURLOPT_ENCODING       => '',
+            CURLOPT_USERAGENT      => $ua ?: $this->desktopUA,
+        ]);
+
         $defaultHeaders = [
-            'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+            'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
             'Accept-Language: en-BD,en;q=0.9,bn-BD;q=0.8,bn;q=0.7,en-GB;q=0.6,en-US;q=0.5',
             'DNT: 1',
-            'Upgrade-Insecure-Requests: 1'
+            'Upgrade-Insecure-Requests: 1',
         ];
-        
-        $headers = array_merge($defaultHeaders, $headers);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-        curl_setopt($ch, CURLOPT_USERAGENT, $userAgent);
-        
-        $response = curl_exec($ch);
-        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        if ($referer) {
+            $defaultHeaders[] = "Referer: {$referer}";
+        }
+
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array_merge($defaultHeaders, $headers));
+
+        $body = curl_exec($ch);
+        $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
-        
-        return $httpCode === 200 ? $response : false;
+
+        return ($code >= 200 && $code < 400) ? $body : false;
     }
-    
+
+    private function originOf($url) {
+        $p = parse_url($url);
+        if (empty($p['scheme']) || empty($p['host'])) return null;
+        return $p['scheme'] . '://' . $p['host'];
+    }
+
+    private function resolveRelative($base, $rel) {
+        if (preg_match('#^https?://#i', $rel)) return $rel;
+        $p = parse_url($base);
+        $scheme = $p['scheme'] ?? 'https';
+        $host   = $p['host'] ?? '';
+        $basePath = $p['path'] ?? '/';
+
+        if (strpos($rel, '//') === 0) return $scheme . ':' . $rel;
+        if (strpos($rel, '/') === 0)  return $scheme . '://' . $host . $rel;
+
+        $dir = rtrim(dirname($basePath), '/');
+        return $scheme . '://' . $host . $dir . '/' . $rel;
+    }
+
+    // ---------------------------------------------------------------
+    // Main page parsing
+    // ---------------------------------------------------------------
     private function extractChannels($html) {
         $channels = [];
-        
-        // Extract channel links, names and logos from the sidebar
-        preg_match_all('/<a href="\/channels\/([^"]+)" class="widget-link">\s*<img[^>]+src="([^"]+)"[^>]*alt="([^"]+)"/', $html, $matches);
-        
-        if (!empty($matches[1]) && !empty($matches[2]) && !empty($matches[3])) {
-            foreach ($matches[1] as $index => $channelSlug) {
+        preg_match_all(
+            '/<a href="\/channels\/([^"]+)" class="widget-link">\s*<img[^>]+src="([^"]+)"[^>]*alt="([^"]+)"/',
+            $html,
+            $m
+        );
+        if (!empty($m[1])) {
+            foreach ($m[1] as $i => $slug) {
                 $channels[] = [
-                    'slug' => $channelSlug,
-                    'logo' => $matches[2][$index],
-                    'name' => $matches[3][$index]
+                    'slug'  => $slug,
+                    'logo'  => $m[2][$i],
+                    'name'  => $m[3][$i],
                 ];
             }
         }
-        
         return $channels;
     }
-    
+
     private function extractLiveEvents($html) {
-        $liveEvents = [];
-        
-        // Extract live event/match links from the main content
-        // Look for items with "badge-live" class
-        preg_match_all('/<a href="\/events\/([^"]+)" class="item"[^>]*>(.*?)<\/a>/s', $html, $matches);
-        
-        if (!empty($matches[1])) {
-            foreach ($matches[1] as $index => $eventSlug) {
-                $content = $matches[2][$index];
-                
-                // Check if it has "badge-live" class (indicating live status)
-                if (stripos($content, 'badge-live') === false) {
-                    continue;
-                }
-                
-                $logo = '';
-                $title = $eventSlug;
-                
-                // Extract logo from first img tag
-                if (preg_match('/<img[^>]+src="([^"]+)"[^>]*alt="([^"]*)"/', $content, $imgMatches)) {
-                    $logo = $imgMatches[1];
-                }
-                
-                // Extract title from item-name div
-                if (preg_match('/<div class="item-name">([^<]+)<\/div>/', $content, $titleMatches)) {
-                    $title = trim($titleMatches[1]);
-                }
-                
-                $liveEvents[] = [
-                    'slug' => $eventSlug,
-                    'logo' => $logo,
-                    'title' => $title
-                ];
+        $events = [];
+        preg_match_all('/<a href="\/events\/([^"]+)" class="item"[^>]*>(.*?)<\/a>/s', $html, $m);
+        if (empty($m[1])) return $events;
+
+        foreach ($m[1] as $i => $slug) {
+            $content = $m[2][$i];
+            if (stripos($content, 'badge-live') === false) continue;
+
+            $logo  = '';
+            $title = $slug;
+
+            if (preg_match('/<img[^>]+src="([^"]+)"[^>]*alt="([^"]*)"/', $content, $im)) {
+                $logo = $im[1];
+            }
+            if (preg_match('/<div class="item-name">([^<]+)<\/div>/', $content, $tm)) {
+                $title = trim($tm[1]);
+            }
+
+            $events[] = ['slug' => $slug, 'logo' => $logo, 'title' => $title];
+        }
+        return $events;
+    }
+
+    // ---------------------------------------------------------------
+    // Channel page → player.php URLs
+    // ---------------------------------------------------------------
+    private function extractPlayerUrls($html, $pageUrl) {
+        $urls = [];
+        // যেকোনো ডোমেইনের player.php লিংক
+        if (preg_match_all('#href=["\']((?:https?:)?//[^"\']+/player\.php\?id=[a-zA-Z0-9\-]+)["\']#i', $html, $m)) {
+            foreach ($m[1] as $u) {
+                if (strpos($u, '//') === 0) $u = 'https:' . $u;
+                $urls[] = $u;
             }
         }
-        
-        return array_values($liveEvents);
-    }
-    
-    private function getChannelPage($channelSlug) {
-        $url = "{$this->baseUrl}/channels/{$channelSlug}";
-        $headers = [
-            "Referer: {$this->baseUrl}/",
-            "Host: cricgo.pro"
-        ];
-        
-        return $this->fetchUrl($url, $headers);
-    }
-    
-    private function extractPlayerUrls($html) {
-        // Extract player.php URLs from the channel page
-        $playerUrls = [];
-        
-        // Look for links to player.php files
-        if (preg_match_all('/href=["\'](https?:\/\/[^\s"\']+\/player\.php\?id=[a-zA-Z0-9\-]+)["\']/', $html, $matches)) {
-            foreach ($matches[1] as $url) {
-                $playerUrls[] = $url;
+        // রিলেটিভ player.php লিংক
+        if (preg_match_all('#href=["\'](/[^"\']*player\.php\?id=[a-zA-Z0-9\-]+)["\']#i', $html, $m)) {
+            foreach ($m[1] as $u) {
+                $urls[] = $this->resolveRelative($pageUrl, $u);
             }
         }
-        
-        return array_unique($playerUrls);
+        return array_values(array_unique($urls));
     }
-    
-    private function getPlayerPageContent($playerUrl) {
-        $parsedUrl = parse_url($playerUrl);
-        $host = $parsedUrl['host'];
-        
-        $headers = [
-            "Referer: {$this->baseUrl}/",
-            "Host: {$host}"
-        ];
-        
-        return $this->fetchUrl($playerUrl, $headers);
-    }
-    
-    private function extractIframeUrl($html) {
-        // Extract iframe src from playerso.top/embedit.php
-        if (preg_match('/<iframe[^>]+src=["\']([^"\']*playerso\.top\/embedit\.php[^"\']*)["\']/i', $html, $matches)) {
-            return $matches[1];
+
+    // ---------------------------------------------------------------
+    // Player page → iframe (embed) URL
+    // ---------------------------------------------------------------
+    private function extractIframeUrl($html, $pageUrl) {
+        // ১. সরাসরি <iframe src="...">
+        if (preg_match('#<iframe[^>]+src=["\']([^"\']+)["\']#i', $html, $m)) {
+            return $this->resolveRelative($pageUrl, $m[1]);
         }
-        
-        // Alternative pattern
-        if (preg_match('/embedit\.php\?id=([a-zA-Z0-9]+)/', $html, $matches)) {
-            return "https://playerso.top/embedit.php?id={$matches[1]}";
+        // ২. document.write('<iframe src="...">')
+        if (preg_match('#document\.write\([^)]*?src=["\']([^"\']+)["\']#is', $html, $m)) {
+            return $this->resolveRelative($pageUrl, $m[1]);
         }
-        
+        // ৩. script-এ embedit.php?id= বা embed.php?id= বা atofplay.php?id=
+        if (preg_match('#((?:https?:)?//[^"\'\s]+/(?:embedit|embed|atofplay)\.php\?id=[a-zA-Z0-9]+)#i', $html, $m)) {
+            $u = $m[1];
+            if (strpos($u, '//') === 0) $u = 'https:' . $u;
+            return $u;
+        }
+        // ৪. শুধু ID থাকলে → player page-এর ডোমেইনে ধরো
+        if (preg_match('#/(?:embedit|embed|atofplay)\.php\?id=([a-zA-Z0-9]+)#i', $html, $m)) {
+            $origin = $this->originOf($pageUrl);
+            // কোন path ব্যবহার করা হবে সেটা guess: embedit.php যদি match হয়
+            if (preg_match('#(embedit|embed|atofplay)\.php#i', $html, $pm)) {
+                return $origin . '/' . $pm[1] . '.php?id=' . $m[1];
+            }
+        }
         return null;
     }
-    
-    private function getEmbedPage($iframeUrl) {
-        $headers = [
-            "Referer: {$this->baseUrl}/",
-            "Host: playerso.top"
+
+    private function getEmbedPage($embedUrl) {
+        $origin = $this->originOf($embedUrl);
+        $headers = [];
+        if ($origin) $headers[] = "Referer: {$origin}/";
+        return $this->fetchUrl($embedUrl, $headers, $this->mobileUA, $origin . '/');
+    }
+
+    // ---------------------------------------------------------------
+    // Inline vars (fid, v_con, v_dt, v_width, v_height)
+    // ---------------------------------------------------------------
+    private function extractInlineVars($html) {
+        $v = [
+            'fid' => null, 'v_con' => '', 'v_dt' => '',
+            'v_width' => '100%', 'v_height' => '100%',
         ];
-        
-        return $this->fetchUrl($iframeUrl, $headers, $this->mobileUserAgent);
-    }
-    
-    private function extractFid($html) {
-        // Extract fid from JavaScript variables
-        if (preg_match('/fid\s*=\s*["\']?([a-zA-Z0-9]+)["\']?/', $html, $matches)) {
-            return $matches[1];
-        }
-        
-        // Alternative: v_id
-        if (preg_match('/v_id\s*=\s*["\']?([a-zA-Z0-9]+)["\']?/', $html, $matches)) {
-            return $matches[1];
-        }
-        
-        // From script tag
-        if (preg_match('/<script>v_dt="[^"]+"; v_id="([a-zA-Z0-9]+)";<\/script>/', $html, $matches)) {
-            return $matches[1];
-        }
-        
-        return null;
-    }
-    
-    private function getPlayerPage($fid) {
-        $url = "https://playerr03.com/embed.php?v={$fid}";
-        $headers = [
-            "Referer: https://playerso.top/",
-            "Host: playerr03.com"
-        ];
-        
-        return $this->fetchUrl($url, $headers, $this->mobileUserAgent);
-    }
-    
-    private function extractM3u8Url($html) {
-        // Extract m3u8 URL from the player page JavaScript
-        if (preg_match('/(["\']https?:\/\/[^\s"\']+\.m3u8[^\s"\']*["\'])/', $html, $matches)) {
-            return trim($matches[1], '"\'');
-        }
-        
-        // Try to find the URL construction pattern
-        if (preg_match('/join\(["\']h["\'],\s*["\']t["\'],\s*["\']t["\'],\s*["\']p["\'],\s*["\']s["\']/i', $html)) {
-            // This is an obfuscated URL, try to reconstruct
-            if (preg_match('/function \w+\(\)\{return\(\[([^\]]+)\]\.join\(["\']["\']\)\)/', $html, $matches)) {
-                $parts = explode(',', str_replace('"', '', $matches[1]));
-                $url = implode('', array_map(function($p) {
-                    return trim($p, '"\'');
-                }, $parts));
-                return $url;
+
+        foreach (['fid', 'v_id'] as $key) {
+            if (preg_match('/\b' . $key . '\s*=\s*["\']?([a-zA-Z0-9_\-]+)["\']?/', $html, $m)) {
+                $v['fid'] = $m[1];
+                break;
             }
         }
-        
-        // Look for the constructed URL pattern in the ilytemT function
-        if (preg_match('/function \w+\(\)\{return\(\[([^\]]+)\]\.join\(["\']["\']\)([^)]*)\)/', $html, $matches)) {
-            $partsStr = $matches[1];
-            $parts = explode(',', $partsStr);
-            $baseParts = [];
-            
-            foreach ($parts as $part) {
-                $cleanPart = trim($part, '"\'');
-                if (!empty($cleanPart) && strpos($cleanPart, '.') === false && strpos($cleanPart, '+') === false) {
-                    $baseParts[] = $cleanPart;
+        if (preg_match('/\bv_con\s*=\s*["\']([^"\']+)["\']/', $html, $m)) $v['v_con'] = $m[1];
+        if (preg_match('/\bv_dt\s*=\s*["\']([^"\']+)["\']/', $html, $m))  $v['v_dt']  = $m[1];
+        if (preg_match('/\bv_width\s*=\s*["\']?([0-9]+%?)["\']?/', $html, $m))  $v['v_width']  = $m[1];
+        if (preg_match('/\bv_height\s*=\s*["\']?([0-9]+%?)["\']?/', $html, $m)) $v['v_height'] = $m[1];
+
+        return $v;
+    }
+
+    // ---------------------------------------------------------------
+    // Script URL (plays.js / ano2.js / *.js)
+    // ---------------------------------------------------------------
+    private function extractScriptUrls($html, $embedUrl) {
+        $urls = [];
+        if (preg_match_all('#<script[^>]+src=["\']([^"\']+\.js[^"\']*)["\']#i', $html, $m)) {
+            foreach ($m[1] as $rel) {
+                // কোন JS গুলো player resolve করে?
+                if (preg_match('#(plays|ano2|play|embed|player|stream)#i', $rel)) {
+                    $urls[] = $this->resolveRelative($embedUrl, $rel);
                 }
             }
-            
-            if (!empty($baseParts)) {
-                return implode('', $baseParts);
-            }
-        }
-        
-        // Direct extraction from the obfuscated array
-        if (preg_match_all('/["\']([htps:/\\.\-0-9a-zA-Z]+)["\']/', $html, $allMatches)) {
-            $potentialUrl = '';
-            $inUrlSection = false;
-            
-            foreach ($allMatches[1] as $match) {
-                if ($match === 'h' || $match === 'https') {
-                    $inUrlSection = true;
-                    $potentialUrl = $match;
-                } elseif ($inUrlSection && strlen($match) <= 3) {
-                    $potentialUrl .= $match;
-                    if (strpos($potentialUrl, '.m3u8') !== false) {
-                        return $potentialUrl;
-                    }
-                } else {
-                    $inUrlSection = false;
+            // যদি উপরের প্যাটার্নে কিছু না মেলে, সব JS রাখি fallback-এ
+            if (empty($urls)) {
+                foreach ($m[1] as $rel) {
+                    $urls[] = $this->resolveRelative($embedUrl, $rel);
                 }
             }
         }
-        
+        return array_values(array_unique($urls));
+    }
+
+    private function getScriptContent($scriptUrl, $embedUrl) {
+        $origin = $this->originOf($scriptUrl);
+        $headers = [];
+        if ($origin) $headers[] = "Referer: {$embedUrl}";
+        return $this->fetchUrl($scriptUrl, $headers, $this->mobileUA, $embedUrl);
+    }
+
+    // ---------------------------------------------------------------
+    // JS → final player URL (fully dynamic, no hardcoded domains)
+    // ---------------------------------------------------------------
+    private function parseScriptForPlayerUrl($jsContent, $vars) {
+        $fid   = $vars['fid'];
+        $vCon  = $vars['v_con'];
+        $vDt   = $vars['v_dt'];
+        if (!$fid) return null;
+
+        // JS concat ভেঙে ফ্ল্যাট স্ট্রিং বানাই
+        $flat = $jsContent;
+        $flat = preg_replace('/["\']\s*\+\s*(fid|v_id)\s*\+\s*["\']/i', '{FID}', $flat);
+        $flat = preg_replace('/["\']\s*\+\s*v_con\s*\+\s*["\']/i', '{VCON}', $flat);
+        $flat = preg_replace('/["\']\s*\+\s*v_dt\s*\+\s*["\']/i', '{VDT}', $flat);
+        // একক concatenation: "https://domain/path.php?v="+fid → কোন কোট ছাড়া
+        $flat = preg_replace('/\+\s*(fid|v_id)(?![a-zA-Z0-9_])/i', '{FID}', $flat);
+        $flat = preg_replace('/\+\s*v_con(?![a-zA-Z0-9_])/i', '{VCON}', $flat);
+        $flat = preg_replace('/\+\s*v_dt(?![a-zA-Z0-9_])/i',  '{VDT}',  $flat);
+
+        // যেকোনো embed.php / atofplay.php / play.php URL
+        if (preg_match('#(https?:)?//([a-z0-9\.\-]+)/([a-z0-9_\-/]+\.php)\?([^"\'\s<>]*)#i', $flat, $m)) {
+            $url = $m[0];
+            if (strpos($url, '//') === 0) $url = 'https:' . $url;
+
+            // মাত্র প্লেসহোল্ডার রিপ্লেস
+            $url = str_replace(['{FID}', '{VCON}', '{VDT}'], [$fid, $vCon, $vDt], $url);
+
+            // JS-এর শেষের বাজে অংশ কেটে ফেলি (কোট, প্লাস, স্পেস ইত্যাদি)
+            $url = preg_replace('/["\'\s\+].*$/', '', $url);
+
+            // শেষের শুধু `&` বা `?` থাকলে পরিষ্কার
+            $url = rtrim($url, '&?');
+
+            return $url;
+        }
+
+        // fallback — JS-এ সরাসরি সম্পূর্ণ URL
+        if (preg_match('#https?://[a-z0-9\.\-]+/(?:embed|atofplay|play)\.php\?v=([a-zA-Z0-9_\-]+)#i', $jsContent, $m)) {
+            return $m[0];
+        }
+
         return null;
     }
-    
-    private function extractM3u8Referer($html) {
-        // The referer for m3u8 is typically the playerr03.com domain
-        if (preg_match('/origin:\s*["\']([^"\']+)["\']/', $html, $matches)) {
-            return $matches[1];
+
+    // ---------------------------------------------------------------
+    // Full pipeline: player page → final stream URL
+    // ---------------------------------------------------------------
+    private function resolveStreamFromPlayerPage($playerPageUrl) {
+        $playerHtml = $this->fetchUrl(
+            $playerPageUrl,
+            [],
+            $this->desktopUA,
+            $this->baseUrl . '/'
+        );
+        if (!$playerHtml) return [null, 'player page fetch failed'];
+
+        $embedUrl = $this->extractIframeUrl($playerHtml, $playerPageUrl);
+        if (!$embedUrl) return [null, 'no iframe / embed URL found'];
+
+        $embedHtml = $this->getEmbedPage($embedUrl);
+        if (!$embedHtml) return [null, "embed fetch failed: {$embedUrl}"];
+
+        $vars = $this->extractInlineVars($embedHtml);
+        if (empty($vars['fid'])) return [null, "no fid in embed: {$embedUrl}"];
+
+        $scriptUrls = $this->extractScriptUrls($embedHtml, $embedUrl);
+        if (empty($scriptUrls)) {
+            // fallback: embed URL এর domain + embed.php?v=fid
+            $origin = $this->originOf($embedUrl);
+            $path = parse_url($embedUrl, PHP_URL_PATH);
+            $basePath = preg_replace('#\.php.*$#', '.php', $path ?: '/embed.php');
+            $fallback = $origin . $basePath . '?v=' . $vars['fid'];
+            if (!empty($vars['v_con'])) $fallback .= '&secure=' . $vars['v_con'];
+            if (!empty($vars['v_dt']))  $fallback .= '&expires=' . $vars['v_dt'];
+            return [$fallback, "fallback (no JS found) fid={$vars['fid']}"];
         }
-        
-        // Default to playerr03.com
-        return 'https://playerr03.com/';
+
+        // প্রতিটি JS চেষ্টা করি
+        foreach ($scriptUrls as $scriptUrl) {
+            $js = $this->getScriptContent($scriptUrl, $embedUrl);
+            if (!$js) continue;
+
+            $final = $this->parseScriptForPlayerUrl($js, $vars);
+            if ($final) {
+                return [$final, "resolved via {$scriptUrl} fid={$vars['fid']}"];
+            }
+        }
+
+        // শেষ fallback
+        $origin = $this->originOf($embedUrl);
+        $path = parse_url($embedUrl, PHP_URL_PATH);
+        $basePath = preg_replace('#\.php.*$#', '.php', $path ?: '/embed.php');
+        $fallback = $origin . $basePath . '?v=' . $vars['fid'];
+        if (!empty($vars['v_con'])) $fallback .= '&secure=' . $vars['v_con'];
+        if (!empty($vars['v_dt']))  $fallback .= '&expires=' . $vars['v_dt'];
+        return [$fallback, "fallback (JS parse failed) fid={$vars['fid']}"];
     }
-    
-    public function scrape($outputToFile = false) {
-        $channelsResult = [];
+
+    // ---------------------------------------------------------------
+    // m3u8 referer (player response থেকে ডাইনামিক)
+    // ---------------------------------------------------------------
+    private function getM3u8Referer($finalPlayerUrl) {
+        $origin = $this->originOf($finalPlayerUrl);
+        if (!$origin) return '';
+        $headers = ["Referer: {$origin}/"];
+        $html = $this->fetchUrl($finalPlayerUrl, $headers, $this->mobileUA, $origin . '/');
+        if (!$html) return $origin . '/';
+        if (preg_match('/origin:\s*["\']([^"\']+)["\']/', $html, $m)) return $m[1];
+        if (preg_match('/Referer:\s*["\']([^"\']+)["\']/i', $html, $m)) return $m[1];
+        return $origin . '/';
+    }
+
+    // ---------------------------------------------------------------
+    // Public entry point
+    // ---------------------------------------------------------------
+    public function scrape($quiet = false) {
+        $channelsResult  = [];
         $liveEventsResult = [];
-        
-        if (!$outputToFile) {
-            echo "Fetching main page...\n";
-        }
-        $mainHtml = $this->fetchUrl($this->baseUrl);
-        
+
+        if (!$quiet) echo "Fetching main page...\n";
+        $mainHtml = $this->fetchUrl($this->baseUrl, [], $this->desktopUA, $this->baseUrl . '/');
         if (!$mainHtml) {
-            if (!$outputToFile) echo "Failed to fetch main page\n";
             return json_encode(['error' => 'Failed to fetch main page']);
         }
-        
-        // Extract channels
-        if (!$outputToFile) {
-            echo "Extracting channels...\n";
-        }
+
+        // ---------- CHANNELS ----------
+        if (!$quiet) echo "Extracting channels...\n";
         $channels = $this->extractChannels($mainHtml);
-        
-        if (empty($channels)) {
-            if (!$outputToFile) echo "No channels found\n";
-        } else {
-            if (!$outputToFile) {
-                echo "Found " . count($channels) . " channels\n";
+        if (!$quiet) echo "Found " . count($channels) . " channels\n";
+
+        foreach ($channels as $ch) {
+            $slug = $ch['slug'];
+            $name = $ch['name'];
+            $logo = $ch['logo'];
+            if (!$quiet) echo "Channel: {$slug} ({$name})\n";
+
+            $channelUrl  = "{$this->baseUrl}/channels/{$slug}";
+            $channelHtml = $this->fetchUrl($channelUrl, [], $this->desktopUA, $this->baseUrl . '/');
+            if (!$channelHtml) { if (!$quiet) echo "  fetch failed\n"; continue; }
+
+            $playerUrls = $this->extractPlayerUrls($channelHtml, $channelUrl);
+            if (empty($playerUrls)) { if (!$quiet) echo "  no player URLs\n"; continue; }
+
+            $found = false;
+            foreach ($playerUrls as $pUrl) {
+                if (!$quiet) echo "  try: {$pUrl}\n";
+                list($final, $msg) = $this->resolveStreamFromPlayerPage($pUrl);
+                if (!$final) { if (!$quiet) echo "    {$msg}\n"; continue; }
+
+                $playRef = $this->getM3u8Referer($final);
+                $embedOrigin = $this->originOf($pUrl);
+
+                $channelsResult[] = [
+                    'name'        => $name,
+                    'image'       => $logo,
+                    'group-title' => 'Channels',
+                    'url'         => "{$final}|Referer={$embedOrigin}/|playRef={$playRef}",
+                ];
+                if (!$quiet) echo "    OK: {$final}\n";
+                $found = true;
+                break;
             }
-            
-            foreach ($channels as $channelData) {
-                $channelSlug = $channelData['slug'];
-                $channelName = $channelData['name'];
-                $channelLogo = $channelData['logo'];
-                
-                if (!$outputToFile) {
-                    echo "Processing channel: {$channelSlug} ({$channelName})\n";
-                }
-                
-                // Step 1: Get channel page
-                $channelHtml = $this->getChannelPage($channelSlug);
-                if (!$channelHtml) {
-                    if (!$outputToFile) echo "  Failed to fetch channel page\n";
-                    continue;
-                }
-                
-                // Step 2: Extract player URLs from channel page
-                $playerUrls = $this->extractPlayerUrls($channelHtml);
-                if (empty($playerUrls)) {
-                    if (!$outputToFile) echo "  No player URLs found\n";
-                    continue;
-                }
-                
-                if (!$outputToFile) {
-                    echo "  Found " . count($playerUrls) . " player URL(s)\n";
-                }
-                
-                // Try each player URL until we find one that works
-                $found = false;
-                foreach ($playerUrls as $playerUrl) {
-                    if (!$outputToFile) {
-                        echo "  Trying player URL: {$playerUrl}\n";
-                    }
-                    
-                    // Step 3: Get player page content
-                    $playerHtml = $this->getPlayerPageContent($playerUrl);
-                    if (!$playerHtml) {
-                        if (!$outputToFile) echo "    Failed to fetch player page\n";
-                        continue;
-                    }
-                    
-                    // Step 4: Extract iframe URL from player page
-                    $iframeUrl = $this->extractIframeUrl($playerHtml);
-                    if (!$iframeUrl) {
-                        if (!$outputToFile) echo "    No iframe URL found in player page\n";
-                        continue;
-                    }
-                    
-                    if (!$outputToFile) {
-                        echo "    Found iframe URL: {$iframeUrl}\n";
-                    }
-                    
-                    // Step 5: Get embed page from playerso.top
-                    $embedHtml = $this->getEmbedPage($iframeUrl);
-                    if (!$embedHtml) {
-                        if (!$outputToFile) echo "    Failed to fetch embed page\n";
-                        continue;
-                    }
-                    
-                    // Step 6: Extract fid
-                    $fid = $this->extractFid($embedHtml);
-                    if (!$fid) {
-                        if (!$outputToFile) echo "    No fid found\n";
-                        continue;
-                    }
-                    
-                    // Step 7: Get player page from playerr03.com
-                    $finalPlayerHtml = $this->getPlayerPage($fid);
-                    if (!$finalPlayerHtml) {
-                        if (!$outputToFile) echo "    Failed to fetch final player page\n";
-                        continue;
-                    }
-                    
-                    // Step 8: Extract m3u8 URL and referer
-                    $m3u8Url = $this->extractM3u8Url($finalPlayerHtml);
-                    $m3u8Referer = $this->extractM3u8Referer($finalPlayerHtml);
-                    
-                    // Construct the final URL format
-                    $playerFinalUrl = "https://playerr03.com/embed.php?v={$fid}";
-                    
-                    $channelsResult[] = [
-                        'channel' => $channelName,
-                        'logo' => $channelLogo,
-                        'url' => "{$playerFinalUrl}|Referer=https://playerso.top/|playRef={$m3u8Referer}"
-                    ];
-                    
-                    if (!$outputToFile) {
-                        echo "    Success: {$fid}\n";
-                    }
-                    $found = true;
-                    break; // Stop trying other player URLs once we find one that works
-                }
-                
-                if (!$found && !$outputToFile) {
-                    echo "  Could not extract stream for this channel\n";
-                }
-            }
+            if (!$found && !$quiet) echo "  no stream resolved\n";
         }
-        
-        // Extract live events
-        if (!$outputToFile) {
-            echo "Extracting live events...\n";
-        }
+
+        // ---------- LIVE EVENTS ----------
+        if (!$quiet) echo "Extracting live events...\n";
         $liveEvents = $this->extractLiveEvents($mainHtml);
-        
-        if (!empty($liveEvents)) {
-            if (!$outputToFile) {
-                echo "Found " . count($liveEvents) . " live events\n";
+        if (!$quiet) echo "Found " . count($liveEvents) . " live events\n";
+
+        foreach ($liveEvents as $ev) {
+            $slug  = $ev['slug'];
+            $title = $ev['title'];
+            $logo  = $ev['logo'];
+            if (!$quiet) echo "Event: {$slug} ({$title})\n";
+
+            $eventUrl  = "{$this->baseUrl}/events/{$slug}";
+            $eventHtml = $this->fetchUrl($eventUrl, [], $this->desktopUA, $this->baseUrl . '/');
+            if (!$eventHtml) { if (!$quiet) echo "  fetch failed\n"; continue; }
+
+            // watch-table পার্স — ডাইনামিক (যেকোনো cricgo.cc / playsto.top / etc.)
+            preg_match_all(
+                '#<tr>\s*<td>.*?<\/td>\s*<td>([^<]+)<\/td>\s*<td[^>]*>([^<]+)<\/td>\s*<td>\s*<a[^>]*class=["\']watch-link["\'][^>]+href=["\']([^"\']+)["\']#s',
+                $eventHtml,
+                $tm
+            );
+
+            if (empty($tm[1]) || empty($tm[3])) {
+                if (!$quiet) echo "  no watch-table channels\n";
+                continue;
             }
-            
-            foreach ($liveEvents as $eventData) {
-                $eventSlug = $eventData['slug'];
-                $eventTitle = $eventData['title'];
-                $eventLogo = $eventData['logo'];
-                
-                if (!$outputToFile) {
-                    echo "Processing event: {$eventSlug} ({$eventTitle})\n";
-                }
-                
-                // Step 1: Get event page
-                $eventUrl = "{$this->baseUrl}/events/{$eventSlug}";
-                $eventHtml = $this->fetchUrl($eventUrl, ["Referer: {$this->baseUrl}/", "Host: cricgo.pro"]);
-                
-                if (!$eventHtml) {
-                    if (!$outputToFile) echo "  Failed to fetch event page\n";
-                    continue;
-                }
-                
-                // Step 2: Extract player URLs from event page (different pattern than channel page)
-                $playerUrls = [];
-                
-                // Look for watch-link class with player.php URLs
-                if (preg_match_all('/class="watch-link"[^>]+href=["\'](https?:\/\/[^"\']+\/player\.php\?id=[a-zA-Z0-9\-]+)["\']/', $eventHtml, $matches)) {
-                    foreach ($matches[1] as $url) {
-                        // Convert cricgo.cc to playsto.top to bypass Cloudflare
-                        $url = str_replace('cricgo.cc', 'playsto.top', $url);
-                        $playerUrls[] = $url;
-                    }
-                }
-                
-                // Alternative pattern: href before watch-link
-                if (preg_match_all('/href=["\'](https?:\/\/[^"\']+\/player\.php\?id=[a-zA-Z0-9\-]+)["\'][^>]*class=["\']watch-link/', $eventHtml, $matches)) {
-                    foreach ($matches[1] as $url) {
-                        $url = str_replace('cricgo.cc', 'playsto.top', $url);
-                        $playerUrls[] = $url;
-                    }
-                }
-                
-                $playerUrls = array_unique($playerUrls);
-                if (empty($playerUrls)) {
-                    if (!$outputToFile) echo "  No player URLs found for event\n";
-                    continue;
-                }
-                
-                if (!$outputToFile) {
-                    echo "  Found " . count($playerUrls) . " player URL(s) for event\n";
-                }
-                
-                // Extract all channels from the watch-table with their names
-                preg_match_all('/<tr>\s*<td>.*?<\/td>\s*<td>([^<]+)<\/td>\s*<td class="hide-mobile">([^<]+)<\/td>\s*<td>\s*<a class="watch-link"[^>]+href=["\']([^"\']+)["\']/s', $eventHtml, $tableMatches);
-                
-                if (!empty($tableMatches[1]) && !empty($tableMatches[3])) {
-                    foreach ($tableMatches[1] as $idx => $channelName) {
-                        $playerUrl = $tableMatches[3][$idx];
-                        
-                        // Convert cricgo.cc to playsto.top to bypass Cloudflare
-                        $playerUrl = str_replace('cricgo.cc', 'playsto.top', $playerUrl);
-                        
-                        if (!$outputToFile) {
-                            echo "  Processing channel: {$channelName}\n";
-                        }
-                        
-                        // Get player page content
-                        $playerHtml = $this->getPlayerPageContent($playerUrl);
-                        if (!$playerHtml) {
-                            if (!$outputToFile) echo "    Failed to fetch player page\n";
-                            continue;
-                        }
-                        
-                        // Extract iframe URL
-                        $iframeUrl = $this->extractIframeUrl($playerHtml);
-                        if (!$iframeUrl) {
-                            if (!$outputToFile) echo "    No iframe URL found\n";
-                            continue;
-                        }
-                        
-                        // Get embed page
-                        $embedHtml = $this->getEmbedPage($iframeUrl);
-                        if (!$embedHtml) {
-                            if (!$outputToFile) echo "    Failed to fetch embed page\n";
-                            continue;
-                        }
-                        
-                        // Extract fid
-                        $fid = $this->extractFid($embedHtml);
-                        if (!$fid) {
-                            if (!$outputToFile) echo "    No fid found\n";
-                            continue;
-                        }
-                        
-                        // Get final player page
-                        $finalPlayerHtml = $this->getPlayerPage($fid);
-                        if (!$finalPlayerHtml) {
-                            if (!$outputToFile) echo "    Failed to fetch final player page\n";
-                            continue;
-                        }
-                        
-                        // Extract m3u8 URL and referer
-                        $m3u8Url = $this->extractM3u8Url($finalPlayerHtml);
-                        $m3u8Referer = $this->extractM3u8Referer($finalPlayerHtml);
-                        
-                        $playerFinalUrl = "https://playerr03.com/embed.php?v={$fid}";
-                        
-                        $liveEventsResult[] = [
-                            'title' => $eventTitle,
-                            'logo' => $eventLogo,
-                            'channel' => trim($channelName),
-                            'url' => "{$playerFinalUrl}|Referer=https://playerso.top/|playRef={$m3u8Referer}"
-                        ];
-                        
-                        if (!$outputToFile) {
-                            echo "    Success: {$fid} ({$channelName})\n";
-                        }
-                    }
-                } else {
-                    if (!$outputToFile) {
-                        echo "  No channels found in watch-table\n";
-                    }
-                }
+
+            foreach ($tm[1] as $i => $channelName) {
+                $playerUrl = $tm[3][$i];
+                if (strpos($playerUrl, '//') === 0) $playerUrl = 'https:' . $playerUrl;
+                elseif (strpos($playerUrl, '/') === 0) $playerUrl = $this->resolveRelative($eventUrl, $playerUrl);
+
+                if (!$quiet) echo "  channel: {$channelName}\n";
+                list($final, $msg) = $this->resolveStreamFromPlayerPage($playerUrl);
+                if (!$final) { if (!$quiet) echo "    {$msg}\n"; continue; }
+
+                $playRef = $this->getM3u8Referer($final);
+                $embedOrigin = $this->originOf($playerUrl);
+
+                $liveEventsResult[] = [
+                    'title'   => $title,
+                    'logo'    => $logo,
+                    'channel' => trim($channelName),
+                    'url'     => "{$final}|Referer={$embedOrigin}/|playRef={$playRef}",
+                ];
+                if (!$quiet) echo "    OK: {$final}\n";
             }
         }
-        
-        // Group live events by title to create multi-source entries
-        $groupedEvents = [];
-        foreach ($liveEventsResult as $event) {
-            $key = $event['title'];
-            if (!isset($groupedEvents[$key])) {
-                $groupedEvents[$key] = [
-                    'name' => $event['title'],
-                    'image' => $event['logo'],
+
+        // ---------- Group by event ----------
+        $grouped = [];
+        foreach ($liveEventsResult as $e) {
+            $k = $e['title'];
+            if (!isset($grouped[$k])) {
+                $grouped[$k] = [
+                    'name'        => $e['title'],
+                    'image'       => $e['logo'],
                     'group-title' => 'Live Events',
-                    'url' => $event['url'], // First channel as fallback
-                    'sources' => []
+                    'url'         => $e['url'],
+                    'sources'     => [],
                 ];
             }
-            $groupedEvents[$key]['sources'][$event['channel']] = $event['url'];
+            $grouped[$k]['sources'][$e['channel']] = $e['url'];
         }
-        
-        // Convert channels to new format
-        $channelsFormatted = [];
-        foreach ($channelsResult as $channel) {
-            $channelsFormatted[] = [
-                'name' => $channel['channel'],
-                'image' => $channel['logo'],
-                'group-title' => 'Channels',
-                'url' => $channel['url']
-            ];
-        }
-        
-        // Merge all entries into a single flat array
-        $result = array_merge(array_values($groupedEvents), $channelsFormatted);
-        
+
+        $result = array_merge(array_values($grouped), $channelsResult);
         return json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
     }
 }
 
-// Run the scraper
+// ---------- CLI ----------
 $scraper = new CricketScraper();
 
-// Check if we should output to file (for GitHub Actions)
 if (isset($argv[1]) && $argv[1] === '--output') {
-    $outputFile = isset($argv[2]) ? $argv[2] : 'channels.json';
-    $json = $scraper->scrape(true);
-    file_put_contents($outputFile, $json);
-    echo "Saved to {$outputFile}\n";
+    $out = $argv[2] ?? 'channels.json';
+    file_put_contents($out, $scraper->scrape(true));
+    echo "Saved to {$out}\n";
 } else {
     echo $scraper->scrape(false);
 }
