@@ -7,7 +7,6 @@ on:
   workflow_dispatch:
     # Allows manual trigger
 
-# ফাইল কমিট এবং পুশ করার জন্য এই পারমিশনটি যুক্ত করা বাধ্যতামূলক
 permissions:
   contents: write
 
@@ -37,7 +36,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add channels.json
-          git commit -m "Update channels.json - $(date '+%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
+          git commit --allow-empty -m "Update channels.json - $(date '+%Y-%m-%d %H:%M:%S')"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
