@@ -28,6 +28,8 @@ jobs:
       - name: Run scraper
         run: |
           php scraper.php --output channels.json
+          # JSON ফাইলের ভেতর টাইমস্ট্যাম্প যুক্ত করে ফাইলটি ফিজিক্যালি আপডেট করা
+          php -r '$d = json_decode(file_get_contents("channels.json"), true); if(is_array($d)) { $d["_last_updated"] = date("Y-m-d H:i:s T"); file_put_contents("channels.json", json_encode($d, JSON_PRETTY_PRINT)); }'
         env:
           TZ: UTC
       
@@ -36,7 +38,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add channels.json
-          git commit --allow-empty -m "Update channels.json - $(date '+%Y-%m-%d %H:%M:%S')"
+          git commit -m "Update channels.json - $(date '+%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
