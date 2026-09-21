@@ -7,6 +7,10 @@ on:
   workflow_dispatch:
     # Allows manual trigger
 
+# ফাইল কমিট এবং পুশ করার জন্য এই পারমিশনটি যুক্ত করা বাধ্যতামূলক
+permissions:
+  contents: write
+
 jobs:
   scrape-channels:
     runs-on: ubuntu-latest
