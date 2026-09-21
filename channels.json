@@ -1,17 +1,5 @@
 [
     {
-        "name": "CPL T20",
-        "image": "https://cdn.cricgo.pro/league/cpl-t20/logo.webp",
-        "group-title": "Live Events",
-        "url": "https://playerr03.com/embed.php?v=willwr|Referer=https://playerso.top/|playRef=https://playerr03.com/",
-        "sources": {
-            "Willow": "https://playerr03.com/embed.php?v=willwr|Referer=https://playerso.top/|playRef=https://playerr03.com/",
-            "Star Sports 2": "https://playerr03.com/embed.php?v=star2cl5|Referer=https://playerso.top/|playRef=https://playerr03.com/",
-            "TNT Sports 2": "https://bhalocast.pro/atofplay.php?v=bbtsvp2&secure=m1lko&expires=123456|Referer=https://playerso.top/|playRef=https://bhalocast.pro/",
-            "CricGo 5": "https://playerr03.com/embed.php?v=cricgo5|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-        }
-    },
-    {
         "name": "England vs Sri Lanka",
         "image": "https://cdn.cricgo.pro/team/england/logo.webp",
         "group-title": "Live Events",
