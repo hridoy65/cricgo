@@ -13,17 +13,6 @@
         }
     },
     {
-        "name": "India vs Japan",
-        "image": "https://cdn.cricgo.pro/team/india/logo.webp",
-        "group-title": "Live Events",
-        "url": "https://playerr03.com/embed.php?v=willwr|Referer=https://playerso.top/|playRef=https://playerr03.com/",
-        "sources": {
-            "Willow": "https://playerr03.com/embed.php?v=willwr|Referer=https://playerso.top/|playRef=https://playerr03.com/",
-            "Willow HD": "https://playerr03.com/embed.php?v=hdwillwr|Referer=https://playerso.top/|playRef=https://playerr03.com/",
-            "CricGo 1": "https://playerr03.com/embed.php?v=cricgo1c|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-        }
-    },
-    {
         "name": "Willow",
         "image": "https://cdn.cricgo.pro/channel/willow/logo.webp",
         "group-title": "Channels",
