@@ -2,7 +2,7 @@ name: Daily Cricket Channels Scraper
 
 on:
   schedule:
-    # Runs every 3 hours
+    # Runs every hour
     - cron: '0 * * * *'
   workflow_dispatch:
     # Allows manual trigger
