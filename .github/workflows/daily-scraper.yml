@@ -1,10 +1,12 @@
-name: Cricket Channels Scraper
+name: Daily Cricket Channels Scraper
 
 on:
   schedule:
+    # Runs every hour
     - cron: '0 * * * *'
     - cron: '30 * * * *'
   workflow_dispatch:
+    # Allows manual trigger
 
 permissions:
   contents: write
@@ -12,40 +14,30 @@ permissions:
 jobs:
   scrape-channels:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
-
+    
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: shivammathur/setup-php@v2
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
           extensions: curl, json
-
+          tools: composer:v2
+      
       - name: Run scraper
-        run: php scraper.php --output channels.json
+        run: |
+          php scraper.php --output channels.json
         env:
           TZ: UTC
-
-      - name: Check for changes
-        id: diff
-        run: |
-          git diff --quiet channels.json \
-            && echo "changed=false" >> $GITHUB_OUTPUT \
-            || echo "changed=true" >> $GITHUB_OUTPUT
-
+      
       - name: Commit and push
-        if: steps.diff.outputs.changed == 'true'
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add channels.json
-          git commit -m "chore: update channels.json $(date -u '+%Y-%m-%dT%H:%M:%SZ')"
+          git commit -m "Update channels.json - $(date '+%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Keep workflow alive
-        uses: gautamkrishnar/keepalive-workflow@v1
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
