@@ -26,6 +26,20 @@
         }
     },
     {
+        "name": "Australia vs South Africa",
+        "image": "https://cdn.cricgo.pro/team/australia/logo.webp",
+        "group-title": "Live Events",
+        "url": "https://playerr03.com/embed.php?v=willwr|Referer=https://playerso.top/|playRef=https://playerr03.com/",
+        "sources": {
+            "Willow": "https://playerr03.com/embed.php?v=willwr|Referer=https://playerso.top/|playRef=https://playerr03.com/",
+            "Willow HD": "https://playerr03.com/embed.php?v=hdwillwr|Referer=https://playerso.top/|playRef=https://playerr03.com/",
+            "A Sports": "https://bhalocast.pro/atofplay.php?v=asportspk&secure=m1lko&expires=123456|Referer=https://playerso.top/|playRef=https://bhalocast.pro/",
+            "Fox Sports Cricket": "https://playerr03.com/embed.php?v=cf0sp1|Referer=https://playerso.top/|playRef=https://playerr03.com/",
+            "Sky Sports Cricket": "https://bhalocast.pro/atofplay.php?v=dodosky2&secure=m1lko&expires=123456|Referer=https://playerso.top/|playRef=https://bhalocast.pro/",
+            "CricGo 5": "https://playerr03.com/embed.php?v=cricgo5|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+        }
+    },
+    {
         "name": "Willow",
         "image": "https://cdn.cricgo.pro/channel/willow/logo.webp",
         "group-title": "Channels",
