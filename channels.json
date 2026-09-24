@@ -13,6 +13,19 @@
         }
     },
     {
+        "name": "Asian Games 2026",
+        "image": "https://cdn.cricgo.pro/league/asian-games/logo.webp",
+        "group-title": "Live Events",
+        "url": "https://playerr03.com/embed.php?v=willwr|Referer=https://playerso.top/|playRef=https://playerr03.com/",
+        "sources": {
+            "Willow": "https://playerr03.com/embed.php?v=willwr|Referer=https://playerso.top/|playRef=https://playerr03.com/",
+            "Willow 2": "https://playerr03.com/embed.php?v=wextres5|Referer=https://playerso.top/|playRef=https://playerr03.com/",
+            "PTV Sports": "https://playerr03.com/embed.php?v=ptvskpr|Referer=https://playerso.top/|playRef=https://playerr03.com/",
+            "Sony Sports Ten 1": "https://playerr03.com/embed.php?v=ten1co|Referer=https://playerso.top/|playRef=https://playerr03.com/",
+            "CricGo 1": "https://playerr03.com/embed.php?v=cricgo1c|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+        }
+    },
+    {
         "name": "Willow",
         "image": "https://cdn.cricgo.pro/channel/willow/logo.webp",
         "group-title": "Channels",
