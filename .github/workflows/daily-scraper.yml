@@ -12,6 +12,7 @@ permissions:
 jobs:
   scrape-channels:
     runs-on: ubuntu-latest
+    timeout-minutes: 30      # ← এটা যোগ করো
 
     steps:
       - name: Checkout repository
