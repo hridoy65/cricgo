@@ -14,11 +14,19 @@ class CricketScraper {
     private $playwrightServer = 'http://127.0.0.1:9999/';
     private $mirrorMap = ['cricgo.cc' => 'playsto.top'];
 
+    // Track stats
+    private $fetchCount = 0;
+    private $cfCount = 0;
+
     // ============================================================
-    // Core fetch — now via Playwright server
+    // Core fetch — via Playwright server, with progress logging
     // ============================================================
     private function fetchUrl($url, $headers = [], $ua = null, $referer = null) {
         $ua = $ua ?: $this->desktopUA;
+        $this->fetchCount++;
+
+        $t0 = microtime(true);
+        fwrite(STDERR, "[→ {$this->fetchCount}] " . substr($url, 0, 110) . "\n");
 
         $payload = json_encode([
             'url'     => $url,
@@ -41,12 +49,19 @@ class CricketScraper {
         $err  = curl_error($ch);
         curl_close($ch);
 
+        $ms = round((microtime(true) - $t0) * 1000);
+
         if ($body === false) {
+            fwrite(STDERR, "[✗ {$ms}ms] {$err}\n");
             error_log("Playwright fetch fail: {$url} — {$err}");
             return false;
         }
-        if ($code >= 200 && $code < 400) return $body;
+        if ($code >= 200 && $code < 400) {
+            fwrite(STDERR, "[✓ {$ms}ms " . strlen($body) . "b] " . substr($url, 0, 90) . "\n");
+            return $body;
+        }
 
+        fwrite(STDERR, "[✗ HTTP {$code} {$ms}ms] " . substr($body, 0, 120) . "\n");
         error_log("Playwright fetch HTTP {$code}: {$url}");
         return false;
     }
@@ -230,31 +245,33 @@ class CricketScraper {
         return [$final, $msg, $embedOrigin];
     }
 
-    private function getM3u8Referer($finalPlayerUrl) {
-        $origin = $this->originOf($finalPlayerUrl);
-        if (!$origin) return '';
-        $html = $this->fetchUrl($finalPlayerUrl, ["Referer: {$origin}/"], $this->mobileUA, $origin . '/');
-        if (!$html) return $origin . '/';
-        if (preg_match('/origin:\s*["\']([^"\']+)["\']/', $html, $m)) return $m[1];
-        return $origin . '/';
-    }
-
     public function scrape($quiet = false) {
         $channelsResult = [];
         $liveEventsResult = [];
+        $startTime = microtime(true);
 
-        if (!$quiet) echo "Fetching main page...\n";
+        $log = function($msg) use ($quiet) {
+            if (!$quiet) echo $msg;
+            // Always log milestones to STDERR so GH Actions shows progress
+            fwrite(STDERR, "[LOG] " . $msg);
+        };
+
+        $log("Fetching main page...\n");
         $mainHtml = $this->fetchUrl($this->baseUrl, [], $this->desktopUA, $this->baseUrl . '/');
         if (!$mainHtml) return json_encode(['error' => 'Failed to fetch main page']);
 
+        // ============================================================
         // CHANNELS
-        if (!$quiet) echo "Extracting channels...\n";
+        // ============================================================
+        $log("Extracting channels...\n");
         $channels = $this->extractChannels($mainHtml);
-        if (!$quiet) echo "Found " . count($channels) . " channels\n";
+        $log("Found " . count($channels) . " channels\n");
 
+        $ci = 0;
         foreach ($channels as $ch) {
+            $ci++;
             $slug = $ch['slug']; $name = $ch['name']; $logo = $ch['logo'];
-            if (!$quiet) echo "Channel: {$slug}\n";
+            $log("[{$ci}/" . count($channels) . "] Channel: {$slug}\n");
 
             $channelUrl = "{$this->baseUrl}/channels/{$slug}";
             $channelHtml = $this->fetchUrl($channelUrl, [], $this->desktopUA, $this->baseUrl . '/');
@@ -265,9 +282,10 @@ class CricketScraper {
 
             foreach ($playerUrls as $pUrl) {
                 list($final, $msg, $embedOrigin) = $this->resolveStreamFromPlayerPage($pUrl);
-                if (!$final) { if (!$quiet) echo "    {$msg}\n"; continue; }
+                if (!$final) { $log("    ✗ {$msg}\n"); continue; }
 
-                $playRef = $this->getM3u8Referer($final);
+                // embedOrigin IS the correct m3u8 referer — no extra fetch needed
+                $playRef = $embedOrigin ? $embedOrigin . '/' : '';
 
                 $channelsResult[] = [
                     'name'        => $name,
@@ -275,19 +293,23 @@ class CricketScraper {
                     'group-title' => 'Channels',
                     'url'         => "{$final}|Referer={$embedOrigin}/|playRef={$playRef}",
                 ];
-                if (!$quiet) echo "    OK: {$final}\n";
+                $log("    ✓ {$final}\n");
                 break;
             }
         }
 
+        // ============================================================
         // LIVE EVENTS
-        if (!$quiet) echo "Extracting live events...\n";
+        // ============================================================
+        $log("Extracting live events...\n");
         $liveEvents = $this->extractLiveEvents($mainHtml);
-        if (!$quiet) echo "Found " . count($liveEvents) . " live events\n";
+        $log("Found " . count($liveEvents) . " live events\n");
 
+        $ei = 0;
         foreach ($liveEvents as $ev) {
+            $ei++;
             $slug = $ev['slug']; $title = $ev['title']; $logo = $ev['logo'];
-            if (!$quiet) echo "Event: {$slug}\n";
+            $log("[{$ei}/" . count($liveEvents) . "] Event: {$slug}\n");
 
             $eventUrl = "{$this->baseUrl}/events/{$slug}";
             $eventHtml = $this->fetchUrl($eventUrl, [], $this->desktopUA, $this->baseUrl . '/');
@@ -304,12 +326,12 @@ class CricketScraper {
                 if (strpos($playerUrl, '//') === 0) $playerUrl = 'https:' . $playerUrl;
                 elseif (strpos($playerUrl, '/') === 0) $playerUrl = $this->resolveRelative($eventUrl, $playerUrl);
 
-                if (!$quiet) echo "  channel: {$channelName}\n";
+                $log("  channel: {$channelName}\n");
 
                 list($final, $msg, $embedOrigin) = $this->resolveStreamFromPlayerPage($playerUrl);
-                if (!$final) { if (!$quiet) echo "    {$msg}\n"; continue; }
+                if (!$final) { $log("    ✗ {$msg}\n"); continue; }
 
-                $playRef = $this->getM3u8Referer($final);
+                $playRef = $embedOrigin ? $embedOrigin . '/' : '';
 
                 $liveEventsResult[] = [
                     'title'   => $title,
@@ -317,10 +339,13 @@ class CricketScraper {
                     'channel' => trim($channelName),
                     'url'     => "{$final}|Referer={$embedOrigin}/|playRef={$playRef}",
                 ];
-                if (!$quiet) echo "    OK: {$final}\n";
+                $log("    ✓ {$final}\n");
             }
         }
 
+        // ============================================================
+        // Group live events by title
+        // ============================================================
         $grouped = [];
         foreach ($liveEventsResult as $e) {
             $k = $e['title'];
@@ -334,6 +359,11 @@ class CricketScraper {
         }
 
         $result = array_merge(array_values($grouped), $channelsResult);
+
+        $elapsed = round(microtime(true) - $startTime, 1);
+        $log("==============================\n");
+        $log("DONE in {$elapsed}s | fetches: {$this->fetchCount} | channels: " . count($channelsResult) . " | events: " . count($grouped) . "\n");
+
         return json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
     }
 }
