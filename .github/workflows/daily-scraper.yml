@@ -42,52 +42,76 @@ jobs:
       - name: Install Google Chrome
         run: npx playwright install chrome
 
-      - name: Start server + Run scraper (single step)
+      - name: Run scraper with Playwright server
         env:
           HEADLESS: 'false'
         run: |
           set +e
-          echo "=== Starting Playwright server ==="
-          xvfb-run -a --server-args="-screen 0 1366x768x24" \
-            node playwright-server.js > pw.log 2>&1 &
-          SERVER_PID=$!
-          echo "server shell PID: $SERVER_PID"
 
-          echo "=== Waiting for server ready (max 30s) ==="
+          echo "=== 1. Starting Xvfb ==="
+          Xvfb :99 -screen 0 1366x768x24 -ac +extension GLX +render -noreset > /tmp/xvfb.log 2>&1 &
+          XVFB_PID=$!
+          export DISPLAY=:99
+          sleep 2
+          echo "Xvfb PID: $XVFB_PID"
+
+          echo ""
+          echo "=== 2. Starting Playwright server ==="
+          nohup node playwright-server.js > pw.log 2>&1 &
+          SERVER_PID=$!
+          echo "Server PID: $SERVER_PID"
+
+          echo ""
+          echo "=== 3. Waiting for server (max 45s) ==="
           READY=0
-          for i in $(seq 1 30); do
-            if curl -s -o /dev/null -X POST \
+          for i in $(seq 1 45); do
+            if curl -s --max-time 3 -o /dev/null \
+                -X POST \
                 -H 'Content-Type: application/json' \
-                -d '{"url":"https://example.com"}' \
-                http://127.0.0.1:9999/ 2>/dev/null; then
+                -d '{"url":"https://example.com","waitFor":null}' \
+                http://127.0.0.1:9999/ ; then
               echo "✅ Server ready after ${i}s"
               READY=1
+              break
+            fi
+            # detect if server crashed
+            if ! kill -0 $SERVER_PID 2>/dev/null; then
+              echo "❌ Server process died at ${i}s"
               break
             fi
             sleep 1
           done
 
+          echo ""
+          echo "=== Server health check ==="
+          ss -tlnp 2>/dev/null | grep 9999 || echo "(nothing listening on 9999)"
+          echo "--- pw.log so far ---"
+          cat pw.log
+          echo "--------------------"
+
           if [ "$READY" != "1" ]; then
-            echo "❌ Server did NOT start in 30s — dumping log:"
-            cat pw.log
+            echo "❌ Server not ready — aborting"
+            kill $SERVER_PID $XVFB_PID 2>/dev/null || true
             exit 1
           fi
 
           echo ""
-          echo "=== Running scraper ==="
+          echo "=== 4. Running scraper ==="
           php scraper.php --output channels.json
           SCRAPER_EXIT=$?
+          echo ""
           echo "scraper exit code: $SCRAPER_EXIT"
 
           echo ""
-          echo "===== Playwright server log (full) ====="
+          echo "===== Full Playwright server log ====="
           cat pw.log
 
           echo ""
-          echo "=== Stopping server ==="
+          echo "=== 5. Cleanup ==="
           kill $SERVER_PID 2>/dev/null || true
           pkill -f playwright-server 2>/dev/null || true
-          pkill -f "chrome.*--headless" 2>/dev/null || true
+          pkill -f "chrome" 2>/dev/null || true
+          kill $XVFB_PID 2>/dev/null || true
 
           exit $SCRAPER_EXIT
 
