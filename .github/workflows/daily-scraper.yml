@@ -42,6 +42,53 @@ jobs:
       - name: Install Google Chrome
         run: npx playwright install chrome
 
+      # ---------- DIAGNOSTIC ----------
+      - name: Diagnose environment
+        env:
+          HEADLESS: 'false'
+        run: |
+          echo "=== PWD ==="
+          pwd
+          ls -la
+          echo ""
+          echo "=== node version ==="
+          node --version
+          echo ""
+          echo "=== playwright module check ==="
+          node -e "const p=require('playwright'); console.log('playwright OK, version:', p.chromium ? 'loaded' : 'missing');"
+          echo ""
+          echo "=== Xvfb start test ==="
+          Xvfb :99 -screen 0 1366x768x24 -ac +extension GLX +render -noreset > /tmp/xvfb.log 2>&1 &
+          XVFB_PID=$!
+          export DISPLAY=:99
+          sleep 3
+          if kill -0 $XVFB_PID 2>/dev/null; then
+            echo "✅ Xvfb running, PID=$XVFB_PID"
+          else
+            echo "❌ Xvfb died"
+            cat /tmp/xvfb.log
+          fi
+          echo ""
+          echo "=== Playwright launch test (10s timeout) ==="
+          timeout 15 node -e "
+          const {chromium} = require('playwright');
+          (async () => {
+            console.log('launching chromium...');
+            const b = await chromium.launch({headless: false, channel: 'chrome', args:['--no-sandbox','--disable-dev-shm-usage']});
+            console.log('✅ browser launched');
+            const page = await b.newPage();
+            await page.goto('https://example.com', {timeout: 10000});
+            console.log('✅ page loaded, title:', await page.title());
+            await b.close();
+            console.log('✅ browser closed');
+          })().catch(e => { console.error('❌ ERROR:', e.message); process.exit(1); });
+          " || echo "Launch test failed with exit $?"
+          kill $XVFB_PID 2>/dev/null || true
+          echo ""
+          echo "=== Server startup dry-run ==="
+          timeout 5 node playwright-server.js 2>&1 | head -20 || true
+
+      # ---------- MAIN ----------
       - name: Run scraper with Playwright server
         env:
           HEADLESS: 'false'
@@ -52,45 +99,59 @@ jobs:
           Xvfb :99 -screen 0 1366x768x24 -ac +extension GLX +render -noreset > /tmp/xvfb.log 2>&1 &
           XVFB_PID=$!
           export DISPLAY=:99
-          sleep 2
-          echo "Xvfb PID: $XVFB_PID"
+          sleep 3
+          if ! kill -0 $XVFB_PID 2>/dev/null; then
+            echo "❌ Xvfb failed:"
+            cat /tmp/xvfb.log
+            exit 1
+          fi
+          echo "✅ Xvfb PID=$XVFB_PID"
 
           echo ""
           echo "=== 2. Starting Playwright server ==="
-          nohup node playwright-server.js > pw.log 2>&1 &
+          cd "$GITHUB_WORKSPACE"
+          node playwright-server.js > pw.log 2>&1 &
           SERVER_PID=$!
           echo "Server PID: $SERVER_PID"
 
+          # Immediately check if it survived
+          sleep 2
+          if ! kill -0 $SERVER_PID 2>/dev/null; then
+            echo "❌ Server died within 2s — pw.log:"
+            cat pw.log
+            exit 1
+          fi
+          echo "✅ Server still alive after 2s"
+
           echo ""
-          echo "=== 3. Waiting for server (max 45s) ==="
+          echo "=== 3. Waiting for server ready (max 45s) ==="
           READY=0
           for i in $(seq 1 45); do
             if curl -s --max-time 3 -o /dev/null \
                 -X POST \
                 -H 'Content-Type: application/json' \
-                -d '{"url":"https://example.com","waitFor":null}' \
+                -d '{"url":"https://example.com"}' \
                 http://127.0.0.1:9999/ ; then
-              echo "✅ Server ready after ${i}s"
+              echo "✅ Server responded after ${i}s"
               READY=1
               break
             fi
-            # detect if server crashed
             if ! kill -0 $SERVER_PID 2>/dev/null; then
-              echo "❌ Server process died at ${i}s"
+              echo "❌ Server died at ${i}s — pw.log:"
+              cat pw.log
               break
             fi
             sleep 1
           done
 
           echo ""
-          echo "=== Server health check ==="
-          ss -tlnp 2>/dev/null | grep 9999 || echo "(nothing listening on 9999)"
-          echo "--- pw.log so far ---"
+          echo "=== Server log after wait ==="
           cat pw.log
-          echo "--------------------"
+          echo ""
+          ss -tlnp 2>/dev/null | grep 9999 || echo "(nothing on 9999)"
 
           if [ "$READY" != "1" ]; then
-            echo "❌ Server not ready — aborting"
+            echo "❌ Aborting — server never responded"
             kill $SERVER_PID $XVFB_PID 2>/dev/null || true
             exit 1
           fi
@@ -109,7 +170,6 @@ jobs:
           echo ""
           echo "=== 5. Cleanup ==="
           kill $SERVER_PID 2>/dev/null || true
-          pkill -f playwright-server 2>/dev/null || true
           pkill -f "chrome" 2>/dev/null || true
           kill $XVFB_PID 2>/dev/null || true
 
