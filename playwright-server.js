@@ -78,52 +78,51 @@ async function fetchPage({ url, ua, referer, headers, waitFor, debug }) {
     let status = 200;
     const t0 = Date.now();
     try {
-        // networkidle — redirect + JS inject settle
+        // Fast initial load — domcontentloaded only
         const resp = await page.goto(url, {
-            waitUntil: 'networkidle',
-            timeout: 35000,
-        }).catch(async (e) => {
-            console.log(`[NAV-FALLBACK] ${e.message}`);
-            return await page.goto(url, {
-                waitUntil: 'domcontentloaded',
-                timeout: 20000,
-            }).catch(() => null);
+            waitUntil: 'domcontentloaded',
+            timeout: 25000,
+        }).catch((e) => {
+            console.log(`[NAV-ERR] ${e.message}`);
+            return null;
         });
         status = resp ? resp.status() : 200;
 
-        await page.waitForLoadState('networkidle', { timeout: 5000 }).catch(() => {});
-
-        // CF challenge handling
+        // CF challenge handling FIRST (before wasting time on networkidle)
         if (await isChallengePage(page)) {
             console.log(`[CF] challenge: ${url}`);
             let solved = false;
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < 15; i++) {   // 15 × 1.5s = 22.5s max
                 await page.waitForTimeout(1500);
                 if (!(await isChallengePage(page))) { solved = true; break; }
             }
-            console.log(solved ? `[CF-OK]` : `[CF-FAIL]`);
-            await page.waitForTimeout(500);
+            console.log(solved ? `[CF-OK ${Date.now() - t0}ms]` : `[CF-FAIL]`);
+            await page.waitForTimeout(300);
         }
 
-        // waitFor selector
+        // Then short networkidle wait for JS content
+        await page.waitForLoadState('networkidle', { timeout: 5000 }).catch(() => {});
+
+        // Wait for a specific selector (e.g. iframe)
         if (waitFor) {
             try {
                 await page.waitForSelector(waitFor, { timeout: 8000, state: 'attached' });
                 console.log(`[WAIT-OK] '${waitFor}'`);
             } catch {
                 console.log(`[WAIT-FAIL] '${waitFor}'`);
-                await page.waitForTimeout(2000);
+                await page.waitForTimeout(1500);
             }
         } else {
-            await page.waitForTimeout(400);
+            await page.waitForTimeout(300);
         }
 
         const html = await page.content();
         const elapsed = Date.now() - t0;
 
-        // Short page — dump content
+        // Dump tiny pages (so we can see 144-byte mystery content)
         if (html.length < 2000) {
-            console.log(`[SHORT-HTML] ${html.length}b: ${html.slice(0, 500).replace(/\s+/g, ' ')}`);
+            const snippet = html.slice(0, 500).replace(/\s+/g, ' ');
+            console.log(`[SHORT-HTML] ${html.length}b: ${snippet}`);
         }
 
         const iframeCount = (html.match(/<iframe/gi) || []).length;
@@ -174,7 +173,7 @@ const server = http.createServer((req, res) => {
     });
 });
 
-// ✅ Explicit server error handler — bind fail / EADDRINUSE instantly visible
+// Explicit server error handler — bind fail / EADDRINUSE instantly visible
 server.on('error', (err) => {
     console.error('SERVER ERROR:', err.message, err.code || '');
     process.exit(1);
