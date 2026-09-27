@@ -1,6 +1,7 @@
 <?php
 /**
  * Cricket Streaming Scraper — Playwright powered (Cloudflare bypass)
+ * Based on original cURL version, now routed via Playwright server
  */
 
 error_reporting(E_ALL);
@@ -16,6 +17,9 @@ class CricketScraper {
 
     private $fetchCount = 0;
 
+    // ============================================================
+    // fetchUrl — now routed via Playwright server
+    // ============================================================
     private function fetchUrl($url, $headers = [], $ua = null, $referer = null, $waitFor = null, $debug = false) {
         $ua = $ua ?: $this->desktopUA;
         $this->fetchCount++;
@@ -88,7 +92,7 @@ class CricketScraper {
     }
 
     // ============================================================
-    // HTML extractors
+    // Extractors (unchanged from original)
     // ============================================================
     private function extractChannels($html) {
         $channels = [];
@@ -128,19 +132,25 @@ class CricketScraper {
     }
 
     private function extractIframeUrl($html, $pageUrl) {
+        // Direct iframe
         if (preg_match('#<iframe[^>]+src=["\']([^"\']+)["\']#i', $html, $m)) return $this->resolveRelative($pageUrl, $m[1]);
+        // Lazy-loaded data-src
         if (preg_match('#<iframe[^>]+data-src=["\']([^"\']+)["\']#i', $html, $m)) return $this->resolveRelative($pageUrl, $m[1]);
+        // document.write
         if (preg_match('#document\.write\([^)]*?src=["\']([^"\']+)["\']#is', $html, $m)) return $this->resolveRelative($pageUrl, $m[1]);
+        // JS .src = "..."
         if (preg_match('#\.src\s*=\s*["\']((?:https?:)?//[^"\']+/(?:embedit|embed|atofplay|player)\.php[^"\']*)["\']#i', $html, $m)) {
             $u = $m[1];
             if (strpos($u, '//') === 0) $u = 'https:' . $u;
             return $u;
         }
+        // Absolute embed URL
         if (preg_match('#((?:https?:)?//[^"\'\s]+/(?:embedit|embed|atofplay)\.php\?id=[a-zA-Z0-9]+)#i', $html, $m)) {
             $u = $m[1];
             if (strpos($u, '//') === 0) $u = 'https:' . $u;
             return $u;
         }
+        // Relative embed path
         if (preg_match('#/(embedit|embed|atofplay)\.php\?id=([a-zA-Z0-9]+)#i', $html, $m)) {
             $origin = $this->originOf($pageUrl);
             return $origin . '/' . $m[1] . '.php?id=' . $m[2];
@@ -155,12 +165,14 @@ class CricketScraper {
     }
 
     private function extractInlineVars($html) {
-        $v = ['fid' => null, 'v_con' => '', 'v_dt' => ''];
+        $v = ['fid' => null, 'v_con' => '', 'v_dt' => '', 'v_width' => '100%', 'v_height' => '100%'];
         foreach (['fid', 'v_id'] as $key) {
             if (preg_match('/\b' . $key . '\s*=\s*["\']?([a-zA-Z0-9_\-]+)["\']?/', $html, $m)) { $v['fid'] = $m[1]; break; }
         }
         if (preg_match('/\bv_con\s*=\s*["\']([^"\']+)["\']/', $html, $m)) $v['v_con'] = $m[1];
         if (preg_match('/\bv_dt\s*=\s*["\']([^"\']+)["\']/', $html, $m))  $v['v_dt']  = $m[1];
+        if (preg_match('/\bv_width\s*=\s*["\']?([0-9]+%?)["\']?/', $html, $m))  $v['v_width']  = $m[1];
+        if (preg_match('/\bv_height\s*=\s*["\']?([0-9]+%?)["\']?/', $html, $m)) $v['v_height'] = $m[1];
         return $v;
     }
 
@@ -203,43 +215,39 @@ class CricketScraper {
     }
 
     // ============================================================
-    // Player resolution — NO more embed guessing
+    // tryResolveOnce — mirror FIRST (playsto.top), then original
+    // cricgo.pro/player.php 404s so we skip guessing
     // ============================================================
     private function tryResolveOnce($playerPageUrl) {
-        $baseHost = parse_url($this->baseUrl, PHP_URL_HOST);
-        $pHost    = parse_url($playerPageUrl, PHP_URL_HOST);
-
-        // Candidate list — same-domain player FIRST, then original, then mirror
         $candidates = [];
-        if ($pHost && $baseHost && $pHost !== $baseHost) {
-            $q = parse_url($playerPageUrl, PHP_URL_QUERY) ?: '';
-            $candidates[] = "{$this->baseUrl}/player.php" . ($q ? "?{$q}" : '');
-        }
-        $candidates[] = $playerPageUrl;
+
+        // ✅ MIRROR FIRST — playsto.top has easier CF
         $mirror = $this->applyMirror($playerPageUrl);
         if ($mirror !== $playerPageUrl) $candidates[] = $mirror;
 
+        $candidates[] = $playerPageUrl;
         $candidates = array_values(array_unique($candidates));
 
         foreach ($candidates as $idx => $url) {
             fwrite(STDERR, "[TRY " . ($idx+1) . "/" . count($candidates) . "] {$url}\n");
 
-            $playerHtml = $this->fetchUrl($url, [], $this->desktopUA, $this->baseUrl . '/', null, false);
+            // wait:iframe tells Playwright to wait for the iframe element
+            $playerHtml = $this->fetchUrl($url, [], $this->desktopUA, $this->baseUrl . '/', 'iframe', false);
             if (!$playerHtml) continue;
 
-            // Log tiny content so we can see what's actually returned
+            // Tiny page = 404 / redirect wrapper
             if (strlen($playerHtml) < 500) {
                 $snippet = preg_replace('/\s+/', ' ', substr($playerHtml, 0, 300));
                 fwrite(STDERR, "  [TINY] {$snippet}\n");
+                continue;
             }
 
-            // Skip CF challenge pages
+            // CF challenge page detect
             if (strlen($playerHtml) < 30000 && stripos($playerHtml, 'challenge-platform') !== false) {
                 fwrite(STDERR, "  [SKIP] CF challenge page\n");
                 continue;
             }
 
-            // Any iframe to extract?
             $embedUrl = $this->extractIframeUrl($playerHtml, $url);
             if (!$embedUrl) {
                 $iframeCount = preg_match_all('#<iframe#i', $playerHtml);
@@ -285,6 +293,18 @@ class CricketScraper {
     }
 
     // ============================================================
+    // getM3u8Referer — kept for compatibility
+    // ============================================================
+    private function getM3u8Referer($finalPlayerUrl) {
+        $origin = $this->originOf($finalPlayerUrl);
+        if (!$origin) return '';
+        $html = $this->fetchUrl($finalPlayerUrl, ["Referer: {$origin}/"], $this->mobileUA, $origin . '/');
+        if (!$html) return $origin . '/';
+        if (preg_match('/origin:\s*["\']([^"\']+)["\']/', $html, $m)) return $m[1];
+        return $origin . '/';
+    }
+
+    // ============================================================
     // Main scrape
     // ============================================================
     public function scrape($quiet = false) {
@@ -297,10 +317,12 @@ class CricketScraper {
             fwrite(STDERR, "[LOG] " . $msg);
         };
 
+        // ---------- Main page ----------
         $log("Fetching main page...\n");
         $mainHtml = $this->fetchUrl($this->baseUrl, [], $this->desktopUA, $this->baseUrl . '/');
         if (!$mainHtml) return json_encode(['error' => 'Failed to fetch main page']);
 
+        // ---------- CHANNELS ----------
         $log("Extracting channels...\n");
         $channels = $this->extractChannels($mainHtml);
         $log("Found " . count($channels) . " channels\n");
@@ -322,7 +344,8 @@ class CricketScraper {
                 list($final, $msg, $embedOrigin) = $this->resolveStreamFromPlayerPage($pUrl);
                 if (!$final) { $log("    ✗ {$msg}\n"); continue; }
 
-                $playRef = $embedOrigin ? $embedOrigin . '/' : '';
+                $playRef = $this->getM3u8Referer($final);
+
                 $channelsResult[] = [
                     'name'        => $name,
                     'image'       => $logo,
@@ -334,6 +357,7 @@ class CricketScraper {
             }
         }
 
+        // ---------- LIVE EVENTS ----------
         $log("Extracting live events...\n");
         $liveEvents = $this->extractLiveEvents($mainHtml);
         $log("Found " . count($liveEvents) . " live events\n");
@@ -364,7 +388,8 @@ class CricketScraper {
                 list($final, $msg, $embedOrigin) = $this->resolveStreamFromPlayerPage($playerUrl);
                 if (!$final) { $log("    ✗ {$msg}\n"); continue; }
 
-                $playRef = $embedOrigin ? $embedOrigin . '/' : '';
+                $playRef = $this->getM3u8Referer($final);
+
                 $liveEventsResult[] = [
                     'title'   => $title,
                     'logo'    => $logo,
@@ -375,6 +400,7 @@ class CricketScraper {
             }
         }
 
+        // ---------- Group live events ----------
         $grouped = [];
         foreach ($liveEventsResult as $e) {
             $k = $e['title'];
