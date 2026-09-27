@@ -1,8 +1,9 @@
 const http = require('http');
+const fs = require('fs');
 const { chromium } = require('playwright');
 
 const PORT = 9999;
-const HEADLESS = process.env.HEADLESS !== 'false'; // headful by default in xvfb
+const HEADLESS = process.env.HEADLESS !== 'false';
 let browser = null;
 let sharedContext = null;
 
@@ -25,7 +26,6 @@ async function getBrowser() {
 
 async function getContext() {
     if (sharedContext) return sharedContext;
-
     const b = await getBrowser();
     sharedContext = await b.newContext({
         viewport: { width: 1366, height: 768 },
@@ -33,27 +33,36 @@ async function getContext() {
         timezoneId: 'Asia/Dhaka',
         userAgent: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36',
     });
-
     await sharedContext.addInitScript(() => {
         Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
         window.chrome = { runtime: {} };
         Object.defineProperty(navigator, 'languages', { get: () => ['en-US', 'en'] });
         Object.defineProperty(navigator, 'plugins', { get: () => [1, 2, 3, 4, 5] });
     });
-
     return sharedContext;
 }
 
+// ✅ STRICT CF detection — only real challenge DOM / exact title
 async function isChallengePage(page) {
     try {
-        const t = (await page.title()).toLowerCase();
-        if (/just a moment|checking your browser|attention required|cf-browser-verification|ddos protection/.test(t)) return true;
-        const el = await page.$('#challenge-form, #cf-challenge-running, .cf-turnstile, #cf-please-wait');
-        return !!el;
+        // Actual Cloudflare challenge DOM elements only
+        const el = await page.$(
+            '#challenge-form, #cf-challenge-running, #cf-please-wait, ' +
+            'script[src*="/cdn-cgi/challenge-platform/"], .cf-turnstile'
+        );
+        if (el) return true;
+
+        const title = (await page.title()).toLowerCase().trim();
+        // Exact / near-exact match only
+        if (title === 'just a moment...' || title === 'just a moment') return true;
+        if (title.startsWith('attention required')) return true;
+        if (title === 'checking your browser...' || title === 'checking your browser') return true;
+
+        return false;
     } catch { return false; }
 }
 
-async function fetchPage({ url, ua, referer, headers, waitFor }) {
+async function fetchPage({ url, ua, referer, headers, waitFor, debug }) {
     const ctx = await getContext();
     const page = await ctx.newPage();
 
@@ -73,42 +82,52 @@ async function fetchPage({ url, ua, referer, headers, waitFor }) {
     try {
         const resp = await page.goto(url, {
             waitUntil: 'domcontentloaded',
-            timeout: 45000,
+            timeout: 30000,
         });
         status = resp ? resp.status() : 200;
 
-        // CF challenge handling — longer wait for stubborn domains
+        // Wait max 15s for challenge to clear
         if (await isChallengePage(page)) {
             console.log(`[CF] challenge: ${url}`);
             let solved = false;
-            // wait up to 40s, poll every 1.5s
-            for (let i = 0; i < 27; i++) {
+            for (let i = 0; i < 10; i++) {   // 10 × 1.5s = 15s max
                 await page.waitForTimeout(1500);
                 if (!(await isChallengePage(page))) { solved = true; break; }
             }
-            if (solved) {
-                console.log(`[CF-OK] solved in ${Date.now() - t0}ms`);
-            } else {
-                console.log(`[CF-FAIL] could not solve: ${url}`);
-            }
-            // extra settle after challenge solved
-            await page.waitForTimeout(800);
+            console.log(solved ? `[CF-OK]` : `[CF-FAIL]`);
+            await page.waitForTimeout(500);
         }
 
-        // Optional waitFor selector (e.g., iframe on player pages)
+        // waitFor selector (iframe, embed, etc.)
         if (waitFor) {
             try {
-                await page.waitForSelector(waitFor, { timeout: 6000, state: 'attached' });
-                console.log(`[WAIT] found '${waitFor}' on ${url}`);
+                await page.waitForSelector(waitFor, { timeout: 5000, state: 'attached' });
+                console.log(`[WAIT-OK] '${waitFor}'`);
             } catch {
-                console.log(`[WAIT-FAIL] '${waitFor}' not found on ${url}`);
+                console.log(`[WAIT-FAIL] '${waitFor}'`);
+                // extra: try 2s more just in case
+                await page.waitForTimeout(2000);
             }
         } else {
-            await page.waitForTimeout(300);
+            await page.waitForTimeout(250);
         }
 
         const html = await page.content();
-        console.log(`[OK ${Date.now() - t0}ms ${status}] ${url} (${html.length}b)`);
+        const elapsed = Date.now() - t0;
+
+        // Count iframes in final HTML (for debug)
+        const iframeCount = (html.match(/<iframe/gi) || []).length;
+        console.log(`[OK ${elapsed}ms ${status}] ${url} (${html.length}b, iframes=${iframeCount})`);
+
+        // Debug dump
+        if (debug) {
+            try {
+                const fname = `/tmp/debug-${Date.now()}-${Math.floor(Math.random()*1000)}.html`;
+                fs.writeFileSync(fname, html);
+                console.log(`[DEBUG] saved: ${fname}`);
+            } catch {}
+        }
+
         return { ok: true, status, html, finalUrl: page.url() };
     } catch (e) {
         console.log(`[ERR ${Date.now() - t0}ms] ${url} — ${e.message}`);
@@ -141,7 +160,7 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, '127.0.0.1', () => {
-    console.log(`Playwright server on :${PORT} (headless=${HEADLESS})`);
+    console.log(`Playwright server :${PORT} (headless=${HEADLESS})`);
 });
 
 process.on('SIGTERM', async () => { try { if (browser) await browser.close(); } catch {} process.exit(0); });
