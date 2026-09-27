@@ -2,11 +2,9 @@ name: Daily Cricket Channels Scraper
 
 on:
   schedule:
-    # Runs every hour
     - cron: '0 * * * *'
     - cron: '30 * * * *'
   workflow_dispatch:
-    # Allows manual trigger
 
 permissions:
   contents: write
@@ -14,24 +12,56 @@ permissions:
 jobs:
   scrape-channels:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      
+
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
           extensions: curl, json
           tools: composer:v2
-      
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Playwright + Chromium
+        run: |
+          npm install
+          npx playwright install --with-deps chromium
+
+      - name: Start Playwright server
+        run: |
+          node playwright-server.js > pw.log 2>&1 &
+          echo $! > pw.pid
+          for i in {1..30}; do
+            if curl -s -o /dev/null -w "%{http_code}" -X POST \
+                -H 'Content-Type: application/json' \
+                -d '{"url":"https://example.com"}' \
+                http://127.0.0.1:9999/ | grep -q '200'; then
+              echo "Playwright server ready"
+              break
+            fi
+            sleep 1
+          done
+
       - name: Run scraper
         run: |
           php scraper.php --output channels.json
         env:
           TZ: UTC
-      
+
+      - name: Stop Playwright server
+        if: always()
+        run: |
+          [ -f pw.pid ] && kill $(cat pw.pid) || true
+          echo "----- Playwright log -----"
+          cat pw.log || true
+
       - name: Commit and push
         run: |
           git config --local user.email "action@github.com"
