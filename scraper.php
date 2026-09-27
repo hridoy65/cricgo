@@ -17,15 +17,16 @@ class CricketScraper {
     private $fetchCount = 0;
 
     // ============================================================
-    // Core fetch — supports waitFor selector
+    // Core fetch — via Playwright, supports waitFor + debug
     // ============================================================
-    private function fetchUrl($url, $headers = [], $ua = null, $referer = null, $waitFor = null) {
+    private function fetchUrl($url, $headers = [], $ua = null, $referer = null, $waitFor = null, $debug = false) {
         $ua = $ua ?: $this->desktopUA;
         $this->fetchCount++;
 
         $t0 = microtime(true);
         $waitTag = $waitFor ? " (wait:{$waitFor})" : "";
-        fwrite(STDERR, "[→ {$this->fetchCount}]{$waitTag} " . substr($url, 0, 110) . "\n");
+        $dbgTag  = $debug ? " [DEBUG]" : "";
+        fwrite(STDERR, "[→ {$this->fetchCount}]{$waitTag}{$dbgTag} " . substr($url, 0, 110) . "\n");
 
         $payload = json_encode([
             'url'     => $url,
@@ -33,6 +34,7 @@ class CricketScraper {
             'referer' => $referer ?: '',
             'headers' => array_values($headers),
             'waitFor' => $waitFor,
+            'debug'   => $debug,
         ]);
 
         $ch = curl_init($this->playwrightServer);
@@ -41,7 +43,7 @@ class CricketScraper {
             CURLOPT_POST           => true,
             CURLOPT_POSTFIELDS     => $payload,
             CURLOPT_HTTPHEADER     => ['Content-Type: application/json'],
-            CURLOPT_TIMEOUT        => 120,
+            CURLOPT_TIMEOUT        => 90,
             CURLOPT_CONNECTTIMEOUT => 5,
         ]);
         $body = curl_exec($ch);
@@ -56,11 +58,10 @@ class CricketScraper {
             return false;
         }
         if ($code >= 200 && $code < 400) {
-            fwrite(STDERR, "[✓ {$ms}ms " . strlen($body) . "b] " . substr($url, 0, 90) . "\n");
+            fwrite(STDERR, "[✓ {$ms}ms " . strlen($body) . "b]\n");
             return $body;
         }
-
-        fwrite(STDERR, "[✗ HTTP {$code} {$ms}ms]\n");
+        fwrite(STDERR, "[✗ HTTP {$code} {$ms}ms] " . substr($body, 0, 120) . "\n");
         return false;
     }
 
@@ -89,6 +90,9 @@ class CricketScraper {
         return $url;
     }
 
+    // ============================================================
+    // HTML extractors
+    // ============================================================
     private function extractChannels($html) {
         $channels = [];
         preg_match_all('/<a href="\/channels\/([^"]+)" class="widget-link">\s*<img[^>]+src="([^"]+)"[^>]*alt="([^"]+)"/', $html, $m);
@@ -129,17 +133,17 @@ class CricketScraper {
     private function extractIframeUrl($html, $pageUrl) {
         // Direct iframe
         if (preg_match('#<iframe[^>]+src=["\']([^"\']+)["\']#i', $html, $m)) return $this->resolveRelative($pageUrl, $m[1]);
-        // data-src (lazy load)
+        // Lazy-loaded data-src
         if (preg_match('#<iframe[^>]+data-src=["\']([^"\']+)["\']#i', $html, $m)) return $this->resolveRelative($pageUrl, $m[1]);
         // document.write
         if (preg_match('#document\.write\([^)]*?src=["\']([^"\']+)["\']#is', $html, $m)) return $this->resolveRelative($pageUrl, $m[1]);
-        // JS sets src
+        // JS .src =
         if (preg_match('#\.src\s*=\s*["\']((?:https?:)?//[^"\']+/(?:embedit|embed|atofplay|player)\.php[^"\']*)["\']#i', $html, $m)) {
             $u = $m[1];
             if (strpos($u, '//') === 0) $u = 'https:' . $u;
             return $u;
         }
-        // Absolute embed URL in text
+        // Absolute embed URL in HTML
         if (preg_match('#((?:https?:)?//[^"\'\s]+/(?:embedit|embed|atofplay)\.php\?id=[a-zA-Z0-9]+)#i', $html, $m)) {
             $u = $m[1];
             if (strpos($u, '//') === 0) $u = 'https:' . $u;
@@ -207,47 +211,81 @@ class CricketScraper {
         return null;
     }
 
+    // ============================================================
+    // Player resolution
+    // ============================================================
     private function tryResolveOnce($playerPageUrl) {
-        // ⬅️ waitFor: 'iframe' যোগ করেছি (JS-injected iframe catch করার জন্য)
-        $playerHtml = $this->fetchUrl($playerPageUrl, [], $this->desktopUA, $this->baseUrl . '/', 'iframe');
-        if (!$playerHtml) return [null, "player fetch failed", null];
-
-        $embedUrl = $this->extractIframeUrl($playerHtml, $playerPageUrl);
-        if (!$embedUrl) {
-            return [null, 'no iframe/embed URL (len=' . strlen($playerHtml) . ')', null];
+        // ✅ Prefer same-domain player URL first (cricgo.pro/player.php?id=xxx)
+        $baseHost = parse_url($this->baseUrl, PHP_URL_HOST);
+        $pHost    = parse_url($playerPageUrl, PHP_URL_HOST);
+        $sameDomainUrl = null;
+        if ($pHost && $baseHost && $pHost !== $baseHost) {
+            $q = parse_url($playerPageUrl, PHP_URL_QUERY) ?: '';
+            $sameDomainUrl = "{$this->baseUrl}/player.php" . ($q ? "?{$q}" : '');
         }
 
-        $embedOrigin = $this->originOf($embedUrl);
+        $tries = [];
+        if ($sameDomainUrl) $tries[] = $sameDomainUrl;
+        $tries[] = $playerPageUrl;
 
-        $embedHtml = $this->getEmbedPage($embedUrl);
-        if (!$embedHtml) return [null, "embed fetch failed: {$embedUrl}", $embedOrigin];
+        foreach ($tries as $idx => $url) {
+            fwrite(STDERR, "[TRY] {$url}\n");
+            $isLast = ($idx === count($tries) - 1);
+            $playerHtml = $this->fetchUrl($url, [], $this->desktopUA, $this->baseUrl . '/', 'iframe', $isLast);
+            if (!$playerHtml) continue;
 
-        $vars = $this->extractInlineVars($embedHtml);
-        if (empty($vars['fid'])) return [null, "no fid", $embedOrigin];
+            // Skip CF challenge pages
+            if (strlen($playerHtml) < 30000 && stripos($playerHtml, 'challenge-platform') !== false) {
+                fwrite(STDERR, "[SKIP] CF challenge page\n");
+                continue;
+            }
 
-        $scriptUrls = $this->extractScriptUrls($embedHtml, $embedUrl);
-        if (!empty($scriptUrls)) {
+            $embedUrl = $this->extractIframeUrl($playerHtml, $url);
+            if (!$embedUrl) {
+                $hasIframe = stripos($playerHtml, '<iframe') !== false;
+                $hasEmb    = stripos($playerHtml, 'embed.php') !== false
+                          || stripos($playerHtml, 'embedit.php') !== false
+                          || stripos($playerHtml, 'atofplay.php') !== false;
+                $iframeCount = preg_match_all('#<iframe#i', $playerHtml);
+                fwrite(STDERR, "[INFO] len=" . strlen($playerHtml)
+                    . " iframeTags={$iframeCount}"
+                    . " hasEmbedStr=" . ($hasEmb?'Y':'N') . "\n");
+                continue;
+            }
+
+            $embedOrigin = $this->originOf($embedUrl);
+
+            $embedHtml = $this->getEmbedPage($embedUrl);
+            if (!$embedHtml) return [null, "embed fetch failed: {$embedUrl}", $embedOrigin];
+
+            $vars = $this->extractInlineVars($embedHtml);
+            if (empty($vars['fid'])) return [null, "no fid", $embedOrigin];
+
+            $scriptUrls = $this->extractScriptUrls($embedHtml, $embedUrl);
             foreach ($scriptUrls as $scriptUrl) {
                 $js = $this->getScriptContent($scriptUrl, $embedUrl);
                 if (!$js) continue;
                 $final = $this->parseScriptForPlayerUrl($js, $vars);
                 if ($final) return [$final, "resolved via JS", $embedOrigin];
             }
+
+            $origin   = $this->originOf($embedUrl);
+            $path     = parse_url($embedUrl, PHP_URL_PATH) ?: '/embed.php';
+            $basePath = preg_replace('#\.php.*$#', '.php', $path);
+            $fallback = $origin . $basePath . '?v=' . $vars['fid'];
+            if (!empty($vars['v_con'])) $fallback .= '&secure=' . $vars['v_con'];
+            if (!empty($vars['v_dt']))  $fallback .= '&expires=' . $vars['v_dt'];
+            return [$fallback, "fallback", $embedOrigin];
         }
 
-        $origin = $this->originOf($embedUrl);
-        $path = parse_url($embedUrl, PHP_URL_PATH) ?: '/embed.php';
-        $basePath = preg_replace('#\.php.*$#', '.php', $path);
-        $fallback = $origin . $basePath . '?v=' . $vars['fid'];
-        if (!empty($vars['v_con'])) $fallback .= '&secure=' . $vars['v_con'];
-        if (!empty($vars['v_dt']))  $fallback .= '&expires=' . $vars['v_dt'];
-        return [$fallback, "fallback", $embedOrigin];
+        return [null, "all player URLs failed", null];
     }
 
     private function resolveStreamFromPlayerPage($playerPageUrl) {
         list($final, $msg, $embedOrigin) = $this->tryResolveOnce($playerPageUrl);
         if ($final) return [$final, $msg, $embedOrigin];
 
+        // Try mirror
         $mirrorUrl = $this->applyMirror($playerPageUrl);
         if ($mirrorUrl !== $playerPageUrl) {
             list($final2, $msg2, $embedOrigin2) = $this->tryResolveOnce($mirrorUrl);
@@ -256,6 +294,9 @@ class CricketScraper {
         return [$final, $msg, $embedOrigin];
     }
 
+    // ============================================================
+    // Main scrape
+    // ============================================================
     public function scrape($quiet = false) {
         $channelsResult = [];
         $liveEventsResult = [];
@@ -266,10 +307,12 @@ class CricketScraper {
             fwrite(STDERR, "[LOG] " . $msg);
         };
 
+        // ---------- Main page ----------
         $log("Fetching main page...\n");
         $mainHtml = $this->fetchUrl($this->baseUrl, [], $this->desktopUA, $this->baseUrl . '/');
         if (!$mainHtml) return json_encode(['error' => 'Failed to fetch main page']);
 
+        // ---------- Channels ----------
         $log("Extracting channels...\n");
         $channels = $this->extractChannels($mainHtml);
         $log("Found " . count($channels) . " channels\n");
@@ -287,7 +330,6 @@ class CricketScraper {
             $playerUrls = $this->extractPlayerUrls($channelHtml, $channelUrl);
             if (empty($playerUrls)) { $log("    ✗ no player urls\n"); continue; }
 
-            $resolved = false;
             foreach ($playerUrls as $pUrl) {
                 list($final, $msg, $embedOrigin) = $this->resolveStreamFromPlayerPage($pUrl);
                 if (!$final) { $log("    ✗ {$msg}\n"); continue; }
@@ -300,11 +342,11 @@ class CricketScraper {
                     'url'         => "{$final}|Referer={$embedOrigin}/|playRef={$playRef}",
                 ];
                 $log("    ✓ {$final}\n");
-                $resolved = true;
                 break;
             }
         }
 
+        // ---------- Live events ----------
         $log("Extracting live events...\n");
         $liveEvents = $this->extractLiveEvents($mainHtml);
         $log("Found " . count($liveEvents) . " live events\n");
@@ -346,6 +388,7 @@ class CricketScraper {
             }
         }
 
+        // ---------- Group events by title ----------
         $grouped = [];
         foreach ($liveEventsResult as $e) {
             $k = $e['title'];
