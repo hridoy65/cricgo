@@ -12,7 +12,7 @@ permissions:
 jobs:
   scrape-channels:
     runs-on: ubuntu-latest
-    timeout-minutes: 30      # ← এটা যোগ করো
+    timeout-minutes: 20
 
     steps:
       - name: Checkout repository
@@ -30,10 +30,15 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install Playwright + Chromium
+      - name: Install Playwright
         run: |
           npm install
-          npx playwright install --with-deps chromium
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Install Google Chrome
+        run: npx playwright install chrome
 
       - name: Start Playwright server
         run: |
@@ -44,7 +49,7 @@ jobs:
                 -H 'Content-Type: application/json' \
                 -d '{"url":"https://example.com"}' \
                 http://127.0.0.1:9999/ | grep -q '200'; then
-              echo "Playwright server ready"
+              echo "✅ Playwright server ready"
               break
             fi
             sleep 1
@@ -56,14 +61,19 @@ jobs:
         env:
           TZ: UTC
 
+      - name: Show Playwright log
+        if: always()
+        run: |
+          echo "===== Playwright server log ====="
+          cat pw.log || true
+
       - name: Stop Playwright server
         if: always()
         run: |
           [ -f pw.pid ] && kill $(cat pw.pid) || true
-          echo "----- Playwright log -----"
-          cat pw.log || true
 
       - name: Commit and push
+        if: success()
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
