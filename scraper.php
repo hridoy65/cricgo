@@ -212,47 +212,80 @@ class CricketScraper {
     }
 
     // ============================================================
-    // Player resolution
+    // Player resolution — with direct-embed + tiny-page redirect
     // ============================================================
     private function tryResolveOnce($playerPageUrl) {
-        // ✅ Prefer same-domain player URL first (cricgo.pro/player.php?id=xxx)
-        $baseHost = parse_url($this->baseUrl, PHP_URL_HOST);
-        $pHost    = parse_url($playerPageUrl, PHP_URL_HOST);
-        $sameDomainUrl = null;
-        if ($pHost && $baseHost && $pHost !== $baseHost) {
-            $q = parse_url($playerPageUrl, PHP_URL_QUERY) ?: '';
-            $sameDomainUrl = "{$this->baseUrl}/player.php" . ($q ? "?{$q}" : '');
+        // Extract player ID from URL (e.g. willow, astrocric, fox501)
+        $pid = null;
+        if (preg_match('/[?&]id=([a-zA-Z0-9_\-]+)/', $playerPageUrl, $m)) {
+            $pid = $m[1];
         }
 
-        $tries = [];
-        if ($sameDomainUrl) $tries[] = $sameDomainUrl;
-        $tries[] = $playerPageUrl;
+        // Build candidate list — direct embed guesses first (fastest)
+        $candidates = [];
+        if ($pid) {
+            $candidates[] = "https://cricgo.pro/embed.php?id={$pid}";
+            $candidates[] = "https://cricgo.pro/embedit.php?id={$pid}";
+            $candidates[] = "https://cricgo.pro/atofplay.php?id={$pid}";
+        }
+        $candidates[] = $playerPageUrl;
 
-        foreach ($tries as $idx => $url) {
-            fwrite(STDERR, "[TRY] {$url}\n");
-            $isLast = ($idx === count($tries) - 1);
-            $playerHtml = $this->fetchUrl($url, [], $this->desktopUA, $this->baseUrl . '/', 'iframe', $isLast);
+        foreach ($candidates as $idx => $url) {
+            fwrite(STDERR, "[TRY " . ($idx+1) . "/" . count($candidates) . "] {$url}\n");
+
+            $playerHtml = $this->fetchUrl($url, [], $this->desktopUA, $this->baseUrl . '/', null, false);
             if (!$playerHtml) continue;
 
             // Skip CF challenge pages
             if (strlen($playerHtml) < 30000 && stripos($playerHtml, 'challenge-platform') !== false) {
-                fwrite(STDERR, "[SKIP] CF challenge page\n");
+                fwrite(STDERR, "  [SKIP] CF challenge page\n");
                 continue;
             }
 
+            // If page is tiny (< 2KB) → JS redirect. Extract the target.
+            if (strlen($playerHtml) < 2000) {
+                $redirectUrl = null;
+
+                // meta refresh
+                if (preg_match('#<meta[^>]+http-equiv=["\']refresh["\'][^>]+content=["\']\d+;\s*url=([^"\']+)["\']#i', $playerHtml, $m)) {
+                    $redirectUrl = $this->resolveRelative($url, html_entity_decode($m[1]));
+                    fwrite(STDERR, "  [REDIRECT] meta → {$redirectUrl}\n");
+                }
+                // JS window.location
+                elseif (preg_match('#(?:window\.)?location(?:\.href)?\s*=\s*["\']([^"\']+)["\']#i', $playerHtml, $m)) {
+                    $redirectUrl = $this->resolveRelative($url, $m[1]);
+                    fwrite(STDERR, "  [REDIRECT] JS → {$redirectUrl}\n");
+                }
+                // iframe src in the tiny page
+                elseif (preg_match('#<iframe[^>]+src=["\']([^"\']+)["\']#i', $playerHtml, $m)) {
+                    $redirectUrl = $this->resolveRelative($url, $m[1]);
+                    fwrite(STDERR, "  [DIRECT-IFRAME] {$redirectUrl}\n");
+                }
+
+                if ($redirectUrl) {
+                    $playerHtml = $this->fetchUrl($redirectUrl, [], $this->desktopUA, $url, null, false);
+                    $url = $redirectUrl;
+                    if (!$playerHtml) continue;
+                } else {
+                    fwrite(STDERR, "  [TINY-PAGE] len=" . strlen($playerHtml) . " — no redirect found\n");
+                    continue;
+                }
+            }
+
+            // Extract embed URL
             $embedUrl = $this->extractIframeUrl($playerHtml, $url);
             if (!$embedUrl) {
-                $hasIframe = stripos($playerHtml, '<iframe') !== false;
-                $hasEmb    = stripos($playerHtml, 'embed.php') !== false
-                          || stripos($playerHtml, 'embedit.php') !== false
-                          || stripos($playerHtml, 'atofplay.php') !== false;
                 $iframeCount = preg_match_all('#<iframe#i', $playerHtml);
-                fwrite(STDERR, "[INFO] len=" . strlen($playerHtml)
+                $hasEmb = stripos($playerHtml, 'embed.php') !== false
+                       || stripos($playerHtml, 'embedit.php') !== false
+                       || stripos($playerHtml, 'atofplay.php') !== false;
+                fwrite(STDERR, "  [INFO] len=" . strlen($playerHtml)
                     . " iframeTags={$iframeCount}"
                     . " hasEmbedStr=" . ($hasEmb?'Y':'N') . "\n");
                 continue;
             }
 
+            fwrite(STDERR, "  [EMBED] {$embedUrl}\n");
             $embedOrigin = $this->originOf($embedUrl);
 
             $embedHtml = $this->getEmbedPage($embedUrl);
