@@ -12,7 +12,7 @@ permissions:
 jobs:
   scrape-channels:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
 
     steps:
       - name: Checkout repository
@@ -30,9 +30,11 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install Playwright
-        run: |
-          npm install
+      - name: Install xvfb
+        run: sudo apt-get update && sudo apt-get install -y xvfb
+
+      - name: Install Playwright deps
+        run: npm install
 
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
@@ -40,11 +42,14 @@ jobs:
       - name: Install Google Chrome
         run: npx playwright install chrome
 
-      - name: Start Playwright server
+      - name: Start Playwright server (xvfb / headful)
+        env:
+          HEADLESS: 'false'
         run: |
-          node playwright-server.js > pw.log 2>&1 &
+          xvfb-run -a --server-args="-screen 0 1366x768x24" \
+            node playwright-server.js > pw.log 2>&1 &
           echo $! > pw.pid
-          for i in {1..30}; do
+          for i in {1..40}; do
             if curl -s -o /dev/null -w "%{http_code}" -X POST \
                 -H 'Content-Type: application/json' \
                 -d '{"url":"https://example.com"}' \
@@ -56,8 +61,7 @@ jobs:
           done
 
       - name: Run scraper
-        run: |
-          php scraper.php --output channels.json
+        run: php scraper.php --output channels.json
         env:
           TZ: UTC
 
@@ -71,6 +75,7 @@ jobs:
         if: always()
         run: |
           [ -f pw.pid ] && kill $(cat pw.pid) || true
+          pkill -f playwright-server || true
 
       - name: Commit and push
         if: success()
