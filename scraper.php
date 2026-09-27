@@ -1,6 +1,6 @@
 <?php
 /**
- * Cricket Streaming Scraper — Fully Dynamic + Correct Referer
+ * Cricket Streaming Scraper — Playwright powered (Cloudflare bypass)
  */
 
 error_reporting(E_ALL);
@@ -11,28 +11,44 @@ class CricketScraper {
     private $desktopUA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36';
     private $mobileUA  = 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36';
 
+    private $playwrightServer = 'http://127.0.0.1:9999/';
     private $mirrorMap = ['cricgo.cc' => 'playsto.top'];
 
+    // ============================================================
+    // Core fetch — now via Playwright server
+    // ============================================================
     private function fetchUrl($url, $headers = [], $ua = null, $referer = null) {
-        $ch = curl_init();
-        curl_setopt_array($ch, [
-            CURLOPT_URL => $url, CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_FOLLOWLOCATION => true, CURLOPT_MAXREDIRS => 5,
-            CURLOPT_SSL_VERIFYPEER => false, CURLOPT_SSL_VERIFYHOST => false,
-            CURLOPT_TIMEOUT => 30, CURLOPT_ENCODING => '',
-            CURLOPT_USERAGENT => $ua ?: $this->desktopUA,
+        $ua = $ua ?: $this->desktopUA;
+
+        $payload = json_encode([
+            'url'     => $url,
+            'ua'      => $ua,
+            'referer' => $referer ?: '',
+            'headers' => array_values($headers),
         ]);
-        $defaultHeaders = [
-            'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
-            'Accept-Language: en-BD,en;q=0.9,bn-BD;q=0.8,bn;q=0.7,en-GB;q=0.6,en-US;q=0.5',
-            'DNT: 1', 'Upgrade-Insecure-Requests: 1',
-        ];
-        if ($referer) $defaultHeaders[] = "Referer: {$referer}";
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array_merge($defaultHeaders, $headers));
+
+        $ch = curl_init($this->playwrightServer);
+        curl_setopt_array($ch, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_POST           => true,
+            CURLOPT_POSTFIELDS     => $payload,
+            CURLOPT_HTTPHEADER     => ['Content-Type: application/json'],
+            CURLOPT_TIMEOUT        => 60,
+            CURLOPT_CONNECTTIMEOUT => 5,
+        ]);
         $body = curl_exec($ch);
         $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $err  = curl_error($ch);
         curl_close($ch);
-        return ($code >= 200 && $code < 400) ? $body : false;
+
+        if ($body === false) {
+            error_log("Playwright fetch fail: {$url} — {$err}");
+            return false;
+        }
+        if ($code >= 200 && $code < 400) return $body;
+
+        error_log("Playwright fetch HTTP {$code}: {$url}");
+        return false;
     }
 
     private function originOf($url) {
@@ -168,9 +184,6 @@ class CricketScraper {
         return null;
     }
 
-    // ============================================================
-    // এখন embedOrigin রিটার্ন করে — সেটাই আসল Referer
-    // ============================================================
     private function tryResolveOnce($playerPageUrl) {
         $playerHtml = $this->fetchUrl($playerPageUrl, [], $this->desktopUA, $this->baseUrl . '/');
         if (!$playerHtml) return [null, "player fetch failed", null];
@@ -178,7 +191,6 @@ class CricketScraper {
         $embedUrl = $this->extractIframeUrl($playerHtml, $playerPageUrl);
         if (!$embedUrl) return [null, 'no iframe/embed URL', null];
 
-        // ✅ embed URL এর origin = আসল Referer
         $embedOrigin = $this->originOf($embedUrl);
 
         $embedHtml = $this->getEmbedPage($embedUrl);
@@ -252,7 +264,6 @@ class CricketScraper {
             if (empty($playerUrls)) continue;
 
             foreach ($playerUrls as $pUrl) {
-                // ✅ এখন embedOrigin সঠিকভাবে পাওয়া যাচ্ছে
                 list($final, $msg, $embedOrigin) = $this->resolveStreamFromPlayerPage($pUrl);
                 if (!$final) { if (!$quiet) echo "    {$msg}\n"; continue; }
 
@@ -295,7 +306,6 @@ class CricketScraper {
 
                 if (!$quiet) echo "  channel: {$channelName}\n";
 
-                // ✅ embedOrigin embed URL থেকে আসছে
                 list($final, $msg, $embedOrigin) = $this->resolveStreamFromPlayerPage($playerUrl);
                 if (!$final) { if (!$quiet) echo "    {$msg}\n"; continue; }
 
@@ -311,7 +321,6 @@ class CricketScraper {
             }
         }
 
-        // Group
         $grouped = [];
         foreach ($liveEventsResult as $e) {
             $k = $e['title'];
