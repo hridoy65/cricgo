@@ -3,15 +3,13 @@ const { chromium } = require('playwright');
 
 const PORT = 9999;
 let browser = null;
-
-// Single shared context — cookies reused across all requests
 let sharedContext = null;
-let lastReferer = null;
 
 async function getBrowser() {
     if (!browser) {
         browser = await chromium.launch({
             headless: true,
+            channel: 'chrome',   // ⬅️ real Chrome = fewer CF challenges
             args: [
                 '--no-sandbox',
                 '--disable-dev-shm-usage',
@@ -48,7 +46,7 @@ async function fetchPage({ url, ua, referer, headers }) {
     const ctx = await getContext();
     const page = await ctx.newPage();
 
-    // Build extra headers
+    // Combine extra headers
     const extra = {};
     if (referer) extra['Referer'] = referer;
     if (headers && headers.length) {
@@ -57,13 +55,9 @@ async function fetchPage({ url, ua, referer, headers }) {
             if (i > 0) extra[h.slice(0, i).trim()] = h.slice(i + 1).trim();
         }
     }
+    if (ua) extra['User-Agent'] = ua;
     if (Object.keys(extra).length) {
         await page.setExtraHTTPHeaders(extra);
-    }
-
-    // per-request UA override (mobile vs desktop)
-    if (ua) {
-        await page.setExtraHTTPHeaders({ ...extra, 'User-Agent': ua });
     }
 
     let status = 200;
@@ -75,28 +69,29 @@ async function fetchPage({ url, ua, referer, headers }) {
         });
         status = resp ? resp.status() : 200;
 
-        // Quick challenge check (short wait)
-        const title = (await page.title().catch(() => '')).toLowerCase();
-        const isChallenge =
-            /just a moment|checking your browser|attention required|cf-browser-verification/.test(title) ||
-            !!(await page.$('#challenge-form, #cf-challenge-running, .cf-turnstile').catch(() => null));
+        // Detect Cloudflare challenge
+        const isChallenge = async () => {
+            try {
+                const t = (await page.title()).toLowerCase();
+                if (/just a moment|checking your browser|attention required|cf-browser-verification/.test(t)) return true;
+                const el = await page.$('#challenge-form, #cf-challenge-running, .cf-turnstile');
+                return !!el;
+            } catch { return false; }
+        };
 
-        if (isChallenge) {
-            console.log(`[CF] challenge on ${url}`);
-            for (let i = 0; i < 20; i++) {
+        if (await isChallenge()) {
+            console.log(`[CF] challenge: ${url}`);
+            // Max 12s wait — enough for auto-solve, avoids hanging
+            for (let i = 0; i < 12; i++) {
                 await page.waitForTimeout(1000);
-                const t = (await page.title().catch(() => '')).toLowerCase();
-                const stillChallenge =
-                    /just a moment|checking your browser|attention required/.test(t) ||
-                    !!(await page.$('#challenge-form, #cf-challenge-running, .cf-turnstile').catch(() => null));
-                if (!stillChallenge) break;
+                if (!(await isChallenge())) break;
             }
         }
 
-        await page.waitForTimeout(200); // small settle
+        await page.waitForTimeout(150); // tiny settle for JS
 
         const html = await page.content();
-        console.log(`[OK ${Date.now() - t0}ms] ${url} — ${html.length}b`);
+        console.log(`[OK ${Date.now() - t0}ms ${status}] ${url} (${html.length}b)`);
         return { ok: true, status, html, finalUrl: page.url() };
     } catch (e) {
         console.log(`[ERR ${Date.now() - t0}ms] ${url} — ${e.message}`);
@@ -135,6 +130,10 @@ server.listen(PORT, '127.0.0.1', () => {
 });
 
 process.on('SIGTERM', async () => {
+    try { if (browser) await browser.close(); } catch {}
+    process.exit(0);
+});
+process.on('SIGINT', async () => {
     try { if (browser) await browser.close(); } catch {}
     process.exit(0);
 });
