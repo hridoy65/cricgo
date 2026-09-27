@@ -3,7 +3,10 @@ const { chromium } = require('playwright');
 
 const PORT = 9999;
 let browser = null;
-const contexts = new Map();
+
+// Single shared context — cookies reused across all requests
+let sharedContext = null;
+let lastReferer = null;
 
 async function getBrowser() {
     if (!browser) {
@@ -20,72 +23,83 @@ async function getBrowser() {
     return browser;
 }
 
-async function getContext(ua, referer) {
-    const key = `${ua}||${referer}`;
-    if (contexts.has(key)) return contexts.get(key);
+async function getContext() {
+    if (sharedContext) return sharedContext;
 
     const b = await getBrowser();
-    const ctx = await b.newContext({
-        userAgent: ua,
+    sharedContext = await b.newContext({
         viewport: { width: 1366, height: 768 },
-        extraHTTPHeaders: referer ? { Referer: referer } : {},
         locale: 'en-US',
         timezoneId: 'Asia/Dhaka',
+        userAgent: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36',
     });
 
-    await ctx.addInitScript(() => {
+    await sharedContext.addInitScript(() => {
         Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
         window.chrome = { runtime: {} };
         Object.defineProperty(navigator, 'languages', { get: () => ['en-US', 'en'] });
         Object.defineProperty(navigator, 'plugins', { get: () => [1, 2, 3, 4, 5] });
     });
 
-    contexts.set(key, ctx);
-    return ctx;
+    return sharedContext;
 }
 
 async function fetchPage({ url, ua, referer, headers }) {
-    const ctx = await getContext(ua, referer);
+    const ctx = await getContext();
     const page = await ctx.newPage();
 
+    // Build extra headers
+    const extra = {};
+    if (referer) extra['Referer'] = referer;
     if (headers && headers.length) {
-        const extra = {};
         for (const h of headers) {
             const i = h.indexOf(':');
             if (i > 0) extra[h.slice(0, i).trim()] = h.slice(i + 1).trim();
         }
-        if (Object.keys(extra).length) await page.setExtraHTTPHeaders(extra);
+    }
+    if (Object.keys(extra).length) {
+        await page.setExtraHTTPHeaders(extra);
+    }
+
+    // per-request UA override (mobile vs desktop)
+    if (ua) {
+        await page.setExtraHTTPHeaders({ ...extra, 'User-Agent': ua });
     }
 
     let status = 200;
+    const t0 = Date.now();
     try {
         const resp = await page.goto(url, {
             waitUntil: 'domcontentloaded',
-            timeout: 45000,
+            timeout: 30000,
         });
         status = resp ? resp.status() : 200;
 
-        const isChallenge = async () => {
-            try {
-                const t = (await page.title()).toLowerCase();
-                if (/just a moment|checking your browser|attention required|cf-browser-verification/.test(t)) return true;
-                const el = await page.$('#challenge-form, #cf-challenge-running, .cf-turnstile');
-                return !!el;
-            } catch { return false; }
-        };
+        // Quick challenge check (short wait)
+        const title = (await page.title().catch(() => '')).toLowerCase();
+        const isChallenge =
+            /just a moment|checking your browser|attention required|cf-browser-verification/.test(title) ||
+            !!(await page.$('#challenge-form, #cf-challenge-running, .cf-turnstile').catch(() => null));
 
-        if (await isChallenge()) {
-            for (let i = 0; i < 30; i++) {
+        if (isChallenge) {
+            console.log(`[CF] challenge on ${url}`);
+            for (let i = 0; i < 20; i++) {
                 await page.waitForTimeout(1000);
-                if (!(await isChallenge())) break;
+                const t = (await page.title().catch(() => '')).toLowerCase();
+                const stillChallenge =
+                    /just a moment|checking your browser|attention required/.test(t) ||
+                    !!(await page.$('#challenge-form, #cf-challenge-running, .cf-turnstile').catch(() => null));
+                if (!stillChallenge) break;
             }
         }
 
-        await page.waitForTimeout(500);
+        await page.waitForTimeout(200); // small settle
 
         const html = await page.content();
+        console.log(`[OK ${Date.now() - t0}ms] ${url} — ${html.length}b`);
         return { ok: true, status, html, finalUrl: page.url() };
     } catch (e) {
+        console.log(`[ERR ${Date.now() - t0}ms] ${url} — ${e.message}`);
         return { ok: false, status: 0, error: e.message };
     } finally {
         try { await page.close(); } catch {}
@@ -117,14 +131,10 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, '127.0.0.1', () => {
-    console.log(`Playwright server listening on http://127.0.0.1:${PORT}`);
+    console.log(`Playwright server on :${PORT}`);
 });
 
 process.on('SIGTERM', async () => {
-    try { if (browser) await browser.close(); } catch {}
-    process.exit(0);
-});
-process.on('SIGINT', async () => {
     try { if (browser) await browser.close(); } catch {}
     process.exit(0);
 });
