@@ -2,9 +2,11 @@ name: Daily Cricket Channels Scraper
 
 on:
   schedule:
+    # Runs every hour
     - cron: '0 * * * *'
     - cron: '30 * * * *'
   workflow_dispatch:
+    # Allows manual trigger
 
 permissions:
   contents: write
@@ -12,138 +14,25 @@ permissions:
 jobs:
   scrape-channels:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
-
+    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
+      
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
           extensions: curl, json
           tools: composer:v2
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install xvfb
-        run: sudo apt-get update && sudo apt-get install -y xvfb
-
-      - name: Install Playwright deps
-        run: npm install
-
-      - name: Install Chromium
-        run: npx playwright install --with-deps chromium
-
-      - name: Install Google Chrome
-        run: npx playwright install chrome
-
+      
       - name: Run scraper
-        env:
-          HEADLESS: 'false'
-        shell: bash
         run: |
-          set +e
-
-          # ========== CLEANUP any stale process/port ==========
-          echo "== Cleanup =="
-          pkill -9 -f playwright-server 2>/dev/null || true
-          pkill -9 -f "chrome" 2>/dev/null || true
-          pkill -9 Xvfb 2>/dev/null || true
-          rm -f /tmp/.X99-lock /tmp/.X11-unix/X99 2>/dev/null || true
-          sleep 2
-
-          # ========== 1. XVFB ==========
-          echo "== Start Xvfb =="
-          Xvfb :99 -screen 0 1366x768x24 -ac +extension GLX +render -noreset > /tmp/xvfb.log 2>&1 &
-          XVFB_PID=$!
-          export DISPLAY=:99
-          sleep 3
-
-          if ! ps -p $XVFB_PID > /dev/null 2>&1; then
-            echo "❌ Xvfb died"
-            cat /tmp/xvfb.log
-            exit 1
-          fi
-          echo "✅ Xvfb running PID=$XVFB_PID"
-
-          # ========== 2. SERVER ==========
-          echo ""
-          echo "== Start Playwright server =="
-          # setsid detaches to new session; nohup ignores SIGHUP; </dev/null frees stdin
-          nohup setsid node playwright-server.js > pw.log 2>&1 < /dev/null &
-          SERVER_PID=$!
-          disown $SERVER_PID 2>/dev/null || true
-          echo "Server PID=$SERVER_PID"
-
-          sleep 2
-
-          echo ""
-          echo "== Process check =="
-          ps -ef | grep -E "node|Xvfb" | grep -v grep || echo "(no matching processes)"
-          echo ""
-          echo "== pw.log size: $(wc -c < pw.log) bytes =="
-          cat pw.log
-
-          if ! ps -p $SERVER_PID > /dev/null 2>&1; then
-            echo "❌ Server process gone"
-            exit 1
-          fi
-          echo "✅ Server process alive"
-
-          # ========== 3. HTTP READY WAIT ==========
-          echo ""
-          echo "== Wait for HTTP (max 45s) =="
-          READY=0
-          for i in $(seq 1 45); do
-            if curl -s --max-time 3 -o /dev/null \
-                -X POST \
-                -H 'Content-Type: application/json' \
-                -d '{"url":"https://example.com"}' \
-                http://127.0.0.1:9999/ ; then
-              echo "✅ HTTP ready at ${i}s"
-              READY=1
-              break
-            fi
-            if ! ps -p $SERVER_PID > /dev/null 2>&1; then
-              echo "❌ Server died during HTTP wait"
-              cat pw.log
-              break
-            fi
-            sleep 1
-          done
-
-          if [ "$READY" != "1" ]; then
-            echo "❌ Aborting"
-            kill $SERVER_PID $XVFB_PID 2>/dev/null || true
-            exit 1
-          fi
-
-          # ========== 4. SCRAPER ==========
-          echo ""
-          echo "== Running scraper =="
           php scraper.php --output channels.json
-          SCRAPER_EXIT=$?
-          echo "scraper exit code: $SCRAPER_EXIT"
-
-          # ========== 5. FINAL LOG ==========
-          echo ""
-          echo "===== Full Playwright server log ====="
-          cat pw.log
-
-          # ========== 6. CLEANUP ==========
-          kill $SERVER_PID 2>/dev/null || true
-          kill $XVFB_PID 2>/dev/null || true
-          pkill -9 chrome 2>/dev/null || true
-
-          exit $SCRAPER_EXIT
-
+        env:
+          TZ: UTC
+      
       - name: Commit and push
-        if: success()
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
