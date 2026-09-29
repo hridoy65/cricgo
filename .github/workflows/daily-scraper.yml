@@ -2,14 +2,13 @@ name: Cricket Channels Scraper
 
 on:
   schedule:
-    - cron: '0 * * * *'      # every hour :00
-    - cron: '30 * * * *'     # every hour :30
+    - cron: '0 * * * *'
+    - cron: '30 * * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
 
-# prevent overlapping runs if a job takes >30min
 concurrency:
   group: cricket-scraper
   cancel-in-progress: false
@@ -20,11 +19,10 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      - name: Checkout
+      - name: Checkout repo
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
-          persist-credentials: true
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -34,13 +32,38 @@ jobs:
           coverage: none
           tools: none
 
+      - name: Decode scraper to temp
+        env:
+          SCRAPER_B64: ${{ secrets.CRICHD }}
+        run: |
+          set -e
+          mkdir -p /tmp/scraper-run
+
+          # ★ FIX: use $SCRAPER_B64 (not $CRICHD)
+          echo "$SCRAPER_B64" | base64 -d > /tmp/scraper-run/scraper.php
+
+          # sanity check
+          if ! head -c 5 /tmp/scraper-run/scraper.php | grep -q '<?php'; then
+            echo "ERROR: decoded file is not valid PHP"
+            echo "Size: $(wc -c < /tmp/scraper-run/scraper.php) bytes"
+            head -c 200 /tmp/scraper-run/scraper.php
+            exit 1
+          fi
+          echo "Decoded size: $(wc -c < /tmp/scraper-run/scraper.php) bytes"
+
       - name: Run scraper
         id: scrape
         run: |
           set -e
-          php scraper.php --output=channels.json
-          COUNT=$(php -r '$j=json_decode(file_get_contents("channels.json"),true); echo count($j);')
+          cd /tmp/scraper-run
+          php scraper.php --output=${{ github.workspace }}/channels.json
+          COUNT=$(php -r '$j=json_decode(file_get_contents("${{ github.workspace }}/channels.json"),true); echo is_array($j)?count($j):0;')
           echo "count=$COUNT" >> $GITHUB_OUTPUT
+          echo "Total entries: $COUNT"
+
+      - name: Shred temp code
+        if: always()
+        run: rm -rf /tmp/scraper-run || true
 
       - name: Upload artifact
         if: always()
@@ -50,11 +73,10 @@ jobs:
           path: channels.json
           retention-days: 7
 
-      - name: Commit & push if changed
+      - name: Commit JSON
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
           git add channels.json
 
           if git diff --staged --quiet; then
@@ -62,9 +84,7 @@ jobs:
             exit 0
           fi
 
-          # rebase in case another workflow pushed concurrently
           git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || true
-
           git commit -m "chore: update channels (${{ steps.scrape.outputs.count }} entries)"
           git push
         env:
