@@ -1,43 +1,71 @@
-name: Daily Cricket Channels Scraper
+name: Cricket Channels Scraper
 
 on:
   schedule:
-    # Runs every hour
-    - cron: '0 * * * *'
-    - cron: '30 * * * *'
+    - cron: '0 * * * *'      # every hour :00
+    - cron: '30 * * * *'     # every hour :30
   workflow_dispatch:
-    # Allows manual trigger
 
 permissions:
   contents: write
 
+# prevent overlapping runs if a job takes >30min
+concurrency:
+  group: cricket-scraper
+  cancel-in-progress: false
+
 jobs:
-  scrape-channels:
+  scrape:
     runs-on: ubuntu-latest
-    
+    timeout-minutes: 10
+
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
-      
+        with:
+          fetch-depth: 1
+          persist-credentials: true
+
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
-          extensions: curl, json
-          tools: composer:v2
-      
+          extensions: curl, dom, json, mbstring
+          coverage: none
+          tools: none
+
       - name: Run scraper
+        id: scrape
         run: |
-          php scraper.php --output channels.json
-        env:
-          TZ: UTC
-      
-      - name: Commit and push
+          set -e
+          php scraper.php --output=channels.json
+          COUNT=$(php -r '$j=json_decode(file_get_contents("channels.json"),true); echo count($j);')
+          echo "count=$COUNT" >> $GITHUB_OUTPUT
+
+      - name: Upload artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: channels-json
+          path: channels.json
+          retention-days: 7
+
+      - name: Commit & push if changed
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
           git add channels.json
-          git commit -m "Update channels.json - $(date '+%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
+
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          # rebase in case another workflow pushed concurrently
+          git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || true
+
+          git commit -m "chore: update channels (${{ steps.scrape.outputs.count }} entries)"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
