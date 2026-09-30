@@ -342,8 +342,11 @@
         "name": "Japan Open Tennis Championships",
         "image": "https://cdn.img4every1.org/league/atp-tour-live-stream-free/logo.webp",
         "group-title": "Tennis Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
+        "url": "https://bhalocast.pro/atofplay.php?v=dadoskyten&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
+        "sources": {
+            "Link 1": "https://bhalocast.pro/atofplay.php?v=dadoskyten&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
+            "Link 2": "https://bhalocast.pro/atofplay.php?v=dadoskyare&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
+            "Link 3": "https://bhalocast.pro/atofplay.php?v=dadosky1&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
+        }
     }
 ]
