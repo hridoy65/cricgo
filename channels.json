@@ -19,17 +19,10 @@
         "name": "Chicago White Sox vs Astros",
         "image": "https://cdn.img4every1.org/league/mlb-streams/logo.webp",
         "group-title": "Baseball Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Philadelphia Phillies vs Braves",
-        "image": "https://cdn.img4every1.org/league/mlb-streams/logo.webp",
-        "group-title": "Baseball Live Events",
         "url": "https://bhalocast.pro/atofplay.php?v=bbtsip1&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
         "sources": {
-            "Link 1": "https://bhalocast.pro/atofplay.php?v=bbtsip1&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
+            "Link 1": "https://bhalocast.pro/atofplay.php?v=bbtsip1&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
+            "Link 2": "https://bhalocast.pro/atofplay.php?v=bbtsvp2&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
         }
     },
     {
@@ -200,9 +193,8 @@
         "name": "England vs Sri Lanka",
         "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
         "group-title": "Cricket Live Events",
-        "url": "https://playerr03.com/embed.php?v=criclife1|Referer=https://playerso.top/|playRef=https://playerr03.com/",
+        "url": "https://bhalocast.pro/atofplay.php?v=dodosky2&secure=m1lko&expires=123456|Referer=https://playerso.top/|playRef=https://bhalocast.pro/",
         "sources": {
-            "CricLife 1": "https://playerr03.com/embed.php?v=criclife1|Referer=https://playerso.top/|playRef=https://playerr03.com/",
             "Cricket 2": "https://bhalocast.pro/atofplay.php?v=dodosky2&secure=m1lko&expires=123456|Referer=https://playerso.top/|playRef=https://bhalocast.pro/",
             "Sony Ten 1": "https://playerr03.com/embed.php?v=sony1c|Referer=https://playerso.top/|playRef=https://playerr03.com/",
             "Willow": "https://playerr03.com/embed.php?v=willow2c|Referer=https://playerso.top/|playRef=https://playerr03.com/",
@@ -305,26 +297,6 @@
         "status": "pending"
     },
     {
-        "name": "Benfica vs Bayern München",
-        "image": "https://cdn.img4every1.org/league/womens-champions-league/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "https://bhalocast.pro/atofplay.php?v=spch79&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
-        "sources": {
-            "Link 1": "https://bhalocast.pro/atofplay.php?v=spch79&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
-            "Link 2": "https://bhalocast.pro/atofplay.php?v=spch4&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
-        }
-    },
-    {
-        "name": "Chelsea vs Lyon",
-        "image": "https://cdn.img4every1.org/league/womens-champions-league/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "https://bhalocast.pro/atofplay.php?v=spch40&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
-        "sources": {
-            "Link 1": "https://bhalocast.pro/atofplay.php?v=spch40&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
-            "Link 2": "https://bhalocast.pro/atofplay.php?v=spch5&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
-        }
-    },
-    {
         "name": "F1 Bahrain Grand Prix",
         "image": "https://cdn.img4every1.org/league/formula-1-live-stream/logo.webp",
         "group-title": "Formula 1 Live Events",
@@ -344,9 +316,8 @@
         "name": "Shenzhen Open Snooker",
         "image": "https://cdn.img4every1.org/league/snooker/logo.webp",
         "group-title": "Snooker Live Events",
-        "url": "https://bhalocast.pro/atofplay.php?v=bbtsvp2&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
+        "url": "https://bhalocast.pro/atofplay.php?v=bbtsip3&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
         "sources": {
-            "Link 2": "https://bhalocast.pro/atofplay.php?v=bbtsvp2&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
             "Link 3": "https://bhalocast.pro/atofplay.php?v=bbtsip3&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
         }
     },
