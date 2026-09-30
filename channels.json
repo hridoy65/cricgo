@@ -305,15 +305,6 @@
         "status": "pending"
     },
     {
-        "name": "Barcelona vs Roma",
-        "image": "https://cdn.img4every1.org/league/womens-champions-league/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "https://bhalocast.pro/atofplay.php?v=spch1&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
-        "sources": {
-            "Link 2": "https://bhalocast.pro/atofplay.php?v=spch1&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
-        }
-    },
-    {
         "name": "Benfica vs Bayern München",
         "image": "https://cdn.img4every1.org/league/womens-champions-league/logo.webp",
         "group-title": "Football Live Events",
@@ -331,24 +322,6 @@
         "sources": {
             "Link 1": "https://bhalocast.pro/atofplay.php?v=spch40&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
             "Link 2": "https://bhalocast.pro/atofplay.php?v=spch5&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
-        }
-    },
-    {
-        "name": "Häcken vs Juventus",
-        "image": "https://cdn.img4every1.org/league/womens-champions-league/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "https://bhalocast.pro/atofplay.php?v=spch3&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
-        "sources": {
-            "Link 1": "https://bhalocast.pro/atofplay.php?v=spch3&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
-        }
-    },
-    {
-        "name": "Paris vs Arsenal",
-        "image": "https://cdn.img4every1.org/league/womens-champions-league/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "https://bhalocast.pro/atofplay.php?v=spch2&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
-        "sources": {
-            "Link 1": "https://bhalocast.pro/atofplay.php?v=spch2&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
         }
     },
     {
