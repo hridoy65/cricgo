@@ -24,29 +24,12 @@
         "status": "pending"
     },
     {
-        "name": "Cubs vs Padres",
-        "image": "https://cdn.img4every1.org/league/mlb-streams/logo.webp",
-        "group-title": "Baseball Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Philadelphia Phillies vs Braves",
         "image": "https://cdn.img4every1.org/league/mlb-streams/logo.webp",
         "group-title": "Baseball Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
-    },
-    {
-        "name": "Yankees vs Red Sox",
-        "image": "https://cdn.img4every1.org/league/mlb-streams/logo.webp",
-        "group-title": "Baseball Live Events",
-        "url": "https://bhalocast.pro/atofplay.php?v=bbtsip1&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
-        "sources": {
-            "Link 1": "https://bhalocast.pro/atofplay.php?v=bbtsip1&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
-        }
     },
     {
         "name": "A Sports HD",
@@ -207,10 +190,9 @@
         "sources": {
             "A Sports": "https://playerr03.com/embed.php?v=asports3c|Referer=https://playerso.top/|playRef=https://playerr03.com/",
             "CricGo 5": "https://playerr03.com/embed.php?v=cricgo5c|Referer=https://playerso.top/|playRef=https://playerr03.com/",
+            "Cricket 2": "https://bhalocast.pro/atofplay.php?v=dodosky2&secure=m1lko&expires=123456|Referer=https://playerso.top/|playRef=https://bhalocast.pro/",
             "Fox Sports Cricket": "https://playerr03.com/embed.php?v=fox501a|Referer=https://playerso.top/|playRef=https://playerr03.com/",
-            "Sky Cricket": "https://bhalocast.pro/atofplay.php?v=dadoskymoxo&secure=m1lko&expires=123456|Referer=https://playerso.top/|playRef=https://bhalocast.pro/",
-            "Willow": "https://playerr03.com/embed.php?v=willwr|Referer=https://playerso.top/|playRef=https://playerr03.com/",
-            "Willow HD": "https://playerr03.com/embed.php?v=hdwillwr|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+            "Willow 2": "https://playerr03.com/embed.php?v=wextres5|Referer=https://playerso.top/|playRef=https://playerr03.com/"
         }
     },
     {
@@ -252,15 +234,42 @@
         }
     },
     {
+        "name": "India vs Sri Lanka",
+        "image": "https://img.crichd.ch/league/asian-games/logo.webp",
+        "group-title": "Cricket Live Events",
+        "url": "https://playerr03.com/embed.php?v=cricgo1c|Referer=https://playerso.top/|playRef=https://playerr03.com/",
+        "sources": {
+            "CricGo 1": "https://playerr03.com/embed.php?v=cricgo1c|Referer=https://playerso.top/|playRef=https://playerr03.com/",
+            "Sony Ten 1": "https://playerr03.com/embed.php?v=sony1c|Referer=https://playerso.top/|playRef=https://playerr03.com/",
+            "Willow": "https://playerr03.com/embed.php?v=willwr|Referer=https://playerso.top/|playRef=https://playerr03.com/",
+            "Willow HD": "https://playerr03.com/embed.php?v=hdwillwr|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+        }
+    },
+    {
         "name": "India vs West Indies",
         "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
         "group-title": "Cricket Live Events",
         "url": "https://playerr03.com/embed.php?v=astrls|Referer=https://playerso.top/|playRef=https://playerr03.com/",
         "sources": {
             "Astro Cricket": "https://playerr03.com/embed.php?v=astrls|Referer=https://playerso.top/|playRef=https://playerr03.com/",
-            "Channel 45": "https://bhalocast.pro/atofplay.php?v=bbtsip5&secure=m1lko&expires=123456|Referer=https://playerso.top/|playRef=https://bhalocast.pro/",
+            "Cricket 11": "https://bhalocast.pro/atofplay.php?v=bbtsip1&secure=m1lko&expires=123456|Referer=https://playerso.top/|playRef=https://bhalocast.pro/",
             "Star Sports 1 Hindi": "https://playerr03.com/embed.php?v=star3c|Referer=https://playerso.top/|playRef=https://playerr03.com/",
+            "Star Sports 1 Tamil": "https://playerr03.com/embed.php?v=startam1c|Referer=https://playerso.top/|playRef=https://playerr03.com/",
+            "Star Sports 1 Telugu": "https://playerr03.com/embed.php?v=startel1c|Referer=https://playerso.top/|playRef=https://playerr03.com/",
             "Star Sports 2": "https://playerr03.com/embed.php?v=star2c|Referer=https://playerso.top/|playRef=https://playerr03.com/",
+            "Willow": "https://playerr03.com/embed.php?v=willwr|Referer=https://playerso.top/|playRef=https://playerr03.com/",
+            "Willow HD": "https://playerr03.com/embed.php?v=hdwillwr|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+        }
+    },
+    {
+        "name": "Pakistan vs Bangladesh",
+        "image": "https://img.crichd.ch/league/asian-games/logo.webp",
+        "group-title": "Cricket Live Events",
+        "url": "https://playerr03.com/embed.php?v=cricgo1c|Referer=https://playerso.top/|playRef=https://playerr03.com/",
+        "sources": {
+            "CricGo 1": "https://playerr03.com/embed.php?v=cricgo1c|Referer=https://playerso.top/|playRef=https://playerr03.com/",
+            "PTV Sports": "https://playerr03.com/embed.php?v=ptvskpr|Referer=https://playerso.top/|playRef=https://playerr03.com/",
+            "Sony Ten 1": "https://playerr03.com/embed.php?v=sony1c|Referer=https://playerso.top/|playRef=https://playerr03.com/",
             "Willow": "https://playerr03.com/embed.php?v=willwr|Referer=https://playerso.top/|playRef=https://playerr03.com/",
             "Willow HD": "https://playerr03.com/embed.php?v=hdwillwr|Referer=https://playerso.top/|playRef=https://playerr03.com/"
         }
@@ -295,24 +304,6 @@
         "status": "pending"
     },
     {
-        "name": "Mexico vs Peru",
-        "image": "https://cdn.img4every1.org/league/friendly-soccer-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "https://bhalocast.pro/atofplay.php?v=spch20&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
-        "sources": {
-            "Link 1": "https://bhalocast.pro/atofplay.php?v=spch20&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
-        }
-    },
-    {
-        "name": "USA vs Chile",
-        "image": "https://cdn.img4every1.org/league/friendly-soccer-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "https://bhalocast.pro/atofplay.php?v=spch81&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
-        "sources": {
-            "Link 1": "https://bhalocast.pro/atofplay.php?v=spch81&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
-        }
-    },
-    {
         "name": "F1 Bahrain Grand Prix",
         "image": "https://cdn.img4every1.org/league/formula-1-live-stream/logo.webp",
         "group-title": "Formula 1 Live Events",
@@ -332,8 +323,9 @@
         "name": "Shenzhen Open Snooker",
         "image": "https://cdn.img4every1.org/league/snooker/logo.webp",
         "group-title": "Snooker Live Events",
-        "url": "https://bhalocast.pro/atofplay.php?v=bbtsvp2&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
+        "url": "https://bhalocast.pro/atofplay.php?v=bbtsip1&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
         "sources": {
+            "Link 1": "https://bhalocast.pro/atofplay.php?v=bbtsip1&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
             "Link 2": "https://bhalocast.pro/atofplay.php?v=bbtsvp2&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
             "Link 3": "https://bhalocast.pro/atofplay.php?v=bbtsip3&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
         }
