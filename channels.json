@@ -16,6 +16,39 @@
         "status": "pending"
     },
     {
+        "name": "Chicago White Sox vs Astros",
+        "image": "https://cdn.img4every1.org/league/mlb-streams/logo.webp",
+        "group-title": "Baseball Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Cubs vs Padres",
+        "image": "https://cdn.img4every1.org/league/mlb-streams/logo.webp",
+        "group-title": "Baseball Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Philadelphia Phillies vs Braves",
+        "image": "https://cdn.img4every1.org/league/mlb-streams/logo.webp",
+        "group-title": "Baseball Live Events",
+        "url": "https://bhalocast.pro/atofplay.php?v=bbtsip1&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
+        "sources": {
+            "Link 1": "https://bhalocast.pro/atofplay.php?v=bbtsip1&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
+        }
+    },
+    {
+        "name": "Yankees vs Red Sox",
+        "image": "https://cdn.img4every1.org/league/mlb-streams/logo.webp",
+        "group-title": "Baseball Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "A Sports HD",
         "image": "https://crichd.mobile/assets/channels/asports.webp",
         "group-title": "Cricket Channels",
@@ -261,28 +294,93 @@
         }
     },
     {
-        "name": "Azerbaijan vs Liechtenstein",
+        "name": "Bath vs Exeter Chiefs",
+        "image": "https://cdn.img4every1.org/league/premiership-rugby-cup/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Benetton Treviso vs Connacht",
+        "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Cardiff Blues vs Zebre",
+        "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Denmark vs Portugal",
         "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
         "group-title": "Football Live Events",
-        "url": "https://bhalocast.pro/atofplay.php?v=yt6&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
+        "url": "https://bhalocast.pro/atofplay.php?v=yt7&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
         "sources": {
-            "Link 1": "https://bhalocast.pro/atofplay.php?v=yt6&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
-            "Link 2": "https://bhalocast.pro/atofplay.php?v=spch89&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
+            "Link 1": "https://bhalocast.pro/atofplay.php?v=yt7&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
+            "Link 2": "https://bhalocast.pro/atofplay.php?v=spch71&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
+            "Link 3": "https://bhalocast.pro/atofplay.php?v=spch41&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
         }
     },
     {
-        "name": "Inter Milano vs Austria Wien",
-        "image": "https://cdn.img4every1.org/league/womens-champions-league/logo.webp",
+        "name": "Germany vs Serbia",
+        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
         "group-title": "Football Live Events",
-        "url": "https://bhalocast.pro/atofplay.php?v=spch79&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
+        "url": "https://bhalocast.pro/atofplay.php?v=spch82&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
         "sources": {
-            "Link 1": "https://bhalocast.pro/atofplay.php?v=spch79&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
-            "Link 2": "https://bhalocast.pro/atofplay.php?v=spch1&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
+            "Link 1": "https://bhalocast.pro/atofplay.php?v=spch82&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
+            "Link 2": "https://bhalocast.pro/atofplay.php?v=spch72&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
+            "Link 3": "https://bhalocast.pro/atofplay.php?v=zdf&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
+        }
+    },
+    {
+        "name": "Ireland vs Austria",
+        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "https://bhalocast.pro/atofplay.php?v=spch74&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
+        "sources": {
+            "Link 1": "https://bhalocast.pro/atofplay.php?v=spch74&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
+        }
+    },
+    {
+        "name": "Kosovo vs Israel",
+        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "https://bhalocast.pro/atofplay.php?v=spch75&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
+        "sources": {
+            "Link 1": "https://bhalocast.pro/atofplay.php?v=spch75&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
         }
     },
     {
         "name": "Manchester City vs Real Madrid",
         "image": "https://cdn.img4every1.org/league/womens-champions-league/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "https://bhalocast.pro/atofplay.php?v=spch40&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
+        "sources": {
+            "Link 1": "https://bhalocast.pro/atofplay.php?v=spch40&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
+            "Link 2": "https://bhalocast.pro/atofplay.php?v=spch2&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
+        }
+    },
+    {
+        "name": "Netherlands vs Greece",
+        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "https://bhalocast.pro/atofplay.php?v=spch89&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
+        "sources": {
+            "Link 1": "https://bhalocast.pro/atofplay.php?v=spch89&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
+            "Link 2": "https://bhalocast.pro/atofplay.php?v=yt10&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
+            "Link 3": "https://bhalocast.pro/atofplay.php?v=spch73&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
+        }
+    },
+    {
+        "name": "Pakistan vs Vietnam",
+        "image": "https://cdn.img4every1.org/league/fifa-asean-cup/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -292,9 +390,30 @@
         "name": "PSG vs OH Leuven",
         "image": "https://cdn.img4every1.org/league/womens-champions-league/logo.webp",
         "group-title": "Football Live Events",
+        "url": "https://bhalocast.pro/atofplay.php?v=spch79&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
+        "sources": {
+            "Link 1": "https://bhalocast.pro/atofplay.php?v=spch79&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
+            "Link 2": "https://bhalocast.pro/atofplay.php?v=spch1&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
+        }
+    },
+    {
+        "name": "Stormers vs Edinburgh",
+        "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
+        "group-title": "Football Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
+    },
+    {
+        "name": "Wales vs Norway",
+        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "https://bhalocast.pro/atofplay.php?v=bbc2&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
+        "sources": {
+            "Link 1": "https://bhalocast.pro/atofplay.php?v=bbc2&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
+            "Link 2": "https://bhalocast.pro/atofplay.php?v=spch7&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
+            "Link 3": "https://bhalocast.pro/atofplay.php?v=yt8&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
+        }
     },
     {
         "name": "F1 Bahrain Grand Prix",
@@ -316,12 +435,35 @@
         "name": "Shenzhen Open Snooker",
         "image": "https://cdn.img4every1.org/league/snooker/logo.webp",
         "group-title": "Snooker Live Events",
-        "url": "https://bhalocast.pro/atofplay.php?v=bbtsip1&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
+        "url": "https://bhalocast.pro/atofplay.php?v=bbtsip3&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
         "sources": {
-            "Link 1": "https://bhalocast.pro/atofplay.php?v=bbtsip1&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
-            "Link 2": "https://bhalocast.pro/atofplay.php?v=bbtsvp2&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
-            "Link 3": "https://bhalocast.pro/atofplay.php?v=bbtsip3&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
+            "Link 2": "https://bhalocast.pro/atofplay.php?v=bbtsip3&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
         }
+    },
+    {
+        "name": "Alfred Dunhill Championship",
+        "image": "https://cdn.img4every1.org/league/pga-tour/logo.webp",
+        "group-title": "Sports Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Bank of Utah Championship",
+        "image": "https://cdn.img4every1.org/league/pga-tour/logo.webp",
+        "group-title": "Sports Live Events",
+        "url": "https://bhalocast.pro/atofplay.php?v=dadoskygo&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
+        "sources": {
+            "Link 1": "https://bhalocast.pro/atofplay.php?v=dadoskygo&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
+        }
+    },
+    {
+        "name": "LPGA Lotte Championship",
+        "image": "https://cdn.img4every1.org/league/pga-tour/logo.webp",
+        "group-title": "Sports Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
     },
     {
         "name": "Japan Open Tennis Championships",
