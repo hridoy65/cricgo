@@ -19,9 +19,11 @@
         "name": "Chicago White Sox vs Astros",
         "image": "https://cdn.img4every1.org/league/mlb-streams/logo.webp",
         "group-title": "Baseball Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
+        "url": "https://bhalocast.pro/atofplay.php?v=bbtsip1&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
+        "sources": {
+            "Link 1": "https://bhalocast.pro/atofplay.php?v=bbtsip1&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
+            "Link 2": "https://bhalocast.pro/atofplay.php?v=bbtsip3&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
+        }
     },
     {
         "name": "Cubs vs Padres",
@@ -35,10 +37,9 @@
         "name": "Philadelphia Phillies vs Braves",
         "image": "https://cdn.img4every1.org/league/mlb-streams/logo.webp",
         "group-title": "Baseball Live Events",
-        "url": "https://bhalocast.pro/atofplay.php?v=bbtsip1&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
-        "sources": {
-            "Link 1": "https://bhalocast.pro/atofplay.php?v=bbtsip1&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
-        }
+        "url": "",
+        "sources": {},
+        "status": "pending"
     },
     {
         "name": "Yankees vs Red Sox",
@@ -435,10 +436,9 @@
         "name": "Shenzhen Open Snooker",
         "image": "https://cdn.img4every1.org/league/snooker/logo.webp",
         "group-title": "Snooker Live Events",
-        "url": "https://bhalocast.pro/atofplay.php?v=bbtsip3&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
-        "sources": {
-            "Link 2": "https://bhalocast.pro/atofplay.php?v=bbtsip3&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
-        }
+        "url": "",
+        "sources": {},
+        "status": "pending"
     },
     {
         "name": "Alfred Dunhill Championship",
