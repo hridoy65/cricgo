@@ -16,16 +16,6 @@
         "status": "pending"
     },
     {
-        "name": "Chicago White Sox vs Astros",
-        "image": "https://cdn.img4every1.org/league/mlb-streams/logo.webp",
-        "group-title": "Baseball Live Events",
-        "url": "https://bhalocast.pro/atofplay.php?v=bbtsip1&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
-        "sources": {
-            "Link 1": "https://bhalocast.pro/atofplay.php?v=bbtsip1&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
-            "Link 2": "https://bhalocast.pro/atofplay.php?v=bbtsvp2&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
-        }
-    },
-    {
         "name": "A Sports HD",
         "image": "https://crichd.mobile/assets/channels/asports.webp",
         "group-title": "Cricket Channels",
@@ -193,8 +183,9 @@
         "name": "England vs Sri Lanka",
         "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
         "group-title": "Cricket Live Events",
-        "url": "https://bhalocast.pro/atofplay.php?v=dodosky2&secure=m1lko&expires=123456|Referer=https://playerso.top/|playRef=https://bhalocast.pro/",
+        "url": "https://playerr03.com/embed.php?v=criclife1|Referer=https://playerso.top/|playRef=https://playerr03.com/",
         "sources": {
+            "CricLife 1": "https://playerr03.com/embed.php?v=criclife1|Referer=https://playerso.top/|playRef=https://playerr03.com/",
             "Cricket 2": "https://bhalocast.pro/atofplay.php?v=dodosky2&secure=m1lko&expires=123456|Referer=https://playerso.top/|playRef=https://bhalocast.pro/",
             "Sony Ten 1": "https://playerr03.com/embed.php?v=sony1c|Referer=https://playerso.top/|playRef=https://playerr03.com/",
             "Willow": "https://playerr03.com/embed.php?v=willow2c|Referer=https://playerso.top/|playRef=https://playerr03.com/",
@@ -284,9 +275,12 @@
         "name": "Argentina vs Bolivia",
         "image": "https://cdn.img4every1.org/league/friendly-soccer-streams/logo.webp",
         "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
+        "url": "https://bhalocast.pro/atofplay.php?v=spch11&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
+        "sources": {
+            "Link 1": "https://bhalocast.pro/atofplay.php?v=spch11&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
+            "Link 2": "https://bhalocast.pro/atofplay.php?v=yt20&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
+            "Link 3": "https://bhalocast.pro/atofplay.php?v=sky3it&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
+        }
     },
     {
         "name": "Bangladesh vs Indonesia",
@@ -316,8 +310,10 @@
         "name": "Shenzhen Open Snooker",
         "image": "https://cdn.img4every1.org/league/snooker/logo.webp",
         "group-title": "Snooker Live Events",
-        "url": "https://bhalocast.pro/atofplay.php?v=bbtsip3&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
+        "url": "https://bhalocast.pro/atofplay.php?v=bbtsip1&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
         "sources": {
+            "Link 1": "https://bhalocast.pro/atofplay.php?v=bbtsip1&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
+            "Link 2": "https://bhalocast.pro/atofplay.php?v=bbtsvp2&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
             "Link 3": "https://bhalocast.pro/atofplay.php?v=bbtsip3&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
         }
     },
