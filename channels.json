@@ -277,14 +277,6 @@
         "status": "pending"
     },
     {
-        "name": "Pakistan vs Vietnam",
-        "image": "https://cdn.img4every1.org/league/fifa-asean-cup/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Stormers vs Edinburgh",
         "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
         "group-title": "Football Live Events",
@@ -326,9 +318,10 @@
         "name": "Alfred Dunhill Championship",
         "image": "https://cdn.img4every1.org/league/pga-tour/logo.webp",
         "group-title": "Sports Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
+        "url": "https://bhalocast.pro/atofplay.php?v=dadoskygo&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
+        "sources": {
+            "Link 1": "https://bhalocast.pro/atofplay.php?v=dadoskygo&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
+        }
     },
     {
         "name": "Bank of Utah Championship",
@@ -342,10 +335,9 @@
         "name": "LPGA Lotte Championship",
         "image": "https://cdn.img4every1.org/league/pga-tour/logo.webp",
         "group-title": "Sports Live Events",
-        "url": "https://bhalocast.pro/atofplay.php?v=dadoskygo&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/",
-        "sources": {
-            "Link 1": "https://bhalocast.pro/atofplay.php?v=dadoskygo&secure=m1lko&expires=123456|Referer=https://playeraio.top/|playRef=https://bhalocast.pro/"
-        }
+        "url": "",
+        "sources": {},
+        "status": "pending"
     },
     {
         "name": "Japan Open Tennis Championships",
