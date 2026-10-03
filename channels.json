@@ -226,14 +226,6 @@
         "status": "pending"
     },
     {
-        "name": "Albania vs Finland",
-        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Argentina vs Burkina Faso",
         "image": "https://cdn.img4every1.org/league/friendly-soccer-streams/logo.webp",
         "group-title": "Football Live Events",
@@ -242,16 +234,8 @@
         "status": "pending"
     },
     {
-        "name": "Bradford City vs Reading",
-        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Bristol Bears vs Northampton",
-        "image": "https://cdn.img4every1.org/league/premiership-rugby-cup/logo.webp",
+        "name": "Belarus vs San Marino",
+        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -266,24 +250,8 @@
         "status": "pending"
     },
     {
-        "name": "Burton Albion vs Huddersfield Town",
-        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Chesterfield vs Tranmere Rovers",
-        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Dragons vs Scarlets",
-        "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
+        "name": "Canada vs Peru",
+        "image": "https://cdn.img4every1.org/league/friendly-soccer-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -330,16 +298,16 @@
         "status": "pending"
     },
     {
-        "name": "India vs Brazil",
-        "image": "https://cdn.img4every1.org/league/friendly-soccer-streams/logo.webp",
+        "name": "Scotland vs North Macedonia",
+        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
     },
     {
-        "name": "Man United vs Liverpool",
-        "image": "https://cdn.img4every1.org/league/wsl-streams/logo.webp",
+        "name": "Spain vs Czechia",
+        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
