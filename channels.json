@@ -86,6 +86,12 @@
         "url": "https://bhalocast.pro/atofplay.php?v=dodosky2&secure=m1lko&expires=123456|Referer=https://playerso.top/|playRef=https://bhalocast.pro/"
     },
     {
+        "name": "Sony Sports Ten 1",
+        "image": "https://crichd.mobile/assets/channels/ten1.webp",
+        "group-title": "Cricket Channels",
+        "url": "https://playerr03.com/embed.php?v=sony1c|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+    },
+    {
         "name": "Sony Sports Ten 2",
         "image": "https://crichd.mobile/assets/channels/ten2.webp",
         "group-title": "Cricket Channels",
@@ -228,14 +234,6 @@
         "status": "pending"
     },
     {
-        "name": "Belarus vs San Marino",
-        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Bulls vs Munster",
         "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
         "group-title": "Football Live Events",
@@ -246,46 +244,6 @@
     {
         "name": "Canada vs Peru",
         "image": "https://cdn.img4every1.org/league/friendly-soccer-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "England vs Croatia",
-        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Estonia vs Luxembourg",
-        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Glasgow Warriors vs Ulster",
-        "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Gloucester vs Harlequins",
-        "image": "https://cdn.img4every1.org/league/premiership-rugby-cup/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Iceland vs Bulgaria",
-        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
