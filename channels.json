@@ -1,5 +1,37 @@
 [
     {
+        "name": "Commanders vs Colts",
+        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
+        "group-title": "American Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Braves vs Dodgers",
+        "image": "https://cdn.img4every1.org/league/mlb-streams/logo.webp",
+        "group-title": "Baseball Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Guardians vs White Sox",
+        "image": "https://cdn.img4every1.org/league/mlb-streams/logo.webp",
+        "group-title": "Baseball Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Rays vs Yankees",
+        "image": "https://cdn.img4every1.org/league/mlb-streams/logo.webp",
+        "group-title": "Baseball Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "A Sports HD",
         "image": "https://crichd.mobile/assets/channels/asports.webp",
         "group-title": "Cricket Channels",
@@ -154,14 +186,6 @@
         "status": "pending"
     },
     {
-        "name": "England vs Sri Lanka",
-        "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
-        "group-title": "Cricket Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "India vs Afghanistan",
         "image": "https://img.crichd.ch/league/asian-games/logo.webp",
         "group-title": "Cricket Live Events",
@@ -202,9 +226,161 @@
         "status": "pending"
     },
     {
-        "name": "Pakistan vs Hong Kong",
-        "image": "https://img.crichd.ch/league/asian-games/logo.webp",
-        "group-title": "Cricket Live Events",
+        "name": "Albania vs Finland",
+        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Bradford City vs Reading",
+        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Bristol Bears vs Northampton",
+        "image": "https://cdn.img4every1.org/league/premiership-rugby-cup/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Bulls vs Munster",
+        "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Burton Albion vs Huddersfield Town",
+        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Chesterfield vs Tranmere Rovers",
+        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Dragons vs Scarlets",
+        "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Glasgow Warriors vs Ulster",
+        "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Gloucester vs Harlequins",
+        "image": "https://cdn.img4every1.org/league/premiership-rugby-cup/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "India vs Brazil",
+        "image": "https://cdn.img4every1.org/league/friendly-soccer-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Man United vs Liverpool",
+        "image": "https://cdn.img4every1.org/league/wsl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "F1 Bahrain Grand Prix",
+        "image": "https://cdn.img4every1.org/league/formula-1-live-stream/logo.webp",
+        "group-title": "Formula 1 Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "MotoGP Japanese GP",
+        "image": "https://cdn.img4every1.org/league/motogp-streams/logo.webp",
+        "group-title": "MotoGP Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Shenzhen Open Snooker",
+        "image": "https://cdn.img4every1.org/league/snooker/logo.webp",
+        "group-title": "Snooker Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Alfred Dunhill Championship",
+        "image": "https://cdn.img4every1.org/league/pga-tour/logo.webp",
+        "group-title": "Sports Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Bank of Utah Championship",
+        "image": "https://cdn.img4every1.org/league/pga-tour/logo.webp",
+        "group-title": "Sports Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "LPGA Lotte Championship",
+        "image": "https://cdn.img4every1.org/league/pga-tour/logo.webp",
+        "group-title": "Sports Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "WCL",
+        "image": "https://img.crichd.ch/league/world-championship-of-legends/logo.webp",
+        "group-title": "Sports Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Japan Open Tennis Championships",
+        "image": "https://cdn.img4every1.org/league/atp-tour-live-stream-free/logo.webp",
+        "group-title": "Tennis Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Natalia Silva vs Wang Cong",
+        "image": "https://cdn.img4every1.org/league/ufc-streams-free/logo.webp",
+        "group-title": "UFC Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
