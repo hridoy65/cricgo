@@ -234,6 +234,14 @@
         "status": "pending"
     },
     {
+        "name": "Argentina vs Burkina Faso",
+        "image": "https://cdn.img4every1.org/league/friendly-soccer-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Bradford City vs Reading",
         "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
         "group-title": "Football Live Events",
@@ -282,6 +290,22 @@
         "status": "pending"
     },
     {
+        "name": "England vs Croatia",
+        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Estonia vs Luxembourg",
+        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Glasgow Warriors vs Ulster",
         "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
         "group-title": "Football Live Events",
@@ -298,6 +322,14 @@
         "status": "pending"
     },
     {
+        "name": "Iceland vs Bulgaria",
+        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "India vs Brazil",
         "image": "https://cdn.img4every1.org/league/friendly-soccer-streams/logo.webp",
         "group-title": "Football Live Events",
@@ -308,6 +340,14 @@
     {
         "name": "Man United vs Liverpool",
         "image": "https://cdn.img4every1.org/league/wsl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Switzerland vs Slovenia",
+        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
