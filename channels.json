@@ -202,33 +202,9 @@
         "status": "pending"
     },
     {
-        "name": "Argentina vs Burkina Faso",
-        "image": "https://cdn.img4every1.org/league/friendly-soccer-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "USA vs Mexico",
-        "image": "https://cdn.img4every1.org/league/friendly-soccer-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "F1 Bahrain Grand Prix",
         "image": "https://cdn.img4every1.org/league/formula-1-live-stream/logo.webp",
         "group-title": "Formula 1 Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "MotoGP Japanese GP",
-        "image": "https://cdn.img4every1.org/league/motogp-streams/logo.webp",
-        "group-title": "MotoGP Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
@@ -277,14 +253,6 @@
         "name": "Japan Open Tennis Championships",
         "image": "https://cdn.img4every1.org/league/atp-tour-live-stream-free/logo.webp",
         "group-title": "Tennis Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Natalia Silva vs Wang Cong",
-        "image": "https://cdn.img4every1.org/league/ufc-streams-free/logo.webp",
-        "group-title": "UFC Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
