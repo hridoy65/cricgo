@@ -1,5 +1,13 @@
 [
     {
+        "name": "49ers vs Broncos",
+        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
+        "group-title": "American Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Bears vs Jets",
         "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
         "group-title": "American Football Live Events",
@@ -24,7 +32,15 @@
         "status": "pending"
     },
     {
-        "name": "Commanders vs Colts",
+        "name": "Chargers vs Seahawks",
+        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
+        "group-title": "American Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Chiefs vs Raiders",
         "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
         "group-title": "American Football Live Events",
         "url": "",
@@ -49,6 +65,14 @@
     },
     {
         "name": "Ravens vs Titans",
+        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
+        "group-title": "American Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Vikings vs Dolphins",
         "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
         "group-title": "American Football Live Events",
         "url": "",
@@ -250,7 +274,7 @@
         "status": "pending"
     },
     {
-        "name": "Azerbaijan vs Lithuania",
+        "name": "Germany vs Greece",
         "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
@@ -258,7 +282,7 @@
         "status": "pending"
     },
     {
-        "name": "Kosovo vs Austria",
+        "name": "Ireland vs Israel",
         "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
@@ -266,7 +290,7 @@
         "status": "pending"
     },
     {
-        "name": "Malta vs Andorra",
+        "name": "Netherlands vs Serbia",
         "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
@@ -274,17 +298,17 @@
         "status": "pending"
     },
     {
-        "name": "Shenzhen Open Snooker",
-        "image": "https://cdn.img4every1.org/league/snooker/logo.webp",
-        "group-title": "Snooker Live Events",
+        "name": "Portugal vs Norway",
+        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
+        "group-title": "Football Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
     },
     {
-        "name": "Alfred Dunhill Championship",
-        "image": "https://cdn.img4every1.org/league/pga-tour/logo.webp",
-        "group-title": "Sports Live Events",
+        "name": "Wales vs Denmark",
+        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
+        "group-title": "Football Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
