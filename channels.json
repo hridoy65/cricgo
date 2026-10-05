@@ -1,29 +1,5 @@
 [
     {
-        "name": "49ers vs Broncos",
-        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
-        "group-title": "American Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Chargers vs Seahawks",
-        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
-        "group-title": "American Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Chiefs vs Raiders",
-        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
-        "group-title": "American Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Cowboys vs Buccaneers",
         "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
         "group-title": "American Football Live Events",
@@ -41,14 +17,6 @@
     },
     {
         "name": "Panthers vs Lions",
-        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
-        "group-title": "American Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Vikings vs Dolphins",
         "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
         "group-title": "American Football Live Events",
         "url": "",
