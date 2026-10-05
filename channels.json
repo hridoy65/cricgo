@@ -16,14 +16,6 @@
         "status": "pending"
     },
     {
-        "name": "Panthers vs Lions",
-        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
-        "group-title": "American Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "A Sports HD",
         "image": "https://crichd.mobile/assets/channels/asports.webp",
         "group-title": "Cricket Channels",
@@ -213,22 +205,6 @@
         "name": "Pakistan vs Bangladesh",
         "image": "https://img.crichd.ch/league/asian-games/logo.webp",
         "group-title": "Cricket Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Bank of Utah Championship",
-        "image": "https://cdn.img4every1.org/league/pga-tour/logo.webp",
-        "group-title": "Sports Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "LPGA Lotte Championship",
-        "image": "https://cdn.img4every1.org/league/pga-tour/logo.webp",
-        "group-title": "Sports Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
