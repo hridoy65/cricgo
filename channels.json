@@ -16,6 +16,46 @@
         "status": "pending"
     },
     {
+        "name": "Braves vs Dodgers",
+        "image": "https://cdn.img4every1.org/league/mlb-streams/logo.webp",
+        "group-title": "Baseball Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Guardians vs White Sox",
+        "image": "https://cdn.img4every1.org/league/mlb-streams/logo.webp",
+        "group-title": "Baseball Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Los Angeles Dodgers vs Atlanta Braves",
+        "image": "https://cdn.img4every1.org/league/mlb-streams/logo.webp",
+        "group-title": "Baseball Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Padres vs Brewers",
+        "image": "https://cdn.img4every1.org/league/mlb-streams/logo.webp",
+        "group-title": "Baseball Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Rays vs Yankees",
+        "image": "https://cdn.img4every1.org/league/mlb-streams/logo.webp",
+        "group-title": "Baseball Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "A Sports HD",
         "image": "https://crichd.mobile/assets/channels/asports.webp",
         "group-title": "Cricket Channels",
@@ -210,41 +250,89 @@
         "status": "pending"
     },
     {
-        "name": "Bulgaria vs Luxembourg",
-        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
+        "name": "Argentina vs Benin",
+        "image": "https://cdn.img4every1.org/league/friendly-soccer-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
     },
     {
-        "name": "England vs Czechia",
-        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
+        "name": "Canada vs USA",
+        "image": "https://cdn.img4every1.org/league/friendly-soccer-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
     },
     {
-        "name": "Scotland vs Slovenia",
-        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
+        "name": "Colombia vs Peru",
+        "image": "https://cdn.img4every1.org/league/friendly-soccer-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
     },
     {
-        "name": "Spain vs Croatia",
-        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
+        "name": "Dragons vs Ospreys",
+        "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
     },
     {
-        "name": "Switzerland vs North Macedonia",
-        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
+        "name": "Glasgow Warriors vs Connacht",
+        "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
         "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Leicester Tigers vs Gloucester",
+        "image": "https://cdn.img4every1.org/league/premiership-rugby-cup/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Mexico vs Chile",
+        "image": "https://cdn.img4every1.org/league/friendly-soccer-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "F1 Singapore Grand Prix",
+        "image": "https://cdn.img4every1.org/league/formula-1-live-stream/logo.webp",
+        "group-title": "Formula 1 Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "MotoGP Indonesia Grand Prix",
+        "image": "https://cdn.img4every1.org/league/motogp-streams/logo.webp",
+        "group-title": "MotoGP Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Baycurrent Classic",
+        "image": "https://cdn.img4every1.org/league/pga-tour/logo.webp",
+        "group-title": "Sports Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Open de Espana",
+        "image": "https://cdn.img4every1.org/league/pga-tour/logo.webp",
+        "group-title": "Sports Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
@@ -253,6 +341,14 @@
         "name": "WCL",
         "image": "https://img.crichd.ch/league/world-championship-of-legends/logo.webp",
         "group-title": "Sports Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Shanghai Rolex Masters",
+        "image": "https://cdn.img4every1.org/league/atp-tour-live-stream-free/logo.webp",
+        "group-title": "Tennis Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
