@@ -8,10 +8,12 @@
         "status": "pending"
     },
     {
-        "name": "A Sports HD",
-        "image": "https://crichd.mobile/assets/channels/asports.webp",
-        "group-title": "Cricket Channels",
-        "url": "https://playerr03.com/embed.php?v=asports3c|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+        "name": "Eagles vs Jaguars",
+        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
+        "group-title": "American Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
     },
     {
         "name": "Astro Cricket",
@@ -86,22 +88,10 @@
         "url": "https://playerr03.com/embed.php?v=sony5c|Referer=https://playerso.top/|playRef=https://playerr03.com/"
     },
     {
-        "name": "Star Sports 1",
-        "image": "https://crichd.mobile/assets/channels/star1.webp",
-        "group-title": "Cricket Channels",
-        "url": "https://playerr03.com/embed.php?v=star1kibich5|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-    },
-    {
         "name": "Star Sports 2",
         "image": "https://crichd.mobile/assets/channels/star2.webp",
         "group-title": "Cricket Channels",
         "url": "https://playerr03.com/embed.php?v=star2u|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-    },
-    {
-        "name": "Star Sports Hindi",
-        "image": "https://crichd.mobile/assets/channels/starhindi.webp",
-        "group-title": "Cricket Channels",
-        "url": "https://playerr03.com/embed.php?v=star4b|Referer=https://playerso.top/|playRef=https://playerr03.com/"
     },
     {
         "name": "SuperSport Cricket",
