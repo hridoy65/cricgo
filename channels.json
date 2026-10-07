@@ -32,14 +32,6 @@
         "status": "pending"
     },
     {
-        "name": "Padres vs Brewers",
-        "image": "https://cdn.img4every1.org/league/mlb-streams/logo.webp",
-        "group-title": "Baseball Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Rays vs Yankees",
         "image": "https://cdn.img4every1.org/league/mlb-streams/logo.webp",
         "group-title": "Baseball Live Events",
@@ -242,22 +234,6 @@
         "status": "pending"
     },
     {
-        "name": "Canada vs USA",
-        "image": "https://cdn.img4every1.org/league/friendly-soccer-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Colombia vs Peru",
-        "image": "https://cdn.img4every1.org/league/friendly-soccer-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Dragons vs Ospreys",
         "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
         "group-title": "Football Live Events",
@@ -276,14 +252,6 @@
     {
         "name": "Leicester Tigers vs Gloucester",
         "image": "https://cdn.img4every1.org/league/premiership-rugby-cup/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Mexico vs Chile",
-        "image": "https://cdn.img4every1.org/league/friendly-soccer-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
