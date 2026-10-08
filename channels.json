@@ -170,6 +170,14 @@
         "status": "pending"
     },
     {
+        "name": "Bangladesh vs Afghanistan",
+        "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
+        "group-title": "Cricket Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "India vs Afghanistan",
         "image": "https://img.crichd.ch/league/asian-games/logo.webp",
         "group-title": "Cricket Live Events",
@@ -205,6 +213,22 @@
         "name": "Pakistan vs Bangladesh",
         "image": "https://img.crichd.ch/league/asian-games/logo.webp",
         "group-title": "Cricket Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Pakistan vs Sri Lanka",
+        "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
+        "group-title": "Cricket Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Australia Women vs Bangladesh Women",
+        "image": "https://img.crichd.ch/league/womens/logo.webp",
+        "group-title": "Football Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
