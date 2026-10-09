@@ -258,6 +258,30 @@
         "status": "pending"
     },
     {
+        "name": "Lens vs Olympique Lyonnais",
+        "image": "https://cdn.img4every1.org/league/french-ligue-1/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Málaga vs Espanyol",
+        "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "QPR vs West Ham",
+        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "F1 Singapore Grand Prix",
         "image": "https://cdn.img4every1.org/league/formula-1-live-stream/logo.webp",
         "group-title": "Formula 1 Live Events",
