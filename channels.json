@@ -210,8 +210,80 @@
         "status": "pending"
     },
     {
+        "name": "Australia vs New Zealand",
+        "image": "https://cdn.img4every1.org/league/rugby-union-live-stream-free/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Australia Women vs Bangladesh Women",
         "image": "https://img.crichd.ch/league/womens/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Bath vs Northampton",
+        "image": "https://cdn.img4every1.org/league/premiership-rugby-cup/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Bristol Bears vs Saracens",
+        "image": "https://cdn.img4every1.org/league/premiership-rugby-cup/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Bulls vs Lions",
+        "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Cardiff vs Leinster",
+        "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Edinburgh vs Zebre",
+        "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Scarlets vs Benetton Treviso",
+        "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Sharks vs Stormers",
+        "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Ulster vs Munster",
+        "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -261,6 +333,14 @@
         "name": "Shanghai Rolex Masters",
         "image": "https://cdn.img4every1.org/league/atp-tour-live-stream-free/logo.webp",
         "group-title": "Tennis Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Brendan Allen vs Christian Leroy Duncan",
+        "image": "https://cdn.img4every1.org/league/ufc-streams-free/logo.webp",
+        "group-title": "UFC Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
