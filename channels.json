@@ -210,6 +210,22 @@
         "status": "pending"
     },
     {
+        "name": "Arsenal vs Leeds United",
+        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Aston Villa vs Brentford",
+        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Australia Women vs Bangladesh Women",
         "image": "https://img.crichd.ch/league/womens/logo.webp",
         "group-title": "Football Live Events",
@@ -220,6 +236,14 @@
     {
         "name": "Bath vs Northampton",
         "image": "https://cdn.img4every1.org/league/premiership-rugby-cup/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Bayern München vs Augsburg",
+        "image": "https://cdn.img4every1.org/league/bundesliga-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -252,6 +276,14 @@
     {
         "name": "Edinburgh vs Zebre",
         "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Eintracht Frankfurt vs RB Leipzig",
+        "image": "https://cdn.img4every1.org/league/bundesliga-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
