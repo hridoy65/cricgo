@@ -250,14 +250,6 @@
         "status": "pending"
     },
     {
-        "name": "Bayern München vs Augsburg",
-        "image": "https://cdn.img4every1.org/league/bundesliga-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Brighton vs Sunderland",
         "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
         "group-title": "Football Live Events",
@@ -332,6 +324,14 @@
     {
         "name": "Napoli vs Frosinone",
         "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "PSG vs Le Mans",
+        "image": "https://cdn.img4every1.org/league/french-ligue-1/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
