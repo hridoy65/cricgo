@@ -1,38 +1,6 @@
 [
     {
-        "name": "Bears vs Packers",
-        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
-        "group-title": "American Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Commanders vs Giants",
-        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
-        "group-title": "American Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Dolphins vs Bengals",
-        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
-        "group-title": "American Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Falcons vs Ravens",
-        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
-        "group-title": "American Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Houston Texans vs Titans",
         "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
         "group-title": "American Football Live Events",
         "url": "",
@@ -56,31 +24,7 @@
         "status": "pending"
     },
     {
-        "name": "New York Jets vs Cleveland Browns",
-        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
-        "group-title": "American Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Patriots vs Raiders",
-        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
-        "group-title": "American Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Seahawks vs 49ers",
-        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
-        "group-title": "American Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Vikings vs Saints",
         "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
         "group-title": "American Football Live Events",
         "url": "",
@@ -298,32 +242,8 @@
         "status": "pending"
     },
     {
-        "name": "Juventus vs Cagliari",
-        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Racing vs Valencia",
         "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Real Betis vs Osasuna",
-        "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Troyes vs Marseille",
-        "image": "https://cdn.img4every1.org/league/french-ligue-1/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
