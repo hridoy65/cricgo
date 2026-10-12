@@ -48,10 +48,22 @@
         "url": "https://playerr03.com/embed.php?v=ptvskpr|Referer=https://playerso.top/|playRef=https://playerr03.com/"
     },
     {
+        "name": "Sky Cricket",
+        "image": "https://crichd.mobile/assets/channels/skycric.webp",
+        "group-title": "Cricket Channels",
+        "url": "https://bhalocast.pro/atofplay.php?v=dodosky2&secure=m1lko&expires=123456|Referer=https://playerso.top/|playRef=https://bhalocast.pro/"
+    },
+    {
         "name": "Sony Sports Ten 1",
         "image": "https://crichd.mobile/assets/channels/ten1.webp",
         "group-title": "Cricket Channels",
         "url": "https://playerr03.com/embed.php?v=sony1c|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+    },
+    {
+        "name": "Sony Sports Ten 2",
+        "image": "https://crichd.mobile/assets/channels/ten2.webp",
+        "group-title": "Cricket Channels",
+        "url": "https://playerr03.com/embed.php?v=ten2endia|Referer=https://playerso.top/|playRef=https://playerr03.com/"
     },
     {
         "name": "Sony Sports Ten 3",
@@ -70,6 +82,12 @@
         "image": "https://crichd.mobile/assets/channels/star1.webp",
         "group-title": "Cricket Channels",
         "url": "https://playerr03.com/embed.php?v=star1kibich5|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+    },
+    {
+        "name": "Star Sports 2",
+        "image": "https://crichd.mobile/assets/channels/star2.webp",
+        "group-title": "Cricket Channels",
+        "url": "https://playerr03.com/embed.php?v=star2u|Referer=https://playerso.top/|playRef=https://playerr03.com/"
     },
     {
         "name": "Star Sports Hindi",
@@ -171,6 +189,14 @@
         "name": "Pakistan vs Sri Lanka",
         "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
         "group-title": "Cricket Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Atalanta vs Venezia",
+        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
+        "group-title": "Football Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
