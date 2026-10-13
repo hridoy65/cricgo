@@ -194,8 +194,16 @@
         "status": "pending"
     },
     {
-        "name": "Atletico vs Man United",
-        "image": "https://cdn.img4every1.org/league/uefa-youth-league/logo.webp",
+        "name": "USA vs Namibia",
+        "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
+        "group-title": "Cricket Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Arsenal vs Lille",
+        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -210,6 +218,22 @@
         "status": "pending"
     },
     {
+        "name": "Barcelona vs Galatasaray",
+        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Bayern München vs Viking",
+        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Fenerbahce vs Aston Villa U19",
         "image": "https://cdn.img4every1.org/league/uefa-youth-league/logo.webp",
         "group-title": "Football Live Events",
@@ -218,8 +242,48 @@
         "status": "pending"
     },
     {
+        "name": "Inter Milan vs Club Brugge",
+        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Lens vs Sporting CP",
+        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Man City vs PSG",
         "image": "https://cdn.img4every1.org/league/uefa-youth-league/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Napoli vs Villarreal",
+        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "RB Leipzig vs PSV",
+        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Sabah vs Slavia Praha",
+        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
