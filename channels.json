@@ -202,6 +202,22 @@
         "status": "pending"
     },
     {
+        "name": "Aston Villa vs Fenerbahçe",
+        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Athens vs Shakhtar Donetsk",
+        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Australia Women vs Bangladesh Women",
         "image": "https://img.crichd.ch/league/womens/logo.webp",
         "group-title": "Football Live Events",
@@ -226,6 +242,14 @@
         "status": "pending"
     },
     {
+        "name": "Borussia Dortmund vs Bodø / Glimt",
+        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Brighton vs Kauno Zalgiris",
         "image": "https://cdn.img4every1.org/league/conference-league/logo.webp",
         "group-title": "Football Live Events",
@@ -242,16 +266,16 @@
         "status": "pending"
     },
     {
-        "name": "Crystal Palace vs Lyon",
-        "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
+        "name": "Como vs Feyenoord",
+        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
     },
     {
-        "name": "Fenerbahce vs Aston Villa U19",
-        "image": "https://cdn.img4every1.org/league/uefa-youth-league/logo.webp",
+        "name": "Crystal Palace vs Lyon",
+        "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -274,8 +298,8 @@
         "status": "pending"
     },
     {
-        "name": "Man City vs PSG",
-        "image": "https://cdn.img4every1.org/league/uefa-youth-league/logo.webp",
+        "name": "Liverpool vs LASK Linz",
+        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -298,6 +322,30 @@
         "status": "pending"
     },
     {
+        "name": "Porto vs Real Betis",
+        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "PSG vs Manchester City",
+        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Real Madrid vs Roma",
+        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Real Sociedad vs Union SG",
         "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
         "group-title": "Football Live Events",
@@ -308,6 +356,14 @@
     {
         "name": "Sassuolo vs Frosinone",
         "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Stuttgart vs Slovan Bratislava",
+        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
