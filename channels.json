@@ -1,9 +1,11 @@
 [
     {
-        "name": "A Sports HD",
-        "image": "https://crichd.mobile/assets/channels/asports.webp",
-        "group-title": "Cricket Channels",
-        "url": "https://playerr03.com/embed.php?v=asports3c|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+        "name": "Brewers vs Dodgers",
+        "image": "https://cdn.img4every1.org/league/mlb-streams/logo.webp",
+        "group-title": "Baseball Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
     },
     {
         "name": "Astro Cricket",
@@ -28,12 +30,6 @@
         "image": "https://crichd.mobile/assets/channels/cl3.webp",
         "group-title": "Cricket Channels",
         "url": "https://playerr03.com/embed.php?v=criclife3|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-    },
-    {
-        "name": "Fox Cricket",
-        "image": "https://crichd.mobile/assets/channels/foxcric.webp",
-        "group-title": "Cricket Channels",
-        "url": "https://playerr03.com/embed.php?v=fox501a|Referer=https://playerso.top/|playRef=https://playerr03.com/"
     },
     {
         "name": "Geo Super",
@@ -266,14 +262,6 @@
         "status": "pending"
     },
     {
-        "name": "Como vs Feyenoord",
-        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Crystal Palace vs Lyon",
         "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
         "group-title": "Football Live Events",
@@ -292,14 +280,6 @@
     {
         "name": "Le Mans vs Toulouse",
         "image": "https://cdn.img4every1.org/league/french-ligue-1/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Liverpool vs LASK Linz",
-        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -389,6 +369,14 @@
         "name": "West Ham vs Lincoln City",
         "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
         "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "India Championship",
+        "image": "https://cdn.img4every1.org/league/pga-tour/logo.webp",
+        "group-title": "Sports Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
