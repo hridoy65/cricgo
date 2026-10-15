@@ -226,14 +226,6 @@
         "status": "pending"
     },
     {
-        "name": "Bayer Leverkusen vs Lech Poznan",
-        "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Benfica vs Celtic",
         "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
         "group-title": "Football Live Events",
@@ -260,14 +252,6 @@
     {
         "name": "Burnley vs Wolves",
         "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Crystal Palace vs Lyon",
-        "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -330,14 +314,6 @@
         "status": "pending"
     },
     {
-        "name": "Milan vs Salzburg",
-        "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Newcastle Jets vs Central Coast Mariners",
         "image": "https://cdn.img4every1.org/league/australia-a-league/logo.webp",
         "group-title": "Football Live Events",
@@ -362,24 +338,8 @@
         "status": "pending"
     },
     {
-        "name": "Real Sociedad vs Union SG",
-        "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Sassuolo vs Frosinone",
         "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Sunderland vs Torreense",
-        "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
