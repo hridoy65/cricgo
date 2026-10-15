@@ -210,14 +210,6 @@
         "status": "pending"
     },
     {
-        "name": "Al-Nassr vs Al-Ahli",
-        "image": "https://cdn.img4every1.org/league/saudi-pro-league/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Auckland vs Melbourne City",
         "image": "https://cdn.img4every1.org/league/australia-a-league/logo.webp",
         "group-title": "Football Live Events",
@@ -243,6 +235,14 @@
     },
     {
         "name": "Benfica vs Celtic",
+        "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Bournemouth vs Sturm Graz",
         "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
@@ -300,6 +300,22 @@
     {
         "name": "Heart vs Nordsjælland",
         "image": "https://cdn.img4every1.org/league/conference-league/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Hoffenheim vs Besiktas",
+        "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Juventus vs Celta Vigo",
+        "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
