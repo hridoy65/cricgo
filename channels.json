@@ -226,54 +226,6 @@
         "status": "pending"
     },
     {
-        "name": "Burnley vs Wolves",
-        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Deportivo La Coruña vs Levante",
-        "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Edinburgh vs Toulon",
-        "image": "https://cdn.img4every1.org/league/challenge-cup/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Eintracht Frankfurt vs Köln",
-        "image": "https://cdn.img4every1.org/league/bundesliga-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Gloucester vs Bordeaux Begles",
-        "image": "https://cdn.img4every1.org/league/champions-cup/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Le Mans vs Toulouse",
-        "image": "https://cdn.img4every1.org/league/french-ligue-1/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Newcastle Jets vs Central Coast Mariners",
         "image": "https://cdn.img4every1.org/league/australia-a-league/logo.webp",
         "group-title": "Football Live Events",
@@ -284,14 +236,6 @@
     {
         "name": "Perth Glory vs Macarthur",
         "image": "https://cdn.img4every1.org/league/australia-a-league/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Sassuolo vs Frosinone",
-        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
