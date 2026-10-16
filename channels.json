@@ -226,14 +226,6 @@
         "status": "pending"
     },
     {
-        "name": "France vs Samoa",
-        "image": "https://cdn.img4every1.org/league/rugby-league-world-cup/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Gloucester vs Bordeaux Begles",
         "image": "https://cdn.img4every1.org/league/champions-cup/logo.webp",
         "group-title": "Football Live Events",
@@ -268,14 +260,6 @@
     {
         "name": "Sassuolo vs Frosinone",
         "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Sydney FC vs Western Sydney Wanderers",
-        "image": "https://cdn.img4every1.org/league/australia-a-league/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
