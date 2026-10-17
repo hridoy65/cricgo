@@ -1,5 +1,13 @@
 [
     {
+        "name": "Eagles vs Panthers",
+        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
+        "group-title": "American Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Giants vs Saints",
         "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
         "group-title": "American Football Live Events",
@@ -17,14 +25,6 @@
     },
     {
         "name": "Ravens vs Browns",
-        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
-        "group-title": "American Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Steelers vs Buccaneers",
         "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
         "group-title": "American Football Live Events",
         "url": "",
@@ -192,14 +192,6 @@
         "image": "https://crichd.mobile/assets/channels/willowextra.webp",
         "group-title": "Cricket Channels",
         "url": "https://playerr03.com/embed.php?v=wextres5|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-    },
-    {
-        "name": "Asian Games T20",
-        "image": "https://img.crichd.ch/league/asian-games/logo.webp",
-        "group-title": "Cricket Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
     },
     {
         "name": "Australia vs South Africa",
