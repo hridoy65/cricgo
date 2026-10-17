@@ -170,14 +170,6 @@
         "status": "pending"
     },
     {
-        "name": "India vs Sri Lanka",
-        "image": "https://img.crichd.ch/league/asian-games/logo.webp",
-        "group-title": "Cricket Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "India vs West Indies",
         "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
         "group-title": "Cricket Live Events",
@@ -210,6 +202,14 @@
         "status": "pending"
     },
     {
+        "name": "Aston Villa vs Newcastle",
+        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Australia Women vs Bangladesh Women",
         "image": "https://img.crichd.ch/league/womens/logo.webp",
         "group-title": "Football Live Events",
@@ -218,23 +218,7 @@
         "status": "pending"
     },
     {
-        "name": "Bulls vs Stade Francais",
-        "image": "https://cdn.img4every1.org/league/champions-cup/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Chelsea vs Everton",
-        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Espanyol vs Atletico Madrid",
+        "name": "Barcelona vs Real Betis",
         "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
@@ -242,16 +226,72 @@
         "status": "pending"
     },
     {
-        "name": "Warriors vs Sale Sharks",
-        "image": "https://cdn.img4every1.org/league/champions-cup/logo.webp",
+        "name": "Bayern München vs RB Leipzig",
+        "image": "https://cdn.img4every1.org/league/bundesliga-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
     },
     {
-        "name": "Watford vs Charlton Athletic",
-        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
+        "name": "Elche vs Villarreal",
+        "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Fulham vs Hull City",
+        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Inter Milan vs Bologna",
+        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Liverpool vs Brentford",
+        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Manchester City vs Ipswich Town",
+        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Napoli vs Venezia",
+        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "PSG vs Strasbourg",
+        "image": "https://cdn.img4every1.org/league/french-ligue-1/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Schalke 04 vs Mainz 05",
+        "image": "https://cdn.img4every1.org/league/bundesliga-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
