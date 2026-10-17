@@ -226,24 +226,16 @@
         "status": "pending"
     },
     {
+        "name": "Chelsea vs Everton",
+        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "England vs Tonga",
         "image": "https://cdn.img4every1.org/league/rugby-league-world-cup/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Newcastle Jets vs Central Coast Mariners",
-        "image": "https://cdn.img4every1.org/league/australia-a-league/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Perth Glory vs Macarthur",
-        "image": "https://cdn.img4every1.org/league/australia-a-league/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
