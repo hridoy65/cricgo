@@ -1,6 +1,38 @@
 [
     {
+        "name": "Bills vs Raiders",
+        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
+        "group-title": "American Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Chargers vs Chiefs",
+        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
+        "group-title": "American Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Cowboys vs Packers",
+        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
+        "group-title": "American Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Eagles vs Panthers",
+        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
+        "group-title": "American Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Falcons vs Bears",
         "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
         "group-title": "American Football Live Events",
         "url": "",
@@ -24,6 +56,14 @@
         "status": "pending"
     },
     {
+        "name": "Rams vs Cardinals",
+        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
+        "group-title": "American Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Ravens vs Browns",
         "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
         "group-title": "American Football Live Events",
@@ -33,14 +73,6 @@
     },
     {
         "name": "Steelers vs Buccaneers",
-        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
-        "group-title": "American Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Texans vs Jaguars",
         "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
         "group-title": "American Football Live Events",
         "url": "",
@@ -234,54 +266,6 @@
         "status": "pending"
     },
     {
-        "name": "USA vs Namibia",
-        "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
-        "group-title": "Cricket Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "AC Milan vs Atalanta",
-        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Alaves vs Celta Vigo",
-        "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Arsenal vs Nottm Forest",
-        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Australia Women vs Bangladesh Women",
-        "image": "https://img.crichd.ch/league/womens/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Exeter Chiefs vs Toulouse",
-        "image": "https://cdn.img4every1.org/league/champions-cup/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Lazio vs Juventus",
         "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
         "group-title": "Football Live Events",
@@ -293,22 +277,6 @@
         "name": "Real Madrid vs Sevilla",
         "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
         "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Real Sociedad vs Málaga",
-        "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Northampton vs Cardiff Rugby",
-        "image": "https://cdn.img4every1.org/league/champions-cup/logo.webp",
-        "group-title": "Rugby Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
