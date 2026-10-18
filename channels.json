@@ -24,92 +24,12 @@
         "status": "pending"
     },
     {
-        "name": "Eagles vs Panthers",
-        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
-        "group-title": "American Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Falcons vs Bears",
-        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
-        "group-title": "American Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Giants vs Saints",
-        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
-        "group-title": "American Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Patriots vs Jets",
-        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
-        "group-title": "American Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Rams vs Cardinals",
         "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
         "group-title": "American Football Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
-    },
-    {
-        "name": "Ravens vs Browns",
-        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
-        "group-title": "American Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Steelers vs Buccaneers",
-        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
-        "group-title": "American Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Titans vs Colts",
-        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
-        "group-title": "American Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "A Sports HD",
-        "image": "https://crichd.mobile/assets/channels/asports.webp",
-        "group-title": "Cricket Channels",
-        "url": "https://playerr03.com/embed.php?v=asports3c|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-    },
-    {
-        "name": "Astro Cricket",
-        "image": "https://crichd.mobile/assets/channels/astrocric.webp",
-        "group-title": "Cricket Channels",
-        "url": "https://playerr03.com/embed.php?v=astro2v|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-    },
-    {
-        "name": "CricLife 1",
-        "image": "https://crichd.mobile/assets/channels/cl1.webp",
-        "group-title": "Cricket Channels",
-        "url": "https://playerr03.com/embed.php?v=criclife1|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-    },
-    {
-        "name": "CricLife 2",
-        "image": "https://crichd.mobile/assets/channels/cl2.webp",
-        "group-title": "Cricket Channels",
-        "url": "https://playerr03.com/embed.php?v=criclife2|Referer=https://playerso.top/|playRef=https://playerr03.com/"
     },
     {
         "name": "CricLife 3",
@@ -136,18 +56,6 @@
         "url": "https://playerr03.com/embed.php?v=ptvskpr|Referer=https://playerso.top/|playRef=https://playerr03.com/"
     },
     {
-        "name": "Sky Cricket",
-        "image": "https://crichd.mobile/assets/channels/skycric.webp",
-        "group-title": "Cricket Channels",
-        "url": "https://bhalocast.pro/atofplay.php?v=dodosky2&secure=m1lko&expires=123456|Referer=https://playerso.top/|playRef=https://bhalocast.pro/"
-    },
-    {
-        "name": "Sony Sports Ten 1",
-        "image": "https://crichd.mobile/assets/channels/ten1.webp",
-        "group-title": "Cricket Channels",
-        "url": "https://playerr03.com/embed.php?v=sony1c|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-    },
-    {
         "name": "Sony Sports Ten 2",
         "image": "https://crichd.mobile/assets/channels/ten2.webp",
         "group-title": "Cricket Channels",
@@ -166,12 +74,6 @@
         "url": "https://playerr03.com/embed.php?v=sony5c|Referer=https://playerso.top/|playRef=https://playerr03.com/"
     },
     {
-        "name": "Star Sports 1",
-        "image": "https://crichd.mobile/assets/channels/star1.webp",
-        "group-title": "Cricket Channels",
-        "url": "https://playerr03.com/embed.php?v=star1kibich5|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-    },
-    {
         "name": "Star Sports 2",
         "image": "https://crichd.mobile/assets/channels/star2.webp",
         "group-title": "Cricket Channels",
@@ -182,12 +84,6 @@
         "image": "https://crichd.mobile/assets/channels/starhindi.webp",
         "group-title": "Cricket Channels",
         "url": "https://playerr03.com/embed.php?v=star4b|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-    },
-    {
-        "name": "SuperSport Cricket",
-        "image": "https://crichd.mobile/assets/channels/sscricket.webp",
-        "group-title": "Cricket Channels",
-        "url": "https://bhalocast.pro/atofplay.php?v=sscric&secure=m1lko&expires=123456|Referer=https://playerso.top/|playRef=https://bhalocast.pro/"
     },
     {
         "name": "T Sports HD",
@@ -212,18 +108,6 @@
         "image": "https://crichd.mobile/assets/channels/willow.webp",
         "group-title": "Cricket Channels",
         "url": "https://playerr03.com/embed.php?v=willow2c|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-    },
-    {
-        "name": "Willow HD",
-        "image": "https://crichd.mobile/assets/channels/willow.webp",
-        "group-title": "Cricket Channels",
-        "url": "https://playerr03.com/embed.php?v=hdwillow3c|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-    },
-    {
-        "name": "Willow Xtra",
-        "image": "https://crichd.mobile/assets/channels/willowextra.webp",
-        "group-title": "Cricket Channels",
-        "url": "https://playerr03.com/embed.php?v=wextres5|Referer=https://playerso.top/|playRef=https://playerr03.com/"
     },
     {
         "name": "Australia vs South Africa",
@@ -261,22 +145,6 @@
         "name": "Pakistan vs Sri Lanka",
         "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
         "group-title": "Cricket Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Lazio vs Juventus",
-        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Real Madrid vs Sevilla",
-        "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
-        "group-title": "Football Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
