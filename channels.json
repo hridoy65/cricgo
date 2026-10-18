@@ -48,14 +48,6 @@
         "status": "pending"
     },
     {
-        "name": "Rays vs Guardians",
-        "image": "https://cdn.img4every1.org/league/mlb-streams/logo.webp",
-        "group-title": "Baseball Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "A Sports HD",
         "image": "https://crichd.mobile/assets/channels/asports.webp",
         "group-title": "Cricket Channels",
@@ -282,14 +274,6 @@
         "status": "pending"
     },
     {
-        "name": "Melbourne Victory vs Wellington Phoenix",
-        "image": "https://cdn.img4every1.org/league/australia-a-league/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Northampton vs Cardiff Rugby",
         "image": "https://cdn.img4every1.org/league/champions-cup/logo.webp",
         "group-title": "Rugby Live Events",
@@ -325,14 +309,6 @@
         "name": "Shanghai Rolex Masters",
         "image": "https://cdn.img4every1.org/league/atp-tour-live-stream-free/logo.webp",
         "group-title": "Tennis Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "UFC Fight Night: Buckley vs Malott",
-        "image": "https://cdn.img4every1.org/league/ufc-streams-free/logo.webp",
-        "group-title": "UFC Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
