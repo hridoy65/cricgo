@@ -194,6 +194,14 @@
         "status": "pending"
     },
     {
+        "name": "Gillingham vs Port Vale",
+        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Snooker Northern Ireland Open",
         "image": "https://cdn.img4every1.org/league/snooker/logo.webp",
         "group-title": "Snooker Live Events",
@@ -204,6 +212,14 @@
     {
         "name": "WCL",
         "image": "https://img.crichd.ch/league/world-championship-of-legends/logo.webp",
+        "group-title": "Sports Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "World Gymnastics Championship",
+        "image": "https://cdn.img4every1.org/league/gymnastics/logo.webp",
         "group-title": "Sports Live Events",
         "url": "",
         "sources": {},
