@@ -170,6 +170,22 @@
         "status": "pending"
     },
     {
+        "name": "England vs Sri Lanka",
+        "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
+        "group-title": "Cricket Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "India vs New Zealand",
+        "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
+        "group-title": "Cricket Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Pakistan vs England",
         "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
         "group-title": "Cricket Live Events",
@@ -181,78 +197,6 @@
         "name": "Pakistan vs Sri Lanka",
         "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
         "group-title": "Cricket Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Barcelona vs PSG",
-        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Gillingham vs Port Vale",
-        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Liverpool vs Villarreal",
-        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Manchester City vs Athens",
-        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Napoli vs Bodø / Glimt",
-        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Porto vs PSV",
-        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Roma vs Slovan Bratislava",
-        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Stuttgart vs Atlético Madrid",
-        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Wolves vs Portsmouth",
-        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
-        "group-title": "Football Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
