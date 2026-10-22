@@ -162,6 +162,14 @@
         "status": "pending"
     },
     {
+        "name": "Bangladesh vs Zimbabwe",
+        "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
+        "group-title": "Cricket Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "England vs Sri Lanka",
         "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
         "group-title": "Cricket Live Events",
@@ -171,6 +179,30 @@
     },
     {
         "name": "India vs New Zealand",
+        "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
+        "group-title": "Cricket Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "India vs West Indies",
+        "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
+        "group-title": "Cricket Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Ireland vs Namibia",
+        "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
+        "group-title": "Cricket Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Nepal vs Canada",
         "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
         "group-title": "Cricket Live Events",
         "url": "",
