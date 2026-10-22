@@ -242,14 +242,6 @@
         "status": "pending"
     },
     {
-        "name": "Brighton vs Jablonec",
-        "image": "https://cdn.img4every1.org/league/conference-league/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Celtic vs Celta Vigo",
         "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
         "group-title": "Football Live Events",
@@ -259,22 +251,6 @@
     },
     {
         "name": "Crystal Palace vs Besiktas",
-        "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Hearts vs Trabzonspor",
-        "image": "https://cdn.img4every1.org/league/conference-league/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Juventus vs Rennes",
         "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
@@ -298,14 +274,6 @@
         "status": "pending"
     },
     {
-        "name": "Marseille vs Sturm Graz",
-        "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Melbourne City vs Melbourne Victory",
         "image": "https://cdn.img4every1.org/league/australia-a-league/logo.webp",
         "group-title": "Football Live Events",
@@ -322,14 +290,6 @@
         "status": "pending"
     },
     {
-        "name": "OFI vs Bayer Leverkusen",
-        "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Real Sociedad vs Lillestrøm",
         "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
         "group-title": "Football Live Events",
@@ -340,14 +300,6 @@
     {
         "name": "Roma vs Napoli",
         "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Sunderland vs Lech Poznan",
-        "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
