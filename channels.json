@@ -290,22 +290,6 @@
         "status": "pending"
     },
     {
-        "name": "Man City vs Aston Villa",
-        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Norwich City vs Charlton Athletic",
-        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Parma vs Lazio",
         "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
         "group-title": "Football Live Events",
@@ -389,6 +373,14 @@
         "name": "WCL",
         "image": "https://img.crichd.ch/league/world-championship-of-legends/logo.webp",
         "group-title": "Sports Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Alexander Volkanovski vs Movsar Evloev",
+        "image": "https://cdn.img4every1.org/league/ufc-streams-free/logo.webp",
+        "group-title": "UFC Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
