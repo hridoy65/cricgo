@@ -210,8 +210,40 @@
         "status": "pending"
     },
     {
+        "name": "Arsenal vs Everton",
+        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Bulls vs Ulster",
         "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Chelsea vs Tottenham Hotspur",
+        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Como vs Sassuolo",
+        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Eintracht Frankfurt vs Dortmund",
+        "image": "https://cdn.img4every1.org/league/bundesliga-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -226,7 +258,7 @@
         "status": "pending"
     },
     {
-        "name": "Man City vs Aston Villa",
+        "name": "Fulahm vs Coventry City",
         "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
@@ -234,8 +266,32 @@
         "status": "pending"
     },
     {
-        "name": "Melbourne City vs Melbourne Victory",
-        "image": "https://cdn.img4every1.org/league/australia-a-league/logo.webp",
+        "name": "Glasgow Warriors vs Benetton Treviso",
+        "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Leicester Tigers vs Northampton",
+        "image": "https://cdn.img4every1.org/league/premiership-rugby-cup/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Lens vs Paris",
+        "image": "https://cdn.img4every1.org/league/french-ligue-1/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Man City vs Aston Villa",
+        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -250,8 +306,48 @@
         "status": "pending"
     },
     {
+        "name": "Parma vs Lazio",
+        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Racing vs Espanyol",
+        "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Roma vs Napoli",
         "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Scarlets vs Stormers",
+        "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Southampton vs West Ham",
+        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Valencia vs Villarreal",
+        "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
