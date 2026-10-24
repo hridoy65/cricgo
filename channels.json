@@ -210,16 +210,24 @@
         "status": "pending"
     },
     {
-        "name": "Auckland vs Western Sydney Wanderers",
-        "image": "https://cdn.img4every1.org/league/australia-a-league/logo.webp",
+        "name": "Bulls vs Ulster",
+        "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
     },
     {
-        "name": "England vs France",
-        "image": "https://cdn.img4every1.org/league/rugby-league-world-cup/logo.webp",
+        "name": "Elche vs Rayo Vallecano",
+        "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Man City vs Aston Villa",
+        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -228,6 +236,14 @@
     {
         "name": "Melbourne City vs Melbourne Victory",
         "image": "https://cdn.img4every1.org/league/australia-a-league/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Norwich City vs Charlton Athletic",
+        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
