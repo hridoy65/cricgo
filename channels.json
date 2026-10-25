@@ -8,6 +8,22 @@
         "status": "pending"
     },
     {
+        "name": "Chiefs vs Seahawks",
+        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
+        "group-title": "American Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Detroit Lions vs Green Bay Packers",
+        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
+        "group-title": "American Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Dolphins vs Jets",
         "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
         "group-title": "American Football Live Events",
@@ -25,14 +41,6 @@
     },
     {
         "name": "Giants vs Texans",
-        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
-        "group-title": "American Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Steelers vs Saints",
         "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
         "group-title": "American Football Live Events",
         "url": "",
@@ -266,14 +274,6 @@
         "status": "pending"
     },
     {
-        "name": "Bayer Leverkusen vs Hoffenheim",
-        "image": "https://cdn.img4every1.org/league/bundesliga-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Bayern München vs Freiburg",
         "image": "https://cdn.img4every1.org/league/bundesliga-streams/logo.webp",
         "group-title": "Football Live Events",
@@ -290,30 +290,6 @@
         "status": "pending"
     },
     {
-        "name": "Brentford vs Hull City",
-        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Crystal Palace vs Newcastle United",
-        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Getafe vs Athletic Club",
-        "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Harlequins vs Saracens",
         "image": "https://cdn.img4every1.org/league/premiership-rugby-cup/logo.webp",
         "group-title": "Football Live Events",
@@ -324,30 +300,6 @@
     {
         "name": "Juventus vs Lecce",
         "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Lille vs Monaco",
-        "image": "https://cdn.img4every1.org/league/french-ligue-1/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Liverpool vs Brighton",
-        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Man United vs Bournemouth",
-        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -404,14 +356,6 @@
     {
         "name": "PGA / LPGA Golf",
         "image": "https://cdn.img4every1.org/league/pga-tour/logo.webp",
-        "group-title": "Sports Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "WCL",
-        "image": "https://img.crichd.ch/league/world-championship-of-legends/logo.webp",
         "group-title": "Sports Live Events",
         "url": "",
         "sources": {},
