@@ -162,6 +162,22 @@
         "status": "pending"
     },
     {
+        "name": "Bangladesh vs West Indies",
+        "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
+        "group-title": "Cricket Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Bangladesh vs Zimbabwe",
+        "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
+        "group-title": "Cricket Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "England vs Sri Lanka",
         "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
         "group-title": "Cricket Live Events",
@@ -220,6 +236,14 @@
     {
         "name": "PGA / LPGA Golf",
         "image": "https://cdn.img4every1.org/league/pga-tour/logo.webp",
+        "group-title": "Sports Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "WCL",
+        "image": "https://img.crichd.ch/league/world-championship-of-legends/logo.webp",
         "group-title": "Sports Live Events",
         "url": "",
         "sources": {},
