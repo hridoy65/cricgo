@@ -1,5 +1,13 @@
 [
     {
+        "name": "Cowboys vs Eagles",
+        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
+        "group-title": "American Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "A Sports HD",
         "image": "https://crichd.mobile/assets/channels/asports.webp",
         "group-title": "Cricket Channels",
@@ -234,8 +242,8 @@
         "status": "pending"
     },
     {
-        "name": "PSG vs Lyon",
-        "image": "https://cdn.img4every1.org/league/french-ligue-1/logo.webp",
+        "name": "Como vs Torino",
+        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
