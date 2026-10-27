@@ -226,14 +226,6 @@
         "status": "pending"
     },
     {
-        "name": "2026 Ballon d'Or",
-        "image": "https://cdn.img4every1.org/league/friendly-soccer-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Borussia Dortmund vs Werder Bremen",
         "image": "https://cdn.img4every1.org/league/bundesliga-streams/logo.webp",
         "group-title": "Football Live Events",
@@ -250,32 +242,8 @@
         "status": "pending"
     },
     {
-        "name": "Sevilla vs Osasuna",
-        "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Walsall vs Salford City",
-        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "NPL T20",
         "image": "https://img.crichd.ch/league/nepal-premier-league/logo.webp",
-        "group-title": "Sports Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "PGA / LPGA Golf",
-        "image": "https://cdn.img4every1.org/league/pga-tour/logo.webp",
         "group-title": "Sports Live Events",
         "url": "",
         "sources": {},
