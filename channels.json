@@ -170,14 +170,6 @@
         "status": "pending"
     },
     {
-        "name": "Bangladesh vs Zimbabwe",
-        "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
-        "group-title": "Cricket Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "England vs Sri Lanka",
         "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
         "group-title": "Cricket Live Events",
@@ -218,8 +210,40 @@
         "status": "pending"
     },
     {
+        "name": "AC Milan vs Bologna",
+        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Arsenal vs Fleetwood Town",
+        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Auckland vs Brisbane Roar",
+        "image": "https://cdn.img4every1.org/league/australia-a-league/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Borussia Dortmund vs Werder Bremen",
         "image": "https://cdn.img4every1.org/league/bundesliga-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Bradford City vs Peterborough Utd",
+        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -242,6 +266,30 @@
         "status": "pending"
     },
     {
+        "name": "Inter Milan vs Venezia",
+        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Lazio vs Sassuolo",
+        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Napoli vs Monza",
+        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "RB Leipzig vs Rot-Weiss Essen",
         "image": "https://cdn.img4every1.org/league/dfb-pokal/logo.webp",
         "group-title": "Football Live Events",
@@ -250,16 +298,16 @@
         "status": "pending"
     },
     {
-        "name": "NPL T20",
-        "image": "https://img.crichd.ch/league/nepal-premier-league/logo.webp",
-        "group-title": "Sports Live Events",
+        "name": "Roma vs Cagliari",
+        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
+        "group-title": "Football Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
     },
     {
-        "name": "WCL",
-        "image": "https://img.crichd.ch/league/world-championship-of-legends/logo.webp",
+        "name": "NPL T20",
+        "image": "https://img.crichd.ch/league/nepal-premier-league/logo.webp",
         "group-title": "Sports Live Events",
         "url": "",
         "sources": {},
