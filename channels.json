@@ -48,12 +48,6 @@
         "url": "https://playerr03.com/embed.php?v=ptvskpr|Referer=https://playerso.top/|playRef=https://playerr03.com/"
     },
     {
-        "name": "Sky Cricket",
-        "image": "https://crichd.mobile/assets/channels/skycric.webp",
-        "group-title": "Cricket Channels",
-        "url": "https://bhalocast.pro/atofplay.php?v=dodosky2&secure=m1lko&expires=123456|Referer=https://playerso.top/|playRef=https://bhalocast.pro/"
-    },
-    {
         "name": "Sony Sports Ten 1",
         "image": "https://crichd.mobile/assets/channels/ten1.webp",
         "group-title": "Cricket Channels",
@@ -94,12 +88,6 @@
         "image": "https://crichd.mobile/assets/channels/starhindi.webp",
         "group-title": "Cricket Channels",
         "url": "https://playerr03.com/embed.php?v=star4b|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-    },
-    {
-        "name": "SuperSport Cricket",
-        "image": "https://crichd.mobile/assets/channels/sscricket.webp",
-        "group-title": "Cricket Channels",
-        "url": "https://bhalocast.pro/atofplay.php?v=sscric&secure=m1lko&expires=123456|Referer=https://playerso.top/|playRef=https://bhalocast.pro/"
     },
     {
         "name": "T Sports HD",
@@ -154,14 +142,6 @@
         "status": "pending"
     },
     {
-        "name": "Bangladesh vs Afghanistan",
-        "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
-        "group-title": "Cricket Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Bangladesh vs West Indies",
         "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
         "group-title": "Cricket Live Events",
@@ -205,14 +185,6 @@
         "name": "Pakistan vs Sri Lanka",
         "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
         "group-title": "Cricket Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "AC Milan vs Bologna",
-        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
-        "group-title": "Football Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
