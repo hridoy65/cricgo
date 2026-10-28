@@ -210,8 +210,8 @@
         "status": "pending"
     },
     {
-        "name": "AC Milan vs Bologna",
-        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
+        "name": "Arsenal vs Benfica",
+        "image": "https://cdn.img4every1.org/league/womens-champions-league/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -226,8 +226,56 @@
         "status": "pending"
     },
     {
-        "name": "Inter Milan vs Venezia",
+        "name": "Bayer Leverkusen vs Nürnberg",
+        "image": "https://cdn.img4every1.org/league/dfb-pokal/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Bayern München vs Magdeburg",
+        "image": "https://cdn.img4every1.org/league/dfb-pokal/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Bournemouth vs Aston Villa",
+        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Fulham vs Crystal Palace",
+        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Juventus vs Genoa",
         "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Liverpool vs Chelsea",
+        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Manchester City vs Brighton",
+        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -242,8 +290,8 @@
         "status": "pending"
     },
     {
-        "name": "Schalke 04 vs Dynamo Dresden",
-        "image": "https://cdn.img4every1.org/league/dfb-pokal/logo.webp",
+        "name": "Sunderland vs Brentford",
+        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
