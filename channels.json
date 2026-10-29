@@ -32,12 +32,6 @@
         "url": "https://playerr03.com/embed.php?v=criclife2|Referer=https://playerso.top/|playRef=https://playerr03.com/"
     },
     {
-        "name": "CricLife 3",
-        "image": "https://crichd.mobile/assets/channels/cl3.webp",
-        "group-title": "Cricket Channels",
-        "url": "https://playerr03.com/embed.php?v=criclife3|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-    },
-    {
         "name": "Fox Cricket",
         "image": "https://crichd.mobile/assets/channels/foxcric.webp",
         "group-title": "Cricket Channels",
@@ -110,12 +104,6 @@
         "url": "https://bhalocast.pro/atofplay.php?v=sscric&secure=m1lko&expires=123456|Referer=https://playerso.top/|playRef=https://bhalocast.pro/"
     },
     {
-        "name": "T Sports HD",
-        "image": "https://crichd.mobile/assets/channels/tsports.webp",
-        "group-title": "Cricket Channels",
-        "url": "https://playerr03.com/embed.php?v=gtvbd|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-    },
-    {
         "name": "Ten Sports",
         "image": "https://crichd.mobile/assets/channels/tensp.webp",
         "group-title": "Cricket Channels",
@@ -178,6 +166,14 @@
         "status": "pending"
     },
     {
+        "name": "Bangladesh vs Zimbabwe",
+        "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
+        "group-title": "Cricket Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "England vs Sri Lanka",
         "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
         "group-title": "Cricket Live Events",
@@ -213,6 +209,14 @@
         "name": "Pakistan vs Sri Lanka",
         "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
         "group-title": "Cricket Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Atalanta vs Fiorentina",
+        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
+        "group-title": "Football Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
@@ -266,6 +270,14 @@
         "status": "pending"
     },
     {
+        "name": "Frosinone vs Lecce",
+        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Glasgow Warriors vs Lions",
         "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
         "group-title": "Football Live Events",
@@ -284,6 +296,14 @@
     {
         "name": "Newcastle Falcons vs Saracens",
         "image": "https://cdn.img4every1.org/league/premiership-rugby-cup/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Newcastle United vs Everton",
+        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -348,6 +368,14 @@
     {
         "name": "WBBL T20",
         "image": "https://img.crichd.ch/league/big-bash-league/logo.webp",
+        "group-title": "Sports Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "WCL",
+        "image": "https://img.crichd.ch/league/world-championship-of-legends/logo.webp",
         "group-title": "Sports Live Events",
         "url": "",
         "sources": {},
