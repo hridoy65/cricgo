@@ -178,14 +178,6 @@
         "status": "pending"
     },
     {
-        "name": "Bangladesh vs Zimbabwe",
-        "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
-        "group-title": "Cricket Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "England vs Sri Lanka",
         "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
         "group-title": "Cricket Live Events",
@@ -282,14 +274,6 @@
         "status": "pending"
     },
     {
-        "name": "Frosinone vs Lecce",
-        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Glasgow Warriors vs Lions",
         "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
         "group-title": "Football Live Events",
@@ -380,14 +364,6 @@
     {
         "name": "WBBL T20",
         "image": "https://img.crichd.ch/league/big-bash-league/logo.webp",
-        "group-title": "Sports Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "WCL",
-        "image": "https://img.crichd.ch/league/world-championship-of-legends/logo.webp",
         "group-title": "Sports Live Events",
         "url": "",
         "sources": {},
