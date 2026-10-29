@@ -32,6 +32,12 @@
         "url": "https://playerr03.com/embed.php?v=criclife2|Referer=https://playerso.top/|playRef=https://playerr03.com/"
     },
     {
+        "name": "CricLife 3",
+        "image": "https://crichd.mobile/assets/channels/cl3.webp",
+        "group-title": "Cricket Channels",
+        "url": "https://playerr03.com/embed.php?v=criclife3|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+    },
+    {
         "name": "Fox Cricket",
         "image": "https://crichd.mobile/assets/channels/foxcric.webp",
         "group-title": "Cricket Channels",
@@ -102,6 +108,12 @@
         "image": "https://crichd.mobile/assets/channels/sscricket.webp",
         "group-title": "Cricket Channels",
         "url": "https://bhalocast.pro/atofplay.php?v=sscric&secure=m1lko&expires=123456|Referer=https://playerso.top/|playRef=https://bhalocast.pro/"
+    },
+    {
+        "name": "T Sports HD",
+        "image": "https://crichd.mobile/assets/channels/tsports.webp",
+        "group-title": "Cricket Channels",
+        "url": "https://playerr03.com/embed.php?v=gtvbd|Referer=https://playerso.top/|playRef=https://playerr03.com/"
     },
     {
         "name": "Ten Sports",
