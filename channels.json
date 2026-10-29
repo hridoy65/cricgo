@@ -1,5 +1,13 @@
 [
     {
+        "name": "Carolina Panthers vs Green Bay Packers",
+        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
+        "group-title": "American Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "A Sports HD",
         "image": "https://crichd.mobile/assets/channels/asports.webp",
         "group-title": "Cricket Channels",
@@ -210,14 +218,6 @@
         "status": "pending"
     },
     {
-        "name": "Arsenal vs Benfica",
-        "image": "https://cdn.img4every1.org/league/womens-champions-league/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Auckland vs Brisbane Roar",
         "image": "https://cdn.img4every1.org/league/australia-a-league/logo.webp",
         "group-title": "Football Live Events",
@@ -226,65 +226,105 @@
         "status": "pending"
     },
     {
-        "name": "Bayer Leverkusen vs Nürnberg",
-        "image": "https://cdn.img4every1.org/league/dfb-pokal/logo.webp",
+        "name": "Bristol Bears vs Leicester Tigers",
+        "image": "https://cdn.img4every1.org/league/premiership-rugby-cup/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
     },
     {
-        "name": "Bayern München vs Magdeburg",
-        "image": "https://cdn.img4every1.org/league/dfb-pokal/logo.webp",
+        "name": "Bulls vs Scarlets",
+        "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
     },
     {
-        "name": "Bournemouth vs Aston Villa",
-        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
+        "name": "Edinburgh vs Benetton Treviso",
+        "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
     },
     {
-        "name": "Fulham vs Crystal Palace",
-        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
+        "name": "England vs PNG",
+        "image": "https://cdn.img4every1.org/league/rugby-league-world-cup/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
     },
     {
-        "name": "Juventus vs Genoa",
-        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
+        "name": "Exeter Chiefs vs Harlequins",
+        "image": "https://cdn.img4every1.org/league/premiership-rugby-cup/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
     },
     {
-        "name": "Liverpool vs Chelsea",
-        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
+        "name": "Glasgow Warriors vs Lions",
+        "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
     },
     {
-        "name": "Napoli vs Monza",
-        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
+        "name": "Leinster vs Connacht",
+        "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
     },
     {
-        "name": "Sunderland vs Brentford",
-        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
+        "name": "Newcastle Falcons vs Saracens",
+        "image": "https://cdn.img4every1.org/league/premiership-rugby-cup/logo.webp",
         "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Northampton vs Gloucester",
+        "image": "https://cdn.img4every1.org/league/premiership-rugby-cup/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Sale Sharks vs Bath",
+        "image": "https://cdn.img4every1.org/league/premiership-rugby-cup/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Ulster vs Stormers",
+        "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "F1 Mexican Grand Prix",
+        "image": "https://cdn.img4every1.org/league/formula-1-live-stream/logo.webp",
+        "group-title": "Formula 1 Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "MotoGP Malaysian Grand Prix",
+        "image": "https://cdn.img4every1.org/league/motogp-streams/logo.webp",
+        "group-title": "MotoGP Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
@@ -292,6 +332,14 @@
     {
         "name": "NPL T20",
         "image": "https://img.crichd.ch/league/nepal-premier-league/logo.webp",
+        "group-title": "Sports Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "PGA / LPGA Golf",
+        "image": "https://cdn.img4every1.org/league/pga-tour/logo.webp",
         "group-title": "Sports Live Events",
         "url": "",
         "sources": {},
