@@ -210,14 +210,6 @@
         "status": "pending"
     },
     {
-        "name": "Auckland vs Brisbane Roar",
-        "image": "https://cdn.img4every1.org/league/australia-a-league/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Bristol Bears vs Leicester Tigers",
         "image": "https://cdn.img4every1.org/league/premiership-rugby-cup/logo.webp",
         "group-title": "Football Live Events",
@@ -236,14 +228,6 @@
     {
         "name": "Edinburgh vs Benetton Treviso",
         "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "England vs PNG",
-        "image": "https://cdn.img4every1.org/league/rugby-league-world-cup/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
