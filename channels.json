@@ -234,6 +234,14 @@
         "status": "pending"
     },
     {
+        "name": "Elversberg vs Mainz 05",
+        "image": "https://cdn.img4every1.org/league/bundesliga-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Exeter Chiefs vs Harlequins",
         "image": "https://cdn.img4every1.org/league/premiership-rugby-cup/logo.webp",
         "group-title": "Football Live Events",
@@ -274,6 +282,14 @@
         "status": "pending"
     },
     {
+        "name": "PSG vs Le Havre",
+        "image": "https://cdn.img4every1.org/league/french-ligue-1/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Sale Sharks vs Bath",
         "image": "https://cdn.img4every1.org/league/premiership-rugby-cup/logo.webp",
         "group-title": "Football Live Events",
@@ -284,6 +300,14 @@
     {
         "name": "Ulster vs Stormers",
         "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Villarreal vs Espanyol",
+        "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
