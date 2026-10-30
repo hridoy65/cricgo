@@ -210,14 +210,6 @@
         "status": "pending"
     },
     {
-        "name": "Bristol Bears vs Leicester Tigers",
-        "image": "https://cdn.img4every1.org/league/premiership-rugby-cup/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Bulls vs Scarlets",
         "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
         "group-title": "Football Live Events",
@@ -242,40 +234,8 @@
         "status": "pending"
     },
     {
-        "name": "Elversberg vs Mainz 05",
-        "image": "https://cdn.img4every1.org/league/bundesliga-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Exeter Chiefs vs Harlequins",
         "image": "https://cdn.img4every1.org/league/premiership-rugby-cup/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Glasgow Warriors vs Lions",
-        "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Leinster vs Connacht",
-        "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Lens vs Lille",
-        "image": "https://cdn.img4every1.org/league/french-ligue-1/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -308,22 +268,6 @@
     {
         "name": "Ulster vs Stormers",
         "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Villarreal vs Espanyol",
-        "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Wrexham vs Sheffield United",
-        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
