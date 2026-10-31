@@ -210,8 +210,56 @@
         "status": "pending"
     },
     {
+        "name": "AC Milan vs Inter Milan",
+        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Atlético Madrid vs Levante",
+        "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Bayern München vs Borussia Dortmund",
+        "image": "https://cdn.img4every1.org/league/bundesliga-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Bologna vs Monza",
+        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Brentford vs Nottm Forest",
+        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Bulls vs Scarlets",
         "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Chelsea vs Manchester United",
+        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -242,6 +290,14 @@
         "status": "pending"
     },
     {
+        "name": "Leeds United vs Bournemouth",
+        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Newcastle Falcons vs Saracens",
         "image": "https://cdn.img4every1.org/league/premiership-rugby-cup/logo.webp",
         "group-title": "Football Live Events",
@@ -258,8 +314,24 @@
         "status": "pending"
     },
     {
+        "name": "Roma vs Udinese",
+        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Sale Sharks vs Bath",
         "image": "https://cdn.img4every1.org/league/premiership-rugby-cup/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Sunderland vs Coventry City",
+        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -298,6 +370,14 @@
         "status": "pending"
     },
     {
+        "name": "Snooker International Championship",
+        "image": "https://cdn.img4every1.org/league/snooker/logo.webp",
+        "group-title": "Snooker Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "NPL T20",
         "image": "https://img.crichd.ch/league/nepal-premier-league/logo.webp",
         "group-title": "Sports Live Events",
@@ -317,6 +397,14 @@
         "name": "WBBL T20",
         "image": "https://img.crichd.ch/league/big-bash-league/logo.webp",
         "group-title": "Sports Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Renato Moicano vs Tom Nolan",
+        "image": "https://cdn.img4every1.org/league/ufc-streams-free/logo.webp",
+        "group-title": "UFC Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
