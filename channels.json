@@ -250,8 +250,24 @@
         "status": "pending"
     },
     {
+        "name": "Brighton vs Man City",
+        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Bulls vs Scarlets",
         "image": "https://cdn.img4every1.org/league/united-rugby-championship/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Celta Vigo vs Rayo Vallecano",
+        "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -290,6 +306,14 @@
         "status": "pending"
     },
     {
+        "name": "Hull City vs Ipswich Town",
+        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Leeds United vs Bournemouth",
         "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
         "group-title": "Football Live Events",
@@ -314,6 +338,14 @@
         "status": "pending"
     },
     {
+        "name": "Premier League Goal Rush",
+        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Roma vs Udinese",
         "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
         "group-title": "Football Live Events",
@@ -331,6 +363,14 @@
     },
     {
         "name": "Sunderland vs Coventry City",
+        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Tottenham Hotspur vs Crystal Palace",
         "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
