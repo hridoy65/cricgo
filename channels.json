@@ -186,16 +186,16 @@
         "status": "pending"
     },
     {
-        "name": "Arsenal vs Liverpool",
-        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
+        "name": "England A vs West Indies A",
+        "image": "https://img.crichd.ch/league/domestic-cricket/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
     },
     {
-        "name": "Lecce vs Genoa",
-        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
+        "name": "India A vs New Zealand A",
+        "image": "https://img.crichd.ch/league/domestic-cricket/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -210,8 +210,8 @@
         "status": "pending"
     },
     {
-        "name": "Real Madrid vs Racing Santander",
-        "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
+        "name": "Newcastle United vs Everton",
+        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -226,7 +226,7 @@
         "status": "pending"
     },
     {
-        "name": "Sheffield Wednesday vs Blackpool",
+        "name": "Southampton vs West Brom",
         "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
@@ -234,8 +234,8 @@
         "status": "pending"
     },
     {
-        "name": "Valencia vs Elche",
-        "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
+        "name": "Wolves vs Bristol City",
+        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -245,6 +245,14 @@
         "name": "F1 Mexican Grand Prix",
         "image": "https://cdn.img4every1.org/league/formula-1-live-stream/logo.webp",
         "group-title": "Formula 1 Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Snooker International Championship",
+        "image": "https://cdn.img4every1.org/league/snooker/logo.webp",
+        "group-title": "Snooker Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
