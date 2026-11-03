@@ -170,22 +170,6 @@
         "status": "pending"
     },
     {
-        "name": "Barcelona vs Aston Villa",
-        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Bayern München vs Atlético Madrid",
-        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "England A vs West Indies A",
         "image": "https://img.crichd.ch/league/domestic-cricket/logo.webp",
         "group-title": "Football Live Events",
@@ -196,54 +180,6 @@
     {
         "name": "India A vs New Zealand A",
         "image": "https://img.crichd.ch/league/domestic-cricket/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Inter Milan vs Feyenoord",
-        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "LASK vs Slovan Bratislava",
-        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Lille vs Bodø / Glimt",
-        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "PSG vs Villarreal",
-        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Roma vs Manchester United",
-        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Southampton vs West Brom",
-        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
