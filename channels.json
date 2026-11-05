@@ -194,6 +194,14 @@
         "status": "pending"
     },
     {
+        "name": "Australia vs Samoa",
+        "image": "https://cdn.img4every1.org/league/rugby-league-world-cup/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "AZ vs Juventus",
         "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
         "group-title": "Football Live Events",
@@ -202,7 +210,7 @@
         "status": "pending"
     },
     {
-        "name": "Bournemouth vs Sparta Praha",
+        "name": "Bayer Leverkusen vs Olympique Marseille",
         "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
@@ -226,7 +234,7 @@
         "status": "pending"
     },
     {
-        "name": "Crystal Palace vs Hoffenheim",
+        "name": "Celtic vs Besiktas",
         "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
@@ -236,6 +244,14 @@
     {
         "name": "England A vs West Indies A",
         "image": "https://img.crichd.ch/league/domestic-cricket/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "France vs Fiji",
+        "image": "https://cdn.img4every1.org/league/rugby-union-live-stream-free/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -290,14 +306,6 @@
         "status": "pending"
     },
     {
-        "name": "Milan vs Ferencváros",
-        "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "New Zealand vs Tonga",
         "image": "https://cdn.img4every1.org/league/rugby-league-world-cup/logo.webp",
         "group-title": "Football Live Events",
@@ -322,14 +330,6 @@
         "status": "pending"
     },
     {
-        "name": "Real Sociedad vs Lyon",
-        "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Scotland vs New Zealand",
         "image": "https://cdn.img4every1.org/league/rugby-union-live-stream-free/logo.webp",
         "group-title": "Football Live Events",
@@ -348,14 +348,6 @@
     {
         "name": "Sunderland vs Dinamo Zagreb",
         "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Thun vs Hearts",
-        "image": "https://cdn.img4every1.org/league/conference-league/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
