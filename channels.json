@@ -234,6 +234,14 @@
         "status": "pending"
     },
     {
+        "name": "England vs Australia",
+        "image": "https://cdn.img4every1.org/league/rugby-union-live-stream-free/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Famalicão vs Arouca",
         "image": "https://cdn.img4every1.org/league/liga-portugal/logo.webp",
         "group-title": "Football Live Events",
@@ -244,14 +252,6 @@
     {
         "name": "France vs Fiji",
         "image": "https://cdn.img4every1.org/league/rugby-union-live-stream-free/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Hamburger vs Borussia M'gladbach",
-        "image": "https://cdn.img4every1.org/league/bundesliga-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
