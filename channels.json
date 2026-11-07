@@ -194,6 +194,14 @@
         "status": "pending"
     },
     {
+        "name": "Arsenal vs Hull City",
+        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Australia vs Samoa",
         "image": "https://cdn.img4every1.org/league/rugby-league-world-cup/logo.webp",
         "group-title": "Football Live Events",
@@ -202,8 +210,16 @@
         "status": "pending"
     },
     {
-        "name": "Bristol City vs Norwich City",
-        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
+        "name": "Bayern München vs Mainz 05",
+        "image": "https://cdn.img4every1.org/league/bundesliga-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Cagliari vs Frosinone",
+        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -226,8 +242,24 @@
         "status": "pending"
     },
     {
+        "name": "Espanyol vs Deportivo La Coruña",
+        "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "France vs Fiji",
         "image": "https://cdn.img4every1.org/league/rugby-union-live-stream-free/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Fulham vs Newcastle United",
+        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -242,7 +274,7 @@
         "status": "pending"
     },
     {
-        "name": "Italy vs South Africa",
+        "name": "Japan vs Wales",
         "image": "https://cdn.img4every1.org/league/rugby-union-live-stream-free/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
@@ -250,8 +282,16 @@
         "status": "pending"
     },
     {
-        "name": "Japan vs Wales",
-        "image": "https://cdn.img4every1.org/league/rugby-union-live-stream-free/logo.webp",
+        "name": "Lecce vs Torino",
+        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Manchester City vs Nottm Forest",
+        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -266,7 +306,15 @@
         "status": "pending"
     },
     {
-        "name": "Málaga vs Racing Santander",
+        "name": "Nacional vs Academico Viseu",
+        "image": "https://cdn.img4every1.org/league/liga-portugal/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Osasuna vs Athletic Club",
         "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
@@ -274,8 +322,8 @@
         "status": "pending"
     },
     {
-        "name": "New Zealand vs Tonga",
-        "image": "https://cdn.img4every1.org/league/rugby-league-world-cup/logo.webp",
+        "name": "Parma vs Bologna",
+        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -284,6 +332,14 @@
     {
         "name": "Peterborough Utd vs Reading",
         "image": "https://cdn.img4every1.org/league/english-fa-cup/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Roma vs Sassuolo",
+        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -306,16 +362,8 @@
         "status": "pending"
     },
     {
-        "name": "Tottenham Hotspur vs Leeds United",
-        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Wolves vs Wrexham",
-        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
+        "name": "Stuttgart vs Werder Bremen",
+        "image": "https://cdn.img4every1.org/league/bundesliga-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
