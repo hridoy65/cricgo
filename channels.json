@@ -194,22 +194,6 @@
         "status": "pending"
     },
     {
-        "name": "Altrincham vs Notts County",
-        "image": "https://cdn.img4every1.org/league/english-fa-cup/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Alverca vs Casa Pia",
-        "image": "https://cdn.img4every1.org/league/liga-portugal/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Australia vs Samoa",
         "image": "https://cdn.img4every1.org/league/rugby-league-world-cup/logo.webp",
         "group-title": "Football Live Events",
@@ -250,32 +234,8 @@
         "status": "pending"
     },
     {
-        "name": "Manchester City vs Nottm Forest",
-        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Monza vs Atalanta",
         "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Osasuna vs Athletic Club",
-        "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Paris vs Auxerre",
-        "image": "https://cdn.img4every1.org/league/french-ligue-1/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -316,14 +276,6 @@
     {
         "name": "Sporting CP vs Moreirense",
         "image": "https://cdn.img4every1.org/league/liga-portugal/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Stuttgart vs Werder Bremen",
-        "image": "https://cdn.img4every1.org/league/bundesliga-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
