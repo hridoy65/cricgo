@@ -178,6 +178,14 @@
         "status": "pending"
     },
     {
+        "name": "Pakistan vs England",
+        "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
+        "group-title": "Cricket Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Pakistan vs Sri Lanka",
         "image": "https://img.crichd.ch/league/international-cricket/logo.webp",
         "group-title": "Cricket Live Events",
@@ -196,14 +204,6 @@
     {
         "name": "Alverca vs Casa Pia",
         "image": "https://cdn.img4every1.org/league/liga-portugal/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Arsenal vs Hull City",
-        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -234,24 +234,8 @@
         "status": "pending"
     },
     {
-        "name": "Espanyol vs Deportivo La Coruña",
-        "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "France vs Fiji",
         "image": "https://cdn.img4every1.org/league/rugby-union-live-stream-free/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Fulham vs Newcastle United",
-        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -266,14 +250,6 @@
         "status": "pending"
     },
     {
-        "name": "Japan vs Wales",
-        "image": "https://cdn.img4every1.org/league/rugby-union-live-stream-free/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Manchester City vs Nottm Forest",
         "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
         "group-title": "Football Live Events",
@@ -282,24 +258,8 @@
         "status": "pending"
     },
     {
-        "name": "Middlesbrough vs Watford",
-        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Monza vs Atalanta",
         "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Nacional vs Academico Viseu",
-        "image": "https://cdn.img4every1.org/league/liga-portugal/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -316,14 +276,6 @@
     {
         "name": "Paris vs Auxerre",
         "image": "https://cdn.img4every1.org/league/french-ligue-1/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Parma vs Bologna",
-        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -362,14 +314,6 @@
         "status": "pending"
     },
     {
-        "name": "Sheffield United vs Charlton Athletic",
-        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Sporting CP vs Moreirense",
         "image": "https://cdn.img4every1.org/league/liga-portugal/logo.webp",
         "group-title": "Football Live Events",
@@ -397,6 +341,14 @@
         "name": "MotoGP Qatar GP",
         "image": "https://cdn.img4every1.org/league/motogp-streams/logo.webp",
         "group-title": "MotoGP Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Abu Dhabi T10 League",
+        "image": "https://img.crichd.ch/league/abu-dhabi-t10-league/logo.webp",
+        "group-title": "Sports Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
