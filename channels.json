@@ -266,6 +266,14 @@
         "status": "pending"
     },
     {
+        "name": "Málaga vs Racing Santander",
+        "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "New Zealand vs Tonga",
         "image": "https://cdn.img4every1.org/league/rugby-league-world-cup/logo.webp",
         "group-title": "Football Live Events",
@@ -291,6 +299,22 @@
     },
     {
         "name": "Sheffield United vs Charlton Athletic",
+        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Tottenham Hotspur vs Leeds United",
+        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Wolves vs Wrexham",
         "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
