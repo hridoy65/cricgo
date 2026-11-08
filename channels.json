@@ -194,14 +194,6 @@
         "status": "pending"
     },
     {
-        "name": "AC Milan vs Genoa",
-        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Barcelona vs Atletico Madrid",
         "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
         "group-title": "Football Live Events",
@@ -210,16 +202,8 @@
         "status": "pending"
     },
     {
-        "name": "Bayer Leverkusen vs Köln",
-        "image": "https://cdn.img4every1.org/league/bundesliga-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Brentford vs Brighton",
-        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
+        "name": "Benfica vs Estrela",
+        "image": "https://cdn.img4every1.org/league/liga-portugal/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -228,14 +212,6 @@
     {
         "name": "Celta Vigo vs Levante",
         "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Chelsea vs Sunderland",
-        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -290,24 +266,8 @@
         "status": "pending"
     },
     {
-        "name": "Ipswich Town vs Bournemouth",
-        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Juventus vs Fiorentina",
         "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Liverpool vs Crystal Palace",
-        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -322,8 +282,8 @@
         "status": "pending"
     },
     {
-        "name": "Monza vs Atalanta",
-        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
+        "name": "Plymouth Parkway vs Berkhamsted",
+        "image": "https://cdn.img4every1.org/league/english-fa-cup/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
