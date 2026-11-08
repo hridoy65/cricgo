@@ -194,8 +194,32 @@
         "status": "pending"
     },
     {
+        "name": "AC Milan vs Genoa",
+        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Australia vs Samoa",
         "image": "https://cdn.img4every1.org/league/rugby-league-world-cup/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Brentford vs Brighton",
+        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Chelsea vs Sunderland",
+        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -236,6 +260,14 @@
     {
         "name": "Lazio vs Napoli",
         "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Liverpool vs Crystal Palace",
+        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
