@@ -226,8 +226,32 @@
         "status": "pending"
     },
     {
+        "name": "Ipswich Town vs Bournemouth",
+        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Lazio vs Napoli",
+        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Monza vs Atalanta",
         "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Real Betis vs Elche",
+        "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
