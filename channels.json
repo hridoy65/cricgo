@@ -194,22 +194,6 @@
         "status": "pending"
     },
     {
-        "name": "Barcelona vs Atletico Madrid",
-        "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Benfica vs Estrela",
-        "image": "https://cdn.img4every1.org/league/liga-portugal/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "England A vs West Indies A",
         "image": "https://img.crichd.ch/league/domestic-cricket/logo.webp",
         "group-title": "Football Live Events",
@@ -226,25 +210,9 @@
         "status": "pending"
     },
     {
-        "name": "Juventus vs Fiorentina",
-        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Plymouth Parkway vs Berkhamsted",
         "image": "https://cdn.img4every1.org/league/english-fa-cup/logo.webp",
         "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "F1 Brazilian Grand Prix",
-        "image": "https://cdn.img4every1.org/league/formula-1-live-stream/logo.webp",
-        "group-title": "Formula 1 Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
