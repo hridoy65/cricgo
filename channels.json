@@ -186,14 +186,6 @@
         "status": "pending"
     },
     {
-        "name": "Albania vs Finland",
-        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Australia vs Scotland",
         "image": "https://cdn.img4every1.org/league/rugby-union-live-stream-free/logo.webp",
         "group-title": "Football Live Events",
@@ -202,24 +194,8 @@
         "status": "pending"
     },
     {
-        "name": "Belarus vs San Marino",
-        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "England A vs West Indies A",
         "image": "https://img.crichd.ch/league/domestic-cricket/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "England vs Croatia",
-        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -266,31 +242,7 @@
         "status": "pending"
     },
     {
-        "name": "Italy vs France",
-        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Latvia vs Montenegro",
-        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Scotland vs North Macedonia",
-        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Spain vs Czechia",
         "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
