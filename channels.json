@@ -186,7 +186,23 @@
         "status": "pending"
     },
     {
-        "name": "Armenia vs Cyprus",
+        "name": "Albania vs Finland",
+        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Australia vs Scotland",
+        "image": "https://cdn.img4every1.org/league/rugby-union-live-stream-free/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Belarus vs San Marino",
         "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
@@ -202,6 +218,30 @@
         "status": "pending"
     },
     {
+        "name": "England vs Croatia",
+        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "England vs Japan",
+        "image": "https://cdn.img4every1.org/league/rugby-union-live-stream-free/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "France vs South Africa",
+        "image": "https://cdn.img4every1.org/league/rugby-union-live-stream-free/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "India A vs New Zealand A",
         "image": "https://img.crichd.ch/league/domestic-cricket/logo.webp",
         "group-title": "Football Live Events",
@@ -210,7 +250,39 @@
         "status": "pending"
     },
     {
+        "name": "Ireland vs Fiji",
+        "image": "https://cdn.img4every1.org/league/rugby-union-live-stream-free/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Italy vs Argentina",
+        "image": "https://cdn.img4every1.org/league/rugby-union-live-stream-free/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Italy vs France",
+        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Latvia vs Montenegro",
+        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Scotland vs North Macedonia",
         "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
@@ -226,8 +298,8 @@
         "status": "pending"
     },
     {
-        "name": "Turkey vs Belgium",
-        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
+        "name": "Wales vs New Zealand",
+        "image": "https://cdn.img4every1.org/league/rugby-union-live-stream-free/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -269,6 +341,14 @@
         "name": "WBBL T20",
         "image": "https://img.crichd.ch/league/big-bash-league/logo.webp",
         "group-title": "Sports Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Ciryl Gane vs Josh Hokit",
+        "image": "https://cdn.img4every1.org/league/ufc-streams-free/logo.webp",
+        "group-title": "UFC Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
