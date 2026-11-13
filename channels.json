@@ -186,6 +186,14 @@
         "status": "pending"
     },
     {
+        "name": "Azerbaijan vs Liechtenstein",
+        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "England A vs West Indies A",
         "image": "https://img.crichd.ch/league/domestic-cricket/logo.webp",
         "group-title": "Football Live Events",
@@ -204,6 +212,14 @@
     {
         "name": "France vs South Africa",
         "image": "https://cdn.img4every1.org/league/rugby-union-live-stream-free/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Germany vs Serbia",
+        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -242,7 +258,23 @@
         "status": "pending"
     },
     {
+        "name": "Netherlands vs Greece",
+        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Scotland vs North Macedonia",
+        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Switzerland vs Slovenia",
         "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
