@@ -194,22 +194,6 @@
         "status": "pending"
     },
     {
-        "name": "Bosnia vs Sweden",
-        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Denmark vs Portugal",
-        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "England A vs West Indies A",
         "image": "https://img.crichd.ch/league/domestic-cricket/logo.webp",
         "group-title": "Football Live Events",
@@ -218,32 +202,8 @@
         "status": "pending"
     },
     {
-        "name": "Ireland vs Austria",
-        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Ireland vs Fiji",
-        "image": "https://cdn.img4every1.org/league/rugby-union-live-stream-free/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Poland vs Romania",
-        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Ukraine vs Northern Ireland",
-        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
+        "name": "USA vs Haiti",
+        "image": "https://cdn.img4every1.org/league/concacaf-nations-league/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
