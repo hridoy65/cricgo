@@ -194,6 +194,22 @@
         "status": "pending"
     },
     {
+        "name": "Bosnia vs Sweden",
+        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Denmark vs Portugal",
+        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "England A vs West Indies A",
         "image": "https://img.crichd.ch/league/domestic-cricket/logo.webp",
         "group-title": "Football Live Events",
@@ -202,15 +218,7 @@
         "status": "pending"
     },
     {
-        "name": "England vs Japan",
-        "image": "https://cdn.img4every1.org/league/rugby-union-live-stream-free/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Hungary vs Georgia",
+        "name": "Ireland vs Austria",
         "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
@@ -226,7 +234,7 @@
         "status": "pending"
     },
     {
-        "name": "Kosovo vs Israel",
+        "name": "Poland vs Romania",
         "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
@@ -235,22 +243,6 @@
     },
     {
         "name": "Ukraine vs Northern Ireland",
-        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Wales vs New Zealand",
-        "image": "https://cdn.img4every1.org/league/rugby-union-live-stream-free/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Wales vs Norway",
         "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
@@ -268,6 +260,14 @@
     {
         "name": "Abu Dhabi T10 League",
         "image": "https://img.crichd.ch/league/abu-dhabi-t10-league/logo.webp",
+        "group-title": "Sports Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Grand Slam of Darts",
+        "image": "https://cdn.img4every1.org/league/darts-live-stream-free/logo.webp",
         "group-title": "Sports Live Events",
         "url": "",
         "sources": {},
