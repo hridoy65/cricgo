@@ -1,6 +1,6 @@
 [
     {
-        "name": "Carolina Panthers vs New Orleans Saints",
+        "name": "Cowboys vs 49ers",
         "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
         "group-title": "American Football Live Events",
         "url": "",
@@ -8,15 +8,7 @@
         "status": "pending"
     },
     {
-        "name": "Chiefs vs Falcons",
-        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
-        "group-title": "American Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Minnesota Vikings vs Green Bay Packers",
+        "name": "Steelers vs Bengals",
         "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
         "group-title": "American Football Live Events",
         "url": "",
@@ -210,24 +202,24 @@
         "status": "pending"
     },
     {
-        "name": "Albania vs Belarus",
-        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
+        "name": "Aruba vs Martinique",
+        "image": "https://cdn.img4every1.org/league/concacaf-nations-league/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
     },
     {
-        "name": "Arsenal vs London City Lionesses",
-        "image": "https://cdn.img4every1.org/league/wsl-streams/logo.webp",
+        "name": "Bonaire vs St. Kitts and Nevis",
+        "image": "https://cdn.img4every1.org/league/concacaf-nations-league/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
     },
     {
-        "name": "Czechia vs Croatia",
-        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
+        "name": "Canada vs Guatemala",
+        "image": "https://cdn.img4every1.org/league/concacaf-nations-league/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -242,32 +234,8 @@
         "status": "pending"
     },
     {
-        "name": "England vs Spain",
-        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Finland vs San Marino",
-        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Guyana vs Puerto Rico",
         "image": "https://cdn.img4every1.org/league/concacaf-nations-league/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Italy vs Belgium",
-        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -282,8 +250,8 @@
         "status": "pending"
     },
     {
-        "name": "Turkiye vs France",
-        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
+        "name": "Trinidad and Tobago vs Antigua and Barbuda",
+        "image": "https://cdn.img4every1.org/league/concacaf-nations-league/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
