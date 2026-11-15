@@ -1,5 +1,37 @@
 [
     {
+        "name": "Carolina Panthers vs New Orleans Saints",
+        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
+        "group-title": "American Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Chiefs vs Falcons",
+        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
+        "group-title": "American Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Lions vs Patriots",
+        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
+        "group-title": "American Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Minnesota Vikings vs Green Bay Packers",
+        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
+        "group-title": "American Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "A Sports HD",
         "image": "https://crichd.mobile/assets/channels/asports.webp",
         "group-title": "Cricket Channels",
@@ -186,6 +218,22 @@
         "status": "pending"
     },
     {
+        "name": "Arsenal vs London City Lionesses",
+        "image": "https://cdn.img4every1.org/league/wsl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Aston Villa vs Birmingham City",
+        "image": "https://cdn.img4every1.org/league/wsl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Australia vs Scotland",
         "image": "https://cdn.img4every1.org/league/rugby-union-live-stream-free/logo.webp",
         "group-title": "Football Live Events",
@@ -196,6 +244,22 @@
     {
         "name": "England A vs West Indies A",
         "image": "https://img.crichd.ch/league/domestic-cricket/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Leicester Tigers vs Saracens",
+        "image": "https://cdn.img4every1.org/league/premiership-rugby-cup/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "West Ham United vs Charlton Athletic",
+        "image": "https://cdn.img4every1.org/league/wsl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -245,14 +309,6 @@
         "name": "WBBL T20",
         "image": "https://img.crichd.ch/league/big-bash-league/logo.webp",
         "group-title": "Sports Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Ciryl Gane vs Josh Hokit",
-        "image": "https://cdn.img4every1.org/league/ufc-streams-free/logo.webp",
-        "group-title": "UFC Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
