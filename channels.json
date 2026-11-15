@@ -16,14 +16,6 @@
         "status": "pending"
     },
     {
-        "name": "Lions vs Patriots",
-        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
-        "group-title": "American Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Minnesota Vikings vs Green Bay Packers",
         "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
         "group-title": "American Football Live Events",
@@ -226,14 +218,6 @@
         "status": "pending"
     },
     {
-        "name": "Armenia vs Latvia",
-        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Arsenal vs London City Lionesses",
         "image": "https://cdn.img4every1.org/league/wsl-streams/logo.webp",
         "group-title": "Football Live Events",
@@ -242,16 +226,8 @@
         "status": "pending"
     },
     {
-        "name": "Aston Villa vs Birmingham City",
-        "image": "https://cdn.img4every1.org/league/wsl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Australia vs Scotland",
-        "image": "https://cdn.img4every1.org/league/rugby-union-live-stream-free/logo.webp",
+        "name": "Czechia vs Croatia",
+        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -266,8 +242,24 @@
         "status": "pending"
     },
     {
-        "name": "Leicester Tigers vs Saracens",
-        "image": "https://cdn.img4every1.org/league/premiership-rugby-cup/logo.webp",
+        "name": "England vs Spain",
+        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Finland vs San Marino",
+        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Italy vs Belgium",
+        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -282,8 +274,8 @@
         "status": "pending"
     },
     {
-        "name": "West Ham United vs Charlton Athletic",
-        "image": "https://cdn.img4every1.org/league/wsl-streams/logo.webp",
+        "name": "Turkiye vs France",
+        "image": "https://cdn.img4every1.org/league/nations-league-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
