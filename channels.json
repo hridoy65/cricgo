@@ -202,6 +202,14 @@
         "status": "pending"
     },
     {
+        "name": "Brazil vs Singapore",
+        "image": "https://cdn.img4every1.org/league/friendly-soccer-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Canada vs Guatemala",
         "image": "https://cdn.img4every1.org/league/concacaf-nations-league/logo.webp",
         "group-title": "Football Live Events",
@@ -218,8 +226,8 @@
         "status": "pending"
     },
     {
-        "name": "Guyana vs Puerto Rico",
-        "image": "https://cdn.img4every1.org/league/concacaf-nations-league/logo.webp",
+        "name": "India A vs New Zealand A",
+        "image": "https://img.crichd.ch/league/domestic-cricket/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -228,6 +236,14 @@
     {
         "name": "Pakistan vs India",
         "image": "https://cdn.img4every1.org/league/saff-championship/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Porto vs Paredes",
+        "image": "https://cdn.img4every1.org/league/taca-de-portugal/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
