@@ -1,13 +1,5 @@
 [
     {
-        "name": "Cowboys vs 49ers",
-        "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
-        "group-title": "American Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Steelers vs Bengals",
         "image": "https://cdn.img4every1.org/league/nfl-streams/logo.webp",
         "group-title": "American Football Live Events",
@@ -242,25 +234,9 @@
         "status": "pending"
     },
     {
-        "name": "Panama vs Curaçao",
-        "image": "https://cdn.img4every1.org/league/concacaf-nations-league/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Trinidad and Tobago vs Antigua and Barbuda",
         "image": "https://cdn.img4every1.org/league/concacaf-nations-league/logo.webp",
         "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Snooker Champion of Champions",
-        "image": "https://cdn.img4every1.org/league/snooker/logo.webp",
-        "group-title": "Snooker Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
