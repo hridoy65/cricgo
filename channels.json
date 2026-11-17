@@ -194,14 +194,6 @@
         "status": "pending"
     },
     {
-        "name": "Brazil vs Singapore",
-        "image": "https://cdn.img4every1.org/league/friendly-soccer-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "England A vs West Indies A",
         "image": "https://img.crichd.ch/league/domestic-cricket/logo.webp",
         "group-title": "Football Live Events",
@@ -212,6 +204,14 @@
     {
         "name": "India A vs New Zealand A",
         "image": "https://img.crichd.ch/league/domestic-cricket/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Jordan vs Australia",
+        "image": "https://cdn.img4every1.org/league/friendly-soccer-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
