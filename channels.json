@@ -126,12 +126,6 @@
         "url": "https://playerr03.com/embed.php?v=willow2c|Referer=https://playerso.top/|playRef=https://playerr03.com/"
     },
     {
-        "name": "Willow HD",
-        "image": "https://crichd.mobile/assets/channels/willow.webp",
-        "group-title": "Cricket Channels",
-        "url": "https://playerr03.com/embed.php?v=hdwillow3c|Referer=https://playerso.top/|playRef=https://playerr03.com/"
-    },
-    {
         "name": "Willow Xtra",
         "image": "https://crichd.mobile/assets/channels/willowextra.webp",
         "group-title": "Cricket Channels",
@@ -186,6 +180,14 @@
         "status": "pending"
     },
     {
+        "name": "Chelsea vs PSG",
+        "image": "https://cdn.img4every1.org/league/womens-champions-league/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "England A vs West Indies A",
         "image": "https://img.crichd.ch/league/domestic-cricket/logo.webp",
         "group-title": "Football Live Events",
@@ -210,9 +212,9 @@
         "status": "pending"
     },
     {
-        "name": "Real Madrid vs Inter Milan",
-        "image": "https://cdn.img4every1.org/league/womens-champions-league/logo.webp",
-        "group-title": "Football Live Events",
+        "name": "MotoGP Portugal",
+        "image": "https://cdn.img4every1.org/league/motogp-streams/logo.webp",
+        "group-title": "MotoGP Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
