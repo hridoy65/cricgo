@@ -186,14 +186,6 @@
         "status": "pending"
     },
     {
-        "name": "Argentina vs Costa Rica",
-        "image": "https://cdn.img4every1.org/league/friendly-soccer-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "England A vs West Indies A",
         "image": "https://img.crichd.ch/league/domestic-cricket/logo.webp",
         "group-title": "Football Live Events",
@@ -210,8 +202,32 @@
         "status": "pending"
     },
     {
+        "name": "Mexico vs Jamaica",
+        "image": "https://cdn.img4every1.org/league/concacaf-nations-league/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Nicaragua vs Montserrat",
+        "image": "https://cdn.img4every1.org/league/concacaf-nations-league/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Porto vs Paredes",
         "image": "https://cdn.img4every1.org/league/taca-de-portugal/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Real Madrid vs Inter Milan",
+        "image": "https://cdn.img4every1.org/league/womens-champions-league/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
