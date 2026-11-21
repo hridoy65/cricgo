@@ -194,6 +194,14 @@
         "status": "pending"
     },
     {
+        "name": "Manchester City vs Fulham",
+        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "F1 Las Vegas Grand Prix",
         "image": "https://cdn.img4every1.org/league/formula-1-live-stream/logo.webp",
         "group-title": "Formula 1 Live Events",
@@ -228,6 +236,14 @@
     {
         "name": "Grand Slam of Darts",
         "image": "https://cdn.img4every1.org/league/darts-live-stream-free/logo.webp",
+        "group-title": "Sports Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "ILT20 2026",
+        "image": "https://img.crichd.ch/league/ilt20/logo.webp",
         "group-title": "Sports Live Events",
         "url": "",
         "sources": {},
