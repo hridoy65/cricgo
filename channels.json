@@ -186,56 +186,8 @@
         "status": "pending"
     },
     {
-        "name": "Barnsley vs Sheffield Wednesday",
-        "image": "https://cdn.img4every1.org/league/league-one/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Bath vs Bristol Bears",
-        "image": "https://cdn.img4every1.org/league/premiership-rugby-cup/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Bayern München vs Köln",
-        "image": "https://cdn.img4every1.org/league/bundesliga-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "England A vs West Indies A",
         "image": "https://img.crichd.ch/league/domestic-cricket/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Espanyol vs Athletic Club",
-        "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Porto vs Paredes",
-        "image": "https://cdn.img4every1.org/league/taca-de-portugal/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Troyes vs Le Havre",
-        "image": "https://cdn.img4every1.org/league/french-ligue-1/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
