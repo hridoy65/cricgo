@@ -178,14 +178,6 @@
         "status": "pending"
     },
     {
-        "name": "Arsenal vs Newcastle United",
-        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Australia vs Wales",
         "image": "https://cdn.img4every1.org/league/rugby-union-live-stream-free/logo.webp",
         "group-title": "Football Live Events",
@@ -242,24 +234,8 @@
         "status": "pending"
     },
     {
-        "name": "Real Betis vs Sevilla",
-        "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Real Madrid vs Celta Vigo",
         "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Schalke 04 vs Stuttgart",
-        "image": "https://cdn.img4every1.org/league/bundesliga-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
