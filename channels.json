@@ -178,8 +178,48 @@
         "status": "pending"
     },
     {
+        "name": "Atletico Madrid vs Getafe",
+        "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Benfica vs Torreense",
+        "image": "https://cdn.img4every1.org/league/taca-de-portugal/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Inter Milan vs Atalanta",
+        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Liverpool vs Manchester United",
+        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Lorient vs Rennes",
         "image": "https://cdn.img4every1.org/league/french-ligue-1/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Milan vs Frosinone",
+        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -194,33 +234,25 @@
         "status": "pending"
     },
     {
-        "name": "Paris vs Angers SCO",
-        "image": "https://cdn.img4every1.org/league/french-ligue-1/logo.webp",
+        "name": "Osasuna vs Málaga",
+        "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
     },
     {
-        "name": "F1 Las Vegas Grand Prix",
-        "image": "https://cdn.img4every1.org/league/formula-1-live-stream/logo.webp",
-        "group-title": "Formula 1 Live Events",
+        "name": "Racing Santander vs Real Sociedad",
+        "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
+        "group-title": "Football Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
     },
     {
-        "name": "MotoGP Portugal",
-        "image": "https://cdn.img4every1.org/league/motogp-streams/logo.webp",
-        "group-title": "MotoGP Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Snooker UK Championship",
-        "image": "https://cdn.img4every1.org/league/snooker/logo.webp",
-        "group-title": "Snooker Live Events",
+        "name": "Werder Bremen vs Hamburger SV",
+        "image": "https://cdn.img4every1.org/league/bundesliga-streams/logo.webp",
+        "group-title": "Football Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
