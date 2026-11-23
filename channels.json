@@ -178,14 +178,6 @@
         "status": "pending"
     },
     {
-        "name": "Benfica vs Torreense",
-        "image": "https://cdn.img4every1.org/league/taca-de-portugal/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Abu Dhabi T10 League",
         "image": "https://img.crichd.ch/league/abu-dhabi-t10-league/logo.webp",
         "group-title": "Sports Live Events",
@@ -196,14 +188,6 @@
     {
         "name": "Asia Cup Rising Stars",
         "image": "https://img.crichd.ch/league/asia-cup/logo.webp",
-        "group-title": "Sports Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Grand Slam of Darts",
-        "image": "https://cdn.img4every1.org/league/darts-live-stream-free/logo.webp",
         "group-title": "Sports Live Events",
         "url": "",
         "sources": {},
