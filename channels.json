@@ -178,6 +178,54 @@
         "status": "pending"
     },
     {
+        "name": "Arsenal vs Borussia Dortmund",
+        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Aston Villa vs Galatasaray",
+        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Bodø / Glimt vs LASK",
+        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Manchester City vs Napoli",
+        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Porto vs Feyenoord",
+        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Real Madrid vs PSV",
+        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Snooker UK Championship",
         "image": "https://cdn.img4every1.org/league/snooker/logo.webp",
         "group-title": "Snooker Live Events",
