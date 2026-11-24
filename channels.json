@@ -186,22 +186,6 @@
         "status": "pending"
     },
     {
-        "name": "AEK Athens vs Como",
-        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Arsenal vs Borussia Dortmund",
-        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Bayer Leverkusen vs Dinamo Zagreb",
         "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
         "group-title": "Football Live Events",
@@ -234,56 +218,8 @@
         "status": "pending"
     },
     {
-        "name": "Manchester City vs Napoli",
-        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Porto vs Feyenoord",
-        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "RB Leipzig vs Lens",
-        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Real Betis vs Slovan Bratislava",
-        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Real Madrid vs PSV",
-        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Sporting CP vs Man Utd",
         "image": "https://cdn.img4every1.org/league/uefa-youth-league/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Wolves vs Derby County",
-        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
