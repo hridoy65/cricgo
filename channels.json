@@ -178,6 +178,22 @@
         "status": "pending"
     },
     {
+        "name": "AC Milan vs Olympiakos Piraeus",
+        "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "AEK Athens vs Como",
+        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Arsenal vs Borussia Dortmund",
         "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
         "group-title": "Football Live Events",
@@ -186,16 +202,32 @@
         "status": "pending"
     },
     {
-        "name": "Aston Villa vs Galatasaray",
-        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
+        "name": "Bayer Leverkusen vs Dinamo Zagreb",
+        "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
     },
     {
-        "name": "Bodø / Glimt vs LASK",
-        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
+        "name": "Bournemouth vs Celta Vigo",
+        "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Brighton vs Craiova",
+        "image": "https://cdn.img4every1.org/league/conference-league/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Hearts vs Monaco",
+        "image": "https://cdn.img4every1.org/league/conference-league/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -218,8 +250,40 @@
         "status": "pending"
     },
     {
+        "name": "RB Leipzig vs Lens",
+        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Real Betis vs Slovan Bratislava",
+        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Real Madrid vs PSV",
         "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Sporting CP vs Man Utd",
+        "image": "https://cdn.img4every1.org/league/uefa-youth-league/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Wolves vs Derby County",
+        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
