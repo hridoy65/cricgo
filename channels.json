@@ -186,6 +186,14 @@
         "status": "pending"
     },
     {
+        "name": "Atlético Madrid vs Viking",
+        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Barcelona vs Sabah",
         "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
         "group-title": "Football Live Events",
@@ -226,8 +234,40 @@
         "status": "pending"
     },
     {
-        "name": "Sporting CP vs Man Utd",
-        "image": "https://cdn.img4every1.org/league/uefa-youth-league/logo.webp",
+        "name": "Inter Milan vs Stuttgart",
+        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Lille vs Bayern München",
+        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Liverpool vs Club Brugge",
+        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Manchester United vs Sporting CP",
+        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "PSG vs Roma",
+        "image": "https://cdn.img4every1.org/league/ucl-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
