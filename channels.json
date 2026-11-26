@@ -202,14 +202,6 @@
         "status": "pending"
     },
     {
-        "name": "AC Milan vs Olympiakos Piraeus",
-        "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Australia vs Ireland",
         "image": "https://cdn.img4every1.org/league/rugby-union-live-stream-free/logo.webp",
         "group-title": "Football Live Events",
@@ -218,24 +210,8 @@
         "status": "pending"
     },
     {
-        "name": "Bayer Leverkusen vs Dinamo Zagreb",
+        "name": "Crystal Palace vs Real Sociedad",
         "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Bournemouth vs Celta Vigo",
-        "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Brighton vs Craiova",
-        "image": "https://cdn.img4every1.org/league/conference-league/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
@@ -266,14 +242,6 @@
         "status": "pending"
     },
     {
-        "name": "Hearts vs Monaco",
-        "image": "https://cdn.img4every1.org/league/conference-league/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Italy vs Fiji",
         "image": "https://cdn.img4every1.org/league/rugby-union-live-stream-free/logo.webp",
         "group-title": "Football Live Events",
@@ -290,9 +258,33 @@
         "status": "pending"
     },
     {
+        "name": "Juventus vs Omonia Nicosia",
+        "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
         "name": "Scotland vs Argentina",
         "image": "https://cdn.img4every1.org/league/rugby-union-live-stream-free/logo.webp",
         "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "Sunderland vs Jagiellonia Bialystok",
+        "image": "https://cdn.img4every1.org/league/europa-league/logo.webp",
+        "group-title": "Football Live Events",
+        "url": "",
+        "sources": {},
+        "status": "pending"
+    },
+    {
+        "name": "F1 Qatar Grand Prix",
+        "image": "https://cdn.img4every1.org/league/formula-1-live-stream/logo.webp",
+        "group-title": "Formula 1 Live Events",
         "url": "",
         "sources": {},
         "status": "pending"
