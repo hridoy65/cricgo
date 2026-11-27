@@ -26,6 +26,12 @@
         "url": "https://playerr03.com/embed.php?v=criclife1|Referer=https://playerso.top/|playRef=https://playerr03.com/"
     },
     {
+        "name": "CricLife 2",
+        "image": "https://crichd.mobile/assets/channels/cl2.webp",
+        "group-title": "Cricket Channels",
+        "url": "https://playerr03.com/embed.php?v=criclife2|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+    },
+    {
         "name": "CricLife 3",
         "image": "https://crichd.mobile/assets/channels/cl3.webp",
         "group-title": "Cricket Channels",
@@ -36,6 +42,12 @@
         "image": "https://crichd.mobile/assets/channels/foxcric.webp",
         "group-title": "Cricket Channels",
         "url": "https://playerr03.com/embed.php?v=fox501a|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+    },
+    {
+        "name": "Geo Super",
+        "image": "https://crichd.mobile/assets/channels/geosp.webp",
+        "group-title": "Cricket Channels",
+        "url": "https://playerr03.com/embed.php?v=geosp|Referer=https://playerso.top/|playRef=https://playerr03.com/"
     },
     {
         "name": "PTV Sports",
@@ -90,6 +102,12 @@
         "image": "https://crichd.mobile/assets/channels/starhindi.webp",
         "group-title": "Cricket Channels",
         "url": "https://playerr03.com/embed.php?v=star4b|Referer=https://playerso.top/|playRef=https://playerr03.com/"
+    },
+    {
+        "name": "SuperSport Cricket",
+        "image": "https://crichd.mobile/assets/channels/sscricket.webp",
+        "group-title": "Cricket Channels",
+        "url": "https://bhalocast.pro/atofplay.php?v=sscric&secure=m1lko&expires=123456|Referer=https://playerso.top/|playRef=https://bhalocast.pro/"
     },
     {
         "name": "T Sports HD",
@@ -168,22 +186,6 @@
         "status": "pending"
     },
     {
-        "name": "Brest vs Paris",
-        "image": "https://cdn.img4every1.org/league/french-ligue-1/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Chelsea vs Nottm Forest",
-        "image": "https://cdn.img4every1.org/league/epl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "England vs New Zealand",
         "image": "https://cdn.img4every1.org/league/rugby-union-live-stream-free/logo.webp",
         "group-title": "Football Live Events",
@@ -208,14 +210,6 @@
         "status": "pending"
     },
     {
-        "name": "Levante vs Racing Santander",
-        "image": "https://cdn.img4every1.org/league/laliga-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
         "name": "Marítimo vs Nacional",
         "image": "https://cdn.img4every1.org/league/liga-portugal/logo.webp",
         "group-title": "Football Live Events",
@@ -226,30 +220,6 @@
     {
         "name": "Scotland vs Argentina",
         "image": "https://cdn.img4every1.org/league/rugby-union-live-stream-free/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Southampton vs Middlesbrough",
-        "image": "https://cdn.img4every1.org/league/efl-streams/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Venezia vs Bologna",
-        "image": "https://cdn.img4every1.org/league/serie-a-live-stream-free/logo.webp",
-        "group-title": "Football Live Events",
-        "url": "",
-        "sources": {},
-        "status": "pending"
-    },
-    {
-        "name": "Werder Bremen vs Borussia M'gladbach",
-        "image": "https://cdn.img4every1.org/league/bundesliga-streams/logo.webp",
         "group-title": "Football Live Events",
         "url": "",
         "sources": {},
